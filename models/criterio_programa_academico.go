@@ -10,7 +10,7 @@ import (
 )
 
 type CriterioProgramaAcademico struct {
-	Id                int       `orm:"column(id);pk"`
+	Id                int       `orm:"column(id);pk;auto"`
 	ProgramaAcademico int       `orm:"column(programa_academico)"`
 	Porcentaje        float64   `orm:"column(porcentaje)"`
 	PeriodoAcademico  int       `orm:"column(periodo_academico)"`

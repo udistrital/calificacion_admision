@@ -10,7 +10,7 @@ import (
 )
 
 type CriterioAdmision struct {
-	Id                        int                        `orm:"column(id);pk"`
+	Id                        int                        `orm:"column(id);pk;auto"`
 	Admision                  int                        `orm:"column(admision)"`
 	CriterioProgramaAcademico *CriterioProgramaAcademico `orm:"column(criterio_programa_academico);rel(fk)"`
 	Valor                     float64                    `orm:"column(valor)"`

@@ -10,7 +10,7 @@ import (
 )
 
 type Entrevistador struct {
-	Id                int  `orm:"column(id);pk"`
+	Id                int  `orm:"column(id);pk;auto"`
 	Ente              int  `orm:"column(ente)"`
 	ProgramaAcademico int  `orm:"column(programa_academico)"`
 	Activo            bool `orm:"column(activo)"`

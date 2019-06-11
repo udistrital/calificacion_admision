@@ -11,7 +11,7 @@ import (
 )
 
 type Entrevista struct {
-	Id               int               `orm:"column(id);pk"`
+	Id               int               `orm:"column(id);pk;auto"`
 	Admision         int               `orm:"column(admision)"`
 	FechaEntrevista  time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
 	Nota             float64           `orm:"column(nota);null"`
