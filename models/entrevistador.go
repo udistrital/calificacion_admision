@@ -48,7 +48,7 @@ func GetEntrevistadorById(id int) (v *Entrevistador, err error) {
 func GetAllEntrevistador(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Entrevistador))
+	qs := o.QueryTable(new(Entrevistador)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
