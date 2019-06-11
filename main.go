@@ -9,6 +9,7 @@ import (
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
+	"github.com/udistrital/utils_oas/customerror"
 )
 
 func main() {
@@ -34,6 +35,7 @@ func main() {
 	logPath += beego.AppConfig.String("logPath")
 	logPath += "\"}"
 	logs.SetLogger(logs.AdapterFile, logPath)
+	beego.ErrorController(&customerror.CustomErrorController{})
 
 	apistatus.Init()
 	beego.Run()
