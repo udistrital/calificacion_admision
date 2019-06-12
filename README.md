@@ -26,5 +26,5 @@ Ejemplo: API_CALIFICACION_ADMISION_HTTP_PORT=8083 CALIFICACION_ADMISION_CRUD__PG
 
 Como modelos de datos del Api se utilizo el siguiente [Modelo](https://drive.google.com/drive/folders/1uIAI8LfF51TcbIommrKDmuFc0juQjobp)
 
-![image](https://github.com/udistrital/calificacion_admision/blob/dev/academica.png) 
+
 
