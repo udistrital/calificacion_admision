@@ -38,5 +38,6 @@ func main() {
 	beego.ErrorController(&customerror.CustomErrorController{})
 
 	apistatus.Init()
+	orm.RunCommand()
 	beego.Run()
 }

@@ -7,6 +7,7 @@
 // @LicenseUrl http://www.apache.org/licenses/LICENSE-2.0.html
 package routers
 
+//nos tomamos otro cafe
 import (
 	"github.com/astaxie/beego"
 	"github.com/planesticud/calificacion_admision_crud/controllers"
