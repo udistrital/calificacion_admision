@@ -1,14 +1,13 @@
 package main
 
 import (
-	_ "github.com/udistrital/calificacion_admision_crud/routers"
-	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
+	_ "github.com/planesticud/calificacion_admision_crud/routers"
+	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 	"github.com/udistrital/utils_oas/customerror"
 )
 
