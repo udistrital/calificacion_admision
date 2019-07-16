@@ -11,12 +11,15 @@ import (
 )
 
 type Entrevista struct {
-	Id               int               `orm:"column(id);pk;auto"`
-	Admision         int               `orm:"column(admision)"`
-	FechaEntrevista  time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
-	Nota             float64           `orm:"column(nota);null"`
-	EstadoEntrevista *EstadoEntrevista `orm:"column(estado_entrevista);rel(fk)"`
-	TipoEntrevista   *TipoEntrevista   `orm:"column(tipo_entrevista);rel(fk)"`
+	Id                 int               `orm:"column(id);pk;auto"`
+	Inscripcion        int               `orm:"column(inscripcion)"`
+	FechaEntrevista    time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
+	Nota               float64           `orm:"column(nota);null"`
+	EstadoEntrevistaId *EstadoEntrevista `orm:"column(estado_entrevista_id);rel(fk)"`
+	TipoEntrevistaId   *TipoEntrevista   `orm:"column(tipo_entrevista_id);rel(fk)"`
+	Activo             bool              `orm:"column(activo)"`
+	FechaCreacion      time.Time         `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
+	FechaModificacion  time.Time         `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
 }
 
 func (t *Entrevista) TableName() string {

@@ -7,10 +7,10 @@
 // @LicenseUrl http://www.apache.org/licenses/LICENSE-2.0.html
 package routers
 
-//nos tomamos otro cafe
 import (
+	"github.com/planesticud/evaluacion_inscripcion_crud/controllers"
+
 	"github.com/astaxie/beego"
-	"github.com/planesticud/calificacion_admision_crud/controllers"
 )
 
 func init() {
@@ -28,21 +28,21 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/criterio",
+		beego.NSNamespace("/requisito",
 			beego.NSInclude(
-				&controllers.CriterioController{},
+				&controllers.RequisitoController{},
 			),
 		),
 
-		beego.NSNamespace("/criterio_programa_academico",
+		beego.NSNamespace("/requisito_programa_academico",
 			beego.NSInclude(
-				&controllers.CriterioProgramaAcademicoController{},
+				&controllers.RequisitoProgramAcademicoController{},
 			),
 		),
 
-		beego.NSNamespace("/criterio_admision",
+		beego.NSNamespace("/evaluacion_inscripcion",
 			beego.NSInclude(
-				&controllers.CriterioAdmisionController{},
+				&controllers.EvaluacionInscripcionController{},
 			),
 		),
 

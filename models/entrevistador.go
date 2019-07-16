@@ -5,15 +5,18 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Entrevistador struct {
-	Id                int  `orm:"column(id);pk;auto"`
-	Ente              int  `orm:"column(ente)"`
-	ProgramaAcademico int  `orm:"column(programa_academico)"`
-	Activo            bool `orm:"column(activo)"`
+	Id                int       `orm:"column(id);pk;auto"`
+	Persona           int       `orm:"column(persona)"`
+	ProgramaAcademico int       `orm:"column(programa_academico)"`
+	Activo            bool      `orm:"column(activo)"`
+	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
+	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
 }
 
 func (t *Entrevistador) TableName() string {

@@ -11,351 +11,6 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 basePath: /v1
 paths:
-  /criterio/:
-    get:
-      tags:
-      - criterio
-      description: get Criterio
-      operationId: CriterioController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.Criterio'
-        "404":
-          description: not found resource
-    post:
-      tags:
-      - criterio
-      description: create Criterio
-      operationId: CriterioController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for Criterio content
-        required: true
-        schema:
-          $ref: '#/definitions/models.Criterio'
-      responses:
-        "201":
-          description: '{int} models.Criterio'
-        "400":
-          description: the request contains incorrect syntax
-  /criterio/{id}:
-    get:
-      tags:
-      - criterio
-      description: get Criterio by id
-      operationId: CriterioController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.Criterio'
-        "404":
-          description: not found resource
-    put:
-      tags:
-      - criterio
-      description: update the Criterio
-      operationId: CriterioController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for Criterio content
-        required: true
-        schema:
-          $ref: '#/definitions/models.Criterio'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.Criterio'
-        "400":
-          description: the request contains incorrect syntax
-    delete:
-      tags:
-      - criterio
-      description: delete the Criterio
-      operationId: CriterioController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "404":
-          description: not found resource
-  /criterio_admision/:
-    get:
-      tags:
-      - criterio_admision
-      description: get CriterioAdmision
-      operationId: CriterioAdmisionController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.CriterioAdmision'
-        "404":
-          description: not found resource
-    post:
-      tags:
-      - criterio_admision
-      description: create CriterioAdmision
-      operationId: CriterioAdmisionController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for CriterioAdmision content
-        required: true
-        schema:
-          $ref: '#/definitions/models.CriterioAdmision'
-      responses:
-        "201":
-          description: '{int} models.CriterioAdmision'
-        "400":
-          description: the request contains incorrect syntax
-  /criterio_admision/{id}:
-    get:
-      tags:
-      - criterio_admision
-      description: get CriterioAdmision by id
-      operationId: CriterioAdmisionController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.CriterioAdmision'
-        "404":
-          description: not found resource
-    put:
-      tags:
-      - criterio_admision
-      description: update the CriterioAdmision
-      operationId: CriterioAdmisionController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for CriterioAdmision content
-        required: true
-        schema:
-          $ref: '#/definitions/models.CriterioAdmision'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.CriterioAdmision'
-        "400":
-          description: the request contains incorrect syntax
-    delete:
-      tags:
-      - criterio_admision
-      description: delete the CriterioAdmision
-      operationId: CriterioAdmisionController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "404":
-          description: not found resource
-  /criterio_programa_academico/:
-    get:
-      tags:
-      - criterio_programa_academico
-      description: get CriterioProgramaAcademico
-      operationId: CriterioProgramaAcademicoController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.CriterioProgramaAcademico'
-        "404":
-          description: not found resource
-    post:
-      tags:
-      - criterio_programa_academico
-      description: create CriterioProgramaAcademico
-      operationId: CriterioProgramaAcademicoController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for CriterioProgramaAcademico content
-        required: true
-        schema:
-          $ref: '#/definitions/models.CriterioProgramaAcademico'
-      responses:
-        "201":
-          description: '{int} models.CriterioProgramaAcademico'
-        "400":
-          description: the request contains incorrect syntax
-  /criterio_programa_academico/{id}:
-    get:
-      tags:
-      - criterio_programa_academico
-      description: get CriterioProgramaAcademico by id
-      operationId: CriterioProgramaAcademicoController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.CriterioProgramaAcademico'
-        "404":
-          description: not found resource
-    put:
-      tags:
-      - criterio_programa_academico
-      description: update the CriterioProgramaAcademico
-      operationId: CriterioProgramaAcademicoController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for CriterioProgramaAcademico content
-        required: true
-        schema:
-          $ref: '#/definitions/models.CriterioProgramaAcademico'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.CriterioProgramaAcademico'
-        "400":
-          description: the request contains incorrect syntax
-    delete:
-      tags:
-      - criterio_programa_academico
-      description: delete the CriterioProgramaAcademico
-      operationId: CriterioProgramaAcademicoController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "404":
-          description: not found resource
   /entrevista/:
     get:
       tags:
@@ -816,6 +471,351 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
+  /evaluacion_inscripcion/:
+    get:
+      tags:
+      - evaluacion_inscripcion
+      description: get EvaluacionInscripcion
+      operationId: EvaluacionInscripcionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.EvaluacionInscripcion'
+        "404":
+          description: not found resource
+    post:
+      tags:
+      - evaluacion_inscripcion
+      description: create EvaluacionInscripcion
+      operationId: EvaluacionInscripcionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for EvaluacionInscripcion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.EvaluacionInscripcion'
+      responses:
+        "201":
+          description: '{int} models.EvaluacionInscripcion'
+        "400":
+          description: the request contains incorrect syntax
+  /evaluacion_inscripcion/{id}:
+    get:
+      tags:
+      - evaluacion_inscripcion
+      description: get EvaluacionInscripcion by id
+      operationId: EvaluacionInscripcionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.EvaluacionInscripcion'
+        "404":
+          description: not found resource
+    put:
+      tags:
+      - evaluacion_inscripcion
+      description: update the EvaluacionInscripcion
+      operationId: EvaluacionInscripcionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for EvaluacionInscripcion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.EvaluacionInscripcion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.EvaluacionInscripcion'
+        "400":
+          description: the request contains incorrect syntax
+    delete:
+      tags:
+      - evaluacion_inscripcion
+      description: delete the EvaluacionInscripcion
+      operationId: EvaluacionInscripcionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "404":
+          description: not found resource
+  /requisito/:
+    get:
+      tags:
+      - requisito
+      description: get Requisito
+      operationId: RequisitoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Requisito'
+        "404":
+          description: not found resource
+    post:
+      tags:
+      - requisito
+      description: create Requisito
+      operationId: RequisitoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Requisito content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Requisito'
+      responses:
+        "201":
+          description: '{int} models.Requisito'
+        "400":
+          description: the request contains incorrect syntax
+  /requisito/{id}:
+    get:
+      tags:
+      - requisito
+      description: get Requisito by id
+      operationId: RequisitoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Requisito'
+        "404":
+          description: not found resource
+    put:
+      tags:
+      - requisito
+      description: update the Requisito
+      operationId: RequisitoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Requisito content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Requisito'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Requisito'
+        "400":
+          description: the request contains incorrect syntax
+    delete:
+      tags:
+      - requisito
+      description: delete the Requisito
+      operationId: RequisitoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "404":
+          description: not found resource
+  /requisito_programa_academico/:
+    get:
+      tags:
+      - requisito_programa_academico
+      description: get RequisitoProgramaAcademico
+      operationId: RequisitoProgramAcademicoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RequisitoProgramaAcademico'
+        "404":
+          description: not found resource
+    post:
+      tags:
+      - requisito_programa_academico
+      description: create RequisitoProgramaAcademico
+      operationId: RequisitoProgramAcademicoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for RequisitoProgramaAcademico content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RequisitoProgramaAcademico'
+      responses:
+        "201":
+          description: '{int} models.RequisitoProgramaAcademico'
+        "400":
+          description: the request contains incorrect syntax
+  /requisito_programa_academico/{id}:
+    get:
+      tags:
+      - requisito_programa_academico
+      description: get RequisitoProgramaAcademico by id
+      operationId: RequisitoProgramAcademicoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RequisitoProgramaAcademico'
+        "404":
+          description: not found resource
+    put:
+      tags:
+      - requisito_programa_academico
+      description: update the RequisitoProgramaAcademico
+      operationId: RequisitoProgramAcademicoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for RequisitoProgramaAcademico content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RequisitoProgramaAcademico'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RequisitoProgramaAcademico'
+        "400":
+          description: the request contains incorrect syntax
+    delete:
+      tags:
+      - requisito_programa_academico
+      description: delete the RequisitoProgramaAcademico
+      operationId: RequisitoProgramAcademicoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "404":
+          description: not found resource
   /tipo_entrevista/:
     get:
       tags:
@@ -932,76 +932,33 @@ paths:
         "404":
           description: not found resource
 definitions:
-  models.Criterio:
-    title: Criterio
-    type: object
-    properties:
-      Activo:
-        type: boolean
-      CodigoAbreviacion:
-        type: string
-      Descripcion:
-        type: string
-      Id:
-        type: integer
-        format: int64
-      Nombre:
-        type: string
-      NumeroOrden:
-        type: number
-        format: double
-  models.CriterioAdmision:
-    title: CriterioAdmision
-    type: object
-    properties:
-      Admision:
-        type: integer
-        format: int64
-      CriterioProgramaAcademico:
-        $ref: '#/definitions/models.CriterioProgramaAcademico'
-      Id:
-        type: integer
-        format: int64
-      Valor:
-        type: number
-        format: double
-  models.CriterioProgramaAcademico:
-    title: CriterioProgramaAcademico
-    type: object
-    properties:
-      Criterio:
-        $ref: '#/definitions/models.Criterio'
-      Id:
-        type: integer
-        format: int64
-      PeriodoAcademico:
-        type: integer
-        format: int64
-      Porcentaje:
-        type: number
-        format: double
-      ProgramaAcademico:
-        type: integer
-        format: int64
   models.Entrevista:
     title: Entrevista
     type: object
     properties:
-      Admision:
-        type: integer
-        format: int64
-      EstadoEntrevista:
+      Activo:
+        type: boolean
+      EstadoEntrevistaId:
         $ref: '#/definitions/models.EstadoEntrevista'
+      FechaCreacion:
+        type: string
+        format: datetime
       FechaEntrevista:
+        type: string
+        format: datetime
+      FechaModificacion:
         type: string
         format: datetime
       Id:
         type: integer
         format: int64
+      Inscripcion:
+        type: integer
+        format: int64
       Nota:
         type: number
         format: double
-      TipoEntrevista:
+      TipoEntrevistaId:
         $ref: '#/definitions/models.TipoEntrevista'
   models.Entrevistador:
     title: Entrevistador
@@ -1009,10 +966,16 @@ definitions:
     properties:
       Activo:
         type: boolean
-      Ente:
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
         type: integer
         format: int64
-      Id:
+      Persona:
         type: integer
         format: int64
       ProgramaAcademico:
@@ -1022,10 +985,18 @@ definitions:
     title: EntrevistadorEntrevista
     type: object
     properties:
-      Entrevista:
+      Activo:
+        type: boolean
+      EntrevistaId:
         $ref: '#/definitions/models.Entrevista'
-      Entrevistador:
+      EntrevistadorId:
         $ref: '#/definitions/models.Entrevistador'
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1039,6 +1010,12 @@ definitions:
         type: string
       Descripcion:
         type: string
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1047,6 +1024,82 @@ definitions:
       NumeroOrden:
         type: number
         format: double
+  models.EvaluacionInscripcion:
+    title: EvaluacionInscripcion
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      EvaluacionEntrevista:
+        type: integer
+        format: int64
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Inscripcion:
+        type: integer
+        format: int64
+      RequisitoProgramaAcademicoId:
+        $ref: '#/definitions/models.RequisitoProgramaAcademico'
+      Valor:
+        type: number
+        format: double
+  models.Requisito:
+    title: Requisito
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoAbreviacion:
+        type: string
+      Descripcion:
+        type: string
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      NumeroOrden:
+        type: number
+        format: double
+  models.RequisitoProgramaAcademico:
+    title: RequisitoProgramaAcademico
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      PeriodoAcademico:
+        type: integer
+        format: int64
+      Porcentaje:
+        type: number
+        format: double
+      ProgramaAcademico:
+        type: integer
+        format: int64
+      RequisitoId:
+        $ref: '#/definitions/models.Requisito'
   models.TipoEntrevista:
     title: TipoEntrevista
     type: object
@@ -1057,6 +1110,12 @@ definitions:
         type: string
       Descripcion:
         type: string
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1072,15 +1131,15 @@ tags:
 - name: tipo_entrevista
   description: |
     TipoEntrevistaController operations for TipoEntrevista
-- name: criterio
+- name: requisito
   description: |
-    CriterioController operations for Criterio
-- name: criterio_programa_academico
+    RequisitoController operations for Requisito
+- name: requisito_programa_academico
   description: |
-    CriterioProgramaAcademicoController operations for CriterioProgramaAcademico
-- name: criterio_admision
+    RequisitoProgramAcademicoController operations for RequisitoProgramaAcademico
+- name: evaluacion_inscripcion
   description: |
-    CriterioAdmisionController operations for CriterioAdmision
+    EvaluacionInscripcionController operations for EvaluacionInscripcion
 - name: entrevistador
   description: |
     EntrevistadorController operations for Entrevistador
