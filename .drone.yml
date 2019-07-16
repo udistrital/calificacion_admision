@@ -1,5 +1,5 @@
 kind: pipeline
-name: calificacion_admision_crud
+name: evaluacion_inscripcion_crud
 
 workspace:
   base: /go
@@ -13,10 +13,12 @@ workspace:
     
 steps:
 - name: build
-  image: golang:1.11
+  image: golang:1.9
   commands:
   - go get -t
   - GOOS=linux GOARCH=amd64 go build -o main
+  - go get -u gopkg.in/alecthomas/gometalinter.v1
+  - gometalinter.v1 --install 
   when:
     branch: 
     - master
@@ -31,7 +33,7 @@ steps:
       from_secret: usdocker
     password:
       from_secret: psdocker
-    repo: planesticud/calificacion_admision_crud
+    repo: planesticud/${DRONE_REPO##planesticud/}
     tags:
     - ${DRONE_COMMIT:0:7}
     - latest
