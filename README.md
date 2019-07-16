@@ -1,13 +1,13 @@
-# Calificacion_admision_crud
+# Evaluacion_inscripcion_crud
 
-API CRUD para la calificacion del proceso de admiciones y el manejo del entrevistador
+API CRUD para la calificaciòn del proceso de admisiones y el manejo del entrevistador
 
 ## Requirements
 Go version >= 1.8.
 
 ## Preparación:
     Para usar el API, usar el comando:
-        - go get github.com/udistrital/calificacion_admision
+        - go get github.com/udistrital/evaluacion_inscripcion_crud
 
 ## Run
 
