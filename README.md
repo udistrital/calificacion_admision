@@ -23,8 +23,4 @@ Definir los valores de las siguientes variables de entorno:
 Ejemplo: API_EVALUACION_INSCRIPCION_HTTP_PORT=8083 EVALUACION_INSCRIPCION_CRUD__PGUSER=userPG EVALUACION_INSCRIPCION_CRUD__PGPASS=passwordPG EVALUACION_INSCRIPCION_CRUD__PGURLS=localhost EVALUACION_INSCRIPCION_CRUD__PGDB=academica EVALUACION_INSCRIPCION_CRUD__SCHEMA=evaluacion_inscripcion bee run
 
 ## MODELO DE DATOS
-
-Como modelos de datos del Api se utilizo el siguiente [Modelo](https://drive.google.com/drive/folders/1uIAI8LfF51TcbIommrKDmuFc0juQjobp)
-
-
-![image](https://github.com/udistrital/calificacion_admision/blob/dev/academica.png)
+![evaluacion_inscripcion](https://user-images.githubusercontent.com/14035745/61457699-8535dc00-a92e-11e9-8226-89ca92e7a6b3.png)
