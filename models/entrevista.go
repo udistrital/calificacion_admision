@@ -12,7 +12,7 @@ import (
 
 type Entrevista struct {
 	Id                 int               `orm:"column(id);pk;auto"`
-	Inscripcion        int               `orm:"column(inscripcion)"`
+	InscripcionId      int               `orm:"column(inscripcion_id)"`
 	FechaEntrevista    time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
 	EstadoEntrevistaId *EstadoEntrevista `orm:"column(estado_entrevista_id);rel(fk)"`
 	TipoEntrevistaId   *TipoEntrevista   `orm:"column(tipo_entrevista_id);rel(fk)"`
