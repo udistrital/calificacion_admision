@@ -12,10 +12,10 @@ import (
 
 type EvaluacionInscripcion struct {
 	Id                           int                         `orm:"column(id);pk;auto"`
-	Inscripcion                  int                         `orm:"column(inscripcion)"`
-	Valor                        float64                     `orm:"column(valor)"`
+	InscripcionId                int                         `orm:"column(inscripcion_id)"`
+	NotaFinal                    float64                     `orm:"column(nota_final)"`
 	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk)"`
-	EvaluacionEntrevista         int                         `orm:"column(evaluacion_entrevista)"`
+	Entrevista                   *Entrevista                 `orm:"column(entrevista_id);rel(fk)"`
 	Activo                       bool                        `orm:"column(activo)"`
 	FechaCreacion                time.Time                   `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
 	FechaModificacion            time.Time                   `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`

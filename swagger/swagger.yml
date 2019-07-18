@@ -955,9 +955,6 @@ definitions:
       Inscripcion:
         type: integer
         format: int64
-      Nota:
-        type: number
-        format: double
       TipoEntrevistaId:
         $ref: '#/definitions/models.TipoEntrevista'
   models.Entrevistador:
@@ -1000,6 +997,9 @@ definitions:
       Id:
         type: integer
         format: int64
+      NotaParcial:
+        type: number
+        format: double
   models.EstadoEntrevista:
     title: EstadoEntrevista
     type: object
@@ -1030,9 +1030,8 @@ definitions:
     properties:
       Activo:
         type: boolean
-      EvaluacionEntrevista:
-        type: integer
-        format: int64
+      Entrevista:
+        $ref: '#/definitions/models.Entrevista'
       FechaCreacion:
         type: string
         format: datetime
@@ -1042,14 +1041,14 @@ definitions:
       Id:
         type: integer
         format: int64
-      Inscripcion:
+      InscripcionId:
         type: integer
         format: int64
-      RequisitoProgramaAcademicoId:
-        $ref: '#/definitions/models.RequisitoProgramaAcademico'
-      Valor:
+      NotaFinal:
         type: number
         format: double
+      RequisitoProgramaAcademicoId:
+        $ref: '#/definitions/models.RequisitoProgramaAcademico'
   models.Requisito:
     title: Requisito
     type: object
@@ -1089,13 +1088,13 @@ definitions:
       Id:
         type: integer
         format: int64
-      PeriodoAcademico:
+      PeriodoAcademicoId:
         type: integer
         format: int64
       Porcentaje:
         type: number
         format: double
-      ProgramaAcademico:
+      ProgramaAcademicoId:
         type: integer
         format: int64
       RequisitoId:

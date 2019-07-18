@@ -14,7 +14,6 @@ type Entrevista struct {
 	Id                 int               `orm:"column(id);pk;auto"`
 	Inscripcion        int               `orm:"column(inscripcion)"`
 	FechaEntrevista    time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
-	Nota               float64           `orm:"column(nota);null"`
 	EstadoEntrevistaId *EstadoEntrevista `orm:"column(estado_entrevista_id);rel(fk)"`
 	TipoEntrevistaId   *TipoEntrevista   `orm:"column(tipo_entrevista_id);rel(fk)"`
 	Activo             bool              `orm:"column(activo)"`
