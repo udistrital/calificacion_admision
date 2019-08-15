@@ -14,8 +14,8 @@ type EvaluacionInscripcion struct {
 	Id                           int                         `orm:"column(id);pk;auto"`
 	InscripcionId                int                         `orm:"column(inscripcion_id)"`
 	NotaFinal                    float64                     `orm:"column(nota_final)"`
-	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk)"`
-	EntrevistaId                 *Entrevista                 `orm:"column(entrevista_id);rel(fk)"`
+	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk);"`
+	EntrevistaId                 *Entrevista                 `orm:"column(entrevista_id);rel(fk);null"`
 	Activo                       bool                        `orm:"column(activo)"`
 	FechaCreacion                time.Time                   `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
 	FechaModificacion            time.Time                   `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
