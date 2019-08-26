@@ -13,7 +13,7 @@ Go version >= 1.8.
 
 Definir los valores de las siguientes variables de entorno:
 
- - `API_EVALUACION_INSCRIPCION_HTTP_PORT`: Puerto asignado para la ejecución del API
+ - `EVALUACION_INSCRIPCION_HTTP_PORT`: Puerto asignado para la ejecución del API
  - `EVALUACION_INSCRIPCION_CRUD__PGUSER`: Usuario de la base de datos
  - `EVALUACION_INSCRIPCION_CRUD__PGPASS`: Clave del usuario para la conexión a la base de datos  
  - `EVALUACION_INSCRIPCION_CRUD__PGURLS`: Host de conexión

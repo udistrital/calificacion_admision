@@ -63,6 +63,11 @@ func init() {
 				&controllers.EntrevistadorEntrevistaController{},
 			),
 		),
+		beego.NSNamespace("/cupos_por_dependencia",
+			beego.NSInclude(
+				&controllers.CuposPorDependenciaController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
