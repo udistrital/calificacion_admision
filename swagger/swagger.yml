@@ -48,8 +48,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.CuposPorDependencia'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - cupos_por_dependencia
@@ -65,8 +65,8 @@ paths:
       responses:
         "201":
           description: '{int} models.CuposPorDependencia'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /cupos_por_dependencia/{id}:
     get:
       tags:
@@ -84,8 +84,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.CuposPorDependencia'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - cupos_por_dependencia
@@ -108,8 +108,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.CuposPorDependencia'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - cupos_por_dependencia
@@ -124,8 +124,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /entrevista/:
     get:
       tags:
@@ -1064,11 +1064,12 @@ definitions:
         format: int64
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
+        type: integer
+        format: int64
+      PeriodoId:
         type: integer
         format: int64
   models.Entrevista:
@@ -1081,13 +1082,11 @@ definitions:
         $ref: '#/definitions/models.EstadoEntrevista'
       FechaCreacion:
         type: string
-        format: datetime
       FechaEntrevista:
         type: string
         format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1104,17 +1103,15 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
-      Persona:
+      PersonaId:
         type: integer
         format: int64
-      ProgramaAcademico:
+      ProgramaAcademicoId:
         type: integer
         format: int64
   models.EntrevistadorEntrevista:
@@ -1129,10 +1126,8 @@ definitions:
         $ref: '#/definitions/models.Entrevistador'
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1151,10 +1146,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1173,10 +1166,8 @@ definitions:
         $ref: '#/definitions/models.Entrevista'
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1200,10 +1191,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1220,10 +1209,8 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1250,10 +1237,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64

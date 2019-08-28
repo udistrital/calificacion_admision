@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type RequisitoProgramaAcademico struct {
@@ -17,8 +17,8 @@ type RequisitoProgramaAcademico struct {
 	PeriodoId           int        `orm:"column(periodo_id)"`
 	RequisitoId         *Requisito `orm:"column(requisito_id);rel(fk)"`
 	Activo              bool       `orm:"column(activo)"`
-	FechaCreacion       time.Time  `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion   time.Time  `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
+	FechaCreacion       string     `orm:"column(fecha_creacion);null"`
+	FechaModificacion   string     `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *RequisitoProgramaAcademico) TableName() string {
@@ -32,6 +32,8 @@ func init() {
 // AddRequisitoProgramaAcademico insert a new RequisitoProgramaAcademico into database and returns
 // last inserted Id on success.
 func AddRequisitoProgramaAcademico(m *RequisitoProgramaAcademico) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -131,6 +133,7 @@ func GetAllRequisitoProgramaAcademico(query map[string]string, fields []string, 
 func UpdateRequisitoProgramaAcademicoById(m *RequisitoProgramaAcademico) (err error) {
 	o := orm.NewOrm()
 	v := RequisitoProgramaAcademico{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64

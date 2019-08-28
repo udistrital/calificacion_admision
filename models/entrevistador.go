@@ -5,18 +5,18 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type Entrevistador struct {
-	Id                int       `orm:"column(id);pk;auto"`
-	Persona           int       `orm:"column(persona)"`
-	ProgramaAcademico int       `orm:"column(programa_academico)"`
-	Activo            bool      `orm:"column(activo)"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
+	Id                  int    `orm:"column(id);pk;auto"`
+	PersonaId           int    `orm:"column(persona_id)"`
+	ProgramaAcademicoId int    `orm:"column(programa_academico_id)"`
+	Activo              bool   `orm:"column(activo)"`
+	FechaCreacion       string `orm:"column(fecha_creacion);null"`
+	FechaModificacion   string `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *Entrevistador) TableName() string {
@@ -30,6 +30,8 @@ func init() {
 // AddEntrevistador insert a new Entrevistador into database and returns
 // last inserted Id on success.
 func AddEntrevistador(m *Entrevistador) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -129,6 +131,7 @@ func GetAllEntrevistador(query map[string]string, fields []string, sortby []stri
 func UpdateEntrevistadorById(m *Entrevistador) (err error) {
 	o := orm.NewOrm()
 	v := Entrevistador{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
