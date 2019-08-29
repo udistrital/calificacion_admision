@@ -358,6 +358,6 @@ COMMENT ON COLUMN evaluacion_inscripcion.cupos_por_dependencia.fecha_modificacio
 -- ddl-end --
 
 -- Permisos de usuario
-GRANT USAGE ON SCHEMA inscripcion TO test;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA inscripcion TO test;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA inscripcion TO test;
+GRANT USAGE ON SCHEMA evaluacion_inscripcion TO test;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion_inscripcion TO test;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA evaluacion_inscripcion TO test;
