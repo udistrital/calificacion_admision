@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -16,7 +16,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -25,7 +25,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: `/:id`,
@@ -34,7 +34,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:id`,
@@ -43,7 +43,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioAdmisionController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:CuposPorDependenciaController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:id`,
@@ -52,7 +52,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -61,7 +61,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -70,7 +70,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: `/:id`,
@@ -79,7 +79,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:id`,
@@ -88,7 +88,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistaController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:id`,
@@ -97,7 +97,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -106,7 +106,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -115,7 +115,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: `/:id`,
@@ -124,7 +124,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:id`,
@@ -133,7 +133,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:CriterioProgramaAcademicoController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:id`,
@@ -142,7 +142,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -151,7 +151,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -160,7 +160,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: `/:id`,
@@ -169,7 +169,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:id`,
@@ -178,7 +178,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EntrevistadorEntrevistaController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:id`,
@@ -187,7 +187,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -196,7 +196,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -205,7 +205,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: `/:id`,
@@ -214,7 +214,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:id`,
@@ -223,7 +223,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EstadoEntrevistaController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:id`,
@@ -232,7 +232,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -241,7 +241,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -250,7 +250,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: `/:id`,
@@ -259,7 +259,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:id`,
@@ -268,7 +268,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EntrevistadorEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:EvaluacionInscripcionController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:id`,
@@ -277,7 +277,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -286,7 +286,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -295,7 +295,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: `/:id`,
@@ -304,7 +304,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:id`,
@@ -313,7 +313,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:EstadoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:id`,
@@ -322,7 +322,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"],
         beego.ControllerComments{
             Method: "Post",
             Router: `/`,
@@ -331,7 +331,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
@@ -340,7 +340,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: `/:id`,
@@ -349,7 +349,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"],
         beego.ControllerComments{
             Method: "Put",
             Router: `/:id`,
@@ -358,7 +358,52 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/calificacion_admision_crud/controllers:TipoEntrevistaController"],
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:RequisitoProgramaAcademicoController"],
+        beego.ControllerComments{
+            Method: "Delete",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"delete"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"],
+        beego.ControllerComments{
+            Method: "Post",
+            Router: `/`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"],
+        beego.ControllerComments{
+            Method: "GetAll",
+            Router: `/`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"],
+        beego.ControllerComments{
+            Method: "GetOne",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"],
+        beego.ControllerComments{
+            Method: "Put",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"put"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_inscripcion_crud/controllers:TipoEntrevistaController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: `/:id`,

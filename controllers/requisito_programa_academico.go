@@ -6,19 +6,19 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/udistrital/calificacion_admision_crud/models"
+	"github.com/udistrital/evaluacion_inscripcion_crud/models"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 )
 
-// CriterioController operations for Criterio
-type CriterioController struct {
+// RequisitoProgramaAcademicoController operations for RequisitoProgramaAcademico
+type RequisitoProgramaAcademicoController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *CriterioController) URLMapping() {
+func (c *RequisitoProgramaAcademicoController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -28,15 +28,15 @@ func (c *CriterioController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description create Criterio
-// @Param	body		body 	models.Criterio	true		"body for Criterio content"
-// @Success 201 {int} models.Criterio
+// @Description create RequisitoProgramaAcademico
+// @Param	body		body 	models.RequisitoProgramaAcademico	true		"body for RequisitoProgramaAcademico content"
+// @Success 201 {int} models.RequisitoProgramaAcademico
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
-func (c *CriterioController) Post() {
-	var v models.Criterio
+func (c *RequisitoProgramaAcademicoController) Post() {
+	var v models.RequisitoProgramaAcademico
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddCriterio(&v); err == nil {
+		if _, err := models.AddRequisitoProgramaAcademico(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -56,15 +56,15 @@ func (c *CriterioController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description get Criterio by id
+// @Description get RequisitoProgramaAcademico by id
 // @Param	id		path 	string	true		"The key for staticblock"
-// @Success 200 {object} models.Criterio
+// @Success 200 {object} models.RequisitoProgramaAcademico
 // @Failure 404 not found resource
 // @router /:id [get]
-func (c *CriterioController) GetOne() {
+func (c *RequisitoProgramaAcademicoController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetCriterioById(id)
+	v, err := models.GetRequisitoProgramaAcademicoById(id)
 	if err != nil {
 		logs.Error(err)
 		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
@@ -78,17 +78,17 @@ func (c *CriterioController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description get Criterio
+// @Description get RequisitoProgramaAcademico
 // @Param	query	query	string	false	"Filter. e.g. col1:v1,col2:v2 ..."
 // @Param	fields	query	string	false	"Fields returned. e.g. col1,col2 ..."
 // @Param	sortby	query	string	false	"Sorted-by fields. e.g. col1,col2 ..."
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.Criterio
+// @Success 200 {object} models.RequisitoProgramaAcademico
 // @Failure 404 not found resource
 // @router / [get]
-func (c *CriterioController) GetAll() {
+func (c *RequisitoProgramaAcademicoController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -130,7 +130,7 @@ func (c *CriterioController) GetAll() {
 		}
 	}
 
-	l, err := models.GetAllCriterio(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllRequisitoProgramaAcademico(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		logs.Error(err)
 		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
@@ -147,18 +147,18 @@ func (c *CriterioController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description update the Criterio
+// @Description update the RequisitoProgramaAcademico
 // @Param	id		path 	string	true		"The id you want to update"
-// @Param	body		body 	models.Criterio	true		"body for Criterio content"
-// @Success 200 {object} models.Criterio
+// @Param	body		body 	models.RequisitoProgramaAcademico	true		"body for RequisitoProgramaAcademico content"
+// @Success 200 {object} models.RequisitoProgramaAcademico
 // @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
-func (c *CriterioController) Put() {
+func (c *RequisitoProgramaAcademicoController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.Criterio{Id: id}
+	v := models.RequisitoProgramaAcademico{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdateCriterioById(&v); err == nil {
+		if err := models.UpdateRequisitoProgramaAcademicoById(&v); err == nil {
 			c.Data["json"] = v
 		} else {
 			logs.Error(err)
@@ -177,15 +177,15 @@ func (c *CriterioController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description delete the Criterio
+// @Description delete the RequisitoProgramaAcademico
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 404 not found resource
 // @router /:id [delete]
-func (c *CriterioController) Delete() {
+func (c *RequisitoProgramaAcademicoController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeleteCriterio(id); err == nil {
+	if err := models.DeleteRequisitoProgramaAcademico(id); err == nil {
 		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
 		logs.Error(err)
