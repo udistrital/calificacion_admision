@@ -10,48 +10,50 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
-type Entrevistador struct {
-	Id                  int       `orm:"column(id);pk"`
-	PersonaId           int       `orm:"column(persona_id)"`
-	ProgramaAcademicoId int       `orm:"column(programa_academico_id)"`
-	Activo              bool      `orm:"column(activo)"`
-	FechaCreacion       time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+type CuposPorDependencia struct {
+	Id                int       `orm:"column(id);pk"`
+	DependenciaId     int       `orm:"column(dependencia_id)"`
+	CuposHabilitados  int       `orm:"column(cupos_habilitados)"`
+	CuposOpcionados   int       `orm:"column(cupos_opcionados)"`
+	PeriodoId         int       `orm:"column(periodo_id)"`
+	Activo            bool      `orm:"column(activo)"`
+	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
-func (t *Entrevistador) TableName() string {
-	return "entrevistador"
+func (t *CuposPorDependencia) TableName() string {
+	return "cupos_por_dependencia"
 }
 
 func init() {
-	orm.RegisterModel(new(Entrevistador))
+	orm.RegisterModel(new(CuposPorDependencia))
 }
 
-// AddEntrevistador insert a new Entrevistador into database and returns
+// AddCuposPorDependencia insert a new CuposPorDependencia into database and returns
 // last inserted Id on success.
-func AddEntrevistador(m *Entrevistador) (id int64, err error) {
+func AddCuposPorDependencia(m *CuposPorDependencia) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetEntrevistadorById retrieves Entrevistador by Id. Returns error if
+// GetCuposPorDependenciaById retrieves CuposPorDependencia by Id. Returns error if
 // Id doesn't exist
-func GetEntrevistadorById(id int) (v *Entrevistador, err error) {
+func GetCuposPorDependenciaById(id int) (v *CuposPorDependencia, err error) {
 	o := orm.NewOrm()
-	v = &Entrevistador{Id: id}
+	v = &CuposPorDependencia{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllEntrevistador retrieves all Entrevistador matches certain condition. Returns empty list if
+// GetAllCuposPorDependencia retrieves all CuposPorDependencia matches certain condition. Returns empty list if
 // no records exist
-func GetAllEntrevistador(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllCuposPorDependencia(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Entrevistador))
+	qs := o.QueryTable(new(CuposPorDependencia))
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -101,7 +103,7 @@ func GetAllEntrevistador(query map[string]string, fields []string, sortby []stri
 		}
 	}
 
-	var l []Entrevistador
+	var l []CuposPorDependencia
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -124,11 +126,11 @@ func GetAllEntrevistador(query map[string]string, fields []string, sortby []stri
 	return nil, err
 }
 
-// UpdateEntrevistador updates Entrevistador by Id and returns error if
+// UpdateCuposPorDependencia updates CuposPorDependencia by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateEntrevistadorById(m *Entrevistador) (err error) {
+func UpdateCuposPorDependenciaById(m *CuposPorDependencia) (err error) {
 	o := orm.NewOrm()
-	v := Entrevistador{Id: m.Id}
+	v := CuposPorDependencia{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -139,15 +141,15 @@ func UpdateEntrevistadorById(m *Entrevistador) (err error) {
 	return
 }
 
-// DeleteEntrevistador deletes Entrevistador by Id and returns error if
+// DeleteCuposPorDependencia deletes CuposPorDependencia by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteEntrevistador(id int) (err error) {
+func DeleteCuposPorDependencia(id int) (err error) {
 	o := orm.NewOrm()
-	v := Entrevistador{Id: id}
+	v := CuposPorDependencia{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&Entrevistador{Id: id}); err == nil {
+		if num, err = o.Delete(&CuposPorDependencia{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

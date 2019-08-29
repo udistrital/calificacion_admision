@@ -10,13 +10,13 @@ import (
 	"github.com/astaxie/beego"
 )
 
-// EntrevistadorController operations for Entrevistador
-type EntrevistadorController struct {
+// RequisitoController operations for Requisito
+type RequisitoController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *EntrevistadorController) URLMapping() {
+func (c *RequisitoController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -26,15 +26,15 @@ func (c *EntrevistadorController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description create Entrevistador
-// @Param	body		body 	models.Entrevistador	true		"body for Entrevistador content"
-// @Success 201 {int} models.Entrevistador
+// @Description create Requisito
+// @Param	body		body 	models.Requisito	true		"body for Requisito content"
+// @Success 201 {int} models.Requisito
 // @Failure 403 body is empty
 // @router / [post]
-func (c *EntrevistadorController) Post() {
-	var v models.Entrevistador
+func (c *RequisitoController) Post() {
+	var v models.Requisito
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddEntrevistador(&v); err == nil {
+		if _, err := models.AddRequisito(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -48,15 +48,15 @@ func (c *EntrevistadorController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description get Entrevistador by id
+// @Description get Requisito by id
 // @Param	id		path 	string	true		"The key for staticblock"
-// @Success 200 {object} models.Entrevistador
+// @Success 200 {object} models.Requisito
 // @Failure 403 :id is empty
 // @router /:id [get]
-func (c *EntrevistadorController) GetOne() {
+func (c *RequisitoController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetEntrevistadorById(id)
+	v, err := models.GetRequisitoById(id)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -67,17 +67,17 @@ func (c *EntrevistadorController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description get Entrevistador
+// @Description get Requisito
 // @Param	query	query	string	false	"Filter. e.g. col1:v1,col2:v2 ..."
 // @Param	fields	query	string	false	"Fields returned. e.g. col1,col2 ..."
 // @Param	sortby	query	string	false	"Sorted-by fields. e.g. col1,col2 ..."
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.Entrevistador
+// @Success 200 {object} models.Requisito
 // @Failure 403
 // @router / [get]
-func (c *EntrevistadorController) GetAll() {
+func (c *RequisitoController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -119,7 +119,7 @@ func (c *EntrevistadorController) GetAll() {
 		}
 	}
 
-	l, err := models.GetAllEntrevistador(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllRequisito(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -130,18 +130,18 @@ func (c *EntrevistadorController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description update the Entrevistador
+// @Description update the Requisito
 // @Param	id		path 	string	true		"The id you want to update"
-// @Param	body		body 	models.Entrevistador	true		"body for Entrevistador content"
-// @Success 200 {object} models.Entrevistador
+// @Param	body		body 	models.Requisito	true		"body for Requisito content"
+// @Success 200 {object} models.Requisito
 // @Failure 403 :id is not int
 // @router /:id [put]
-func (c *EntrevistadorController) Put() {
+func (c *RequisitoController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.Entrevistador{Id: id}
+	v := models.Requisito{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdateEntrevistadorById(&v); err == nil {
+		if err := models.UpdateRequisitoById(&v); err == nil {
 			c.Data["json"] = "OK"
 		} else {
 			c.Data["json"] = err.Error()
@@ -154,15 +154,15 @@ func (c *EntrevistadorController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description delete the Entrevistador
+// @Description delete the Requisito
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 403 id is empty
 // @router /:id [delete]
-func (c *EntrevistadorController) Delete() {
+func (c *RequisitoController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeleteEntrevistador(id); err == nil {
+	if err := models.DeleteRequisito(id); err == nil {
 		c.Data["json"] = "OK"
 	} else {
 		c.Data["json"] = err.Error()

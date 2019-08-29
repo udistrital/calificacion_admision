@@ -11,12 +11,14 @@ import (
 )
 
 type Entrevista struct {
-	Id               int               `orm:"column(id);pk;auto"`
-	Admision         int               `orm:"column(admision)"`
-	FechaEntrevista  time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
-	Nota             float64           `orm:"column(nota);null"`
-	EstadoEntrevista *EstadoEntrevista `orm:"column(estado_entrevista);rel(fk)"`
-	TipoEntrevista   *TipoEntrevista   `orm:"column(tipo_entrevista);rel(fk)"`
+	Id                 int               `orm:"column(id);pk"`
+	InscripcionId      int               `orm:"column(inscripcion_id)"`
+	FechaEntrevista    time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
+	EstadoEntrevistaId *EstadoEntrevista `orm:"column(estado_entrevista_id);rel(fk)"`
+	Activo             bool              `orm:"column(activo)"`
+	FechaCreacion      time.Time         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion  time.Time         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	TipoEntrevistaId   *TipoEntrevista   `orm:"column(tipo_entrevista_id);rel(fk)"`
 }
 
 func (t *Entrevista) TableName() string {
@@ -51,7 +53,7 @@ func GetEntrevistaById(id int) (v *Entrevista, err error) {
 func GetAllEntrevista(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Entrevista)).RelatedSel()
+	qs := o.QueryTable(new(Entrevista))
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
