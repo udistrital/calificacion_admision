@@ -209,7 +209,7 @@ CREATE TABLE evaluacion_inscripcion.requisito_programa_academico(
 	fecha_creacion timestamp NOT NULL DEFAULT now(),
 	fecha_modificacion timestamp NOT NULL DEFAULT now(),
 	CONSTRAINT pk_requisito_programa_academico PRIMARY KEY (id),
-	CONSTRAINT uq_criterio_programa_periodo UNIQUE (programa_academico_id,periodo_id)
+	CONSTRAINT uq_criterio_programa_periodo UNIQUE (programa_academico_id,periodo_id,requisito_id)
 
 );
 -- ddl-end --
