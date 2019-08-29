@@ -53,7 +53,7 @@ func GetRequisitoProgramaAcademicoById(id int) (v *RequisitoProgramaAcademico, e
 func GetAllRequisitoProgramaAcademico(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(RequisitoProgramaAcademico))
+	qs := o.QueryTable(new(RequisitoProgramaAcademico)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

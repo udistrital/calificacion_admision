@@ -53,7 +53,7 @@ func GetEvaluacionInscripcionById(id int) (v *EvaluacionInscripcion, err error) 
 func GetAllEvaluacionInscripcion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(EvaluacionInscripcion))
+	qs := o.QueryTable(new(EvaluacionInscripcion)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
