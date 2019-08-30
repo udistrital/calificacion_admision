@@ -11,14 +11,14 @@ import (
 )
 
 type RequisitoProgramaAcademico struct {
-	Id                  int        `orm:"column(id);pk"`
+	Id                  int        `orm:"column(id);pk;auto"`
 	ProgramaAcademicoId int        `orm:"column(programa_academico_id)"`
 	PeriodoId           int        `orm:"column(periodo_id)"`
 	RequisitoId         *Requisito `orm:"column(requisito_id);rel(fk)"`
 	Porcentaje          float64    `orm:"column(porcentaje)"`
 	Activo              bool       `orm:"column(activo)"`
-	FechaCreacion       time.Time  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   time.Time  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion       time.Time  `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
+	FechaModificacion   time.Time  `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
 }
 
 func (t *RequisitoProgramaAcademico) TableName() string {

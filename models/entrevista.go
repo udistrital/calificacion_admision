@@ -11,13 +11,13 @@ import (
 )
 
 type Entrevista struct {
-	Id                 int               `orm:"column(id);pk"`
+	Id                 int               `orm:"column(id);pk;auto"`
 	InscripcionId      int               `orm:"column(inscripcion_id)"`
 	FechaEntrevista    time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
 	EstadoEntrevistaId *EstadoEntrevista `orm:"column(estado_entrevista_id);rel(fk)"`
 	Activo             bool              `orm:"column(activo)"`
-	FechaCreacion      time.Time         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion  time.Time         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion      time.Time         `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
+	FechaModificacion  time.Time         `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
 	TipoEntrevistaId   *TipoEntrevista   `orm:"column(tipo_entrevista_id);rel(fk)"`
 }
 
