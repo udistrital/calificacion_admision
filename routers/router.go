@@ -69,6 +69,12 @@ func init() {
 				&controllers.EntrevistaController{},
 			),
 		),
+
+		beego.NSNamespace("/tr_archivo_icfes",
+			beego.NSInclude(
+				&controllers.TrArchivoIcfesController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
