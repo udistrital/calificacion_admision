@@ -11,14 +11,14 @@ import (
 )
 
 type CuposPorDependencia struct {
-	Id                int       `orm:"column(id);pk"`
+	Id                int       `orm:"column(id);pk;auto"`
 	DependenciaId     int       `orm:"column(dependencia_id)"`
 	CuposHabilitados  int       `orm:"column(cupos_habilitados)"`
 	CuposOpcionados   int       `orm:"column(cupos_opcionados)"`
 	PeriodoId         int       `orm:"column(periodo_id)"`
 	Activo            bool      `orm:"column(activo)"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
+	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
 }
 
 func (t *CuposPorDependencia) TableName() string {

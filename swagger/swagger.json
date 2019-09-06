@@ -1571,9 +1571,41 @@
                     }
                 }
             }
+        },
+        "/tr_archivo_icfes/": {
+            "post": {
+                "tags": [
+                    "tr_archivo_icfes"
+                ],
+                "description": "create the TrArchivoIcfesController",
+                "operationId": "TrArchivoIcfesController.PostTrArchivoIcfesController",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TrArchivoIcfesController content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TrArchivoIcfes"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TrArchivoIcfes"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
         }
     },
     "definitions": {
+        "42023.\u003cnil\u003e.EvaluacionInscripcion": {
+            "title": "EvaluacionInscripcion",
+            "type": "object"
+        },
         "models.CuposPorDependencia": {
             "title": "CuposPorDependencia",
             "type": "object",
@@ -1879,6 +1911,15 @@
                     "format": "double"
                 }
             }
+        },
+        "models.TrArchivoIcfes": {
+            "title": "TrArchivoIcfes",
+            "type": "object",
+            "properties": {
+                "EvaluacionesInscripcion": {
+                    "$ref": "#/definitions/42023.\u003cnil\u003e.EvaluacionInscripcion"
+                }
+            }
         }
     },
     "tags": [
@@ -1917,6 +1958,10 @@
         {
             "name": "entrevista",
             "description": "EntrevistaController operations for Entrevista\n"
+        },
+        {
+            "name": "tr_archivo_icfes",
+            "description": "operations for TrArchivoIcfesController\n"
         }
     ]
 }
