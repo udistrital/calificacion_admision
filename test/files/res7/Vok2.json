@@ -1,0 +1,14 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "ProgramaAcademicoId": { "type": "integer" },
+    "Porcentaje": { "type": "integer" },
+    "PeriodoId": { "type": "integer" },
+    "RequisitoId": { "type": "Requisito" },
+    "Activo": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}
