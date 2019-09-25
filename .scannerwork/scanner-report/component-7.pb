@@ -1,0 +1,1 @@
+models/estado_entrevista.go 2goX¡hrmodels/estado_entrevista.go
