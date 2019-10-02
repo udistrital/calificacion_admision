@@ -30,4 +30,4 @@ Definir los valores de las siguientes variables de entorno:
 EVALUACION_INSCRIPCION_HTTP_PORT=9016 EVALUACION_INSCRIPCION_CRUD__PGUSER=user EVALUACION_INSCRIPCION_CRUD__PGPASS=password EVALUACION_INSCRIPCION_CRUD__PGURLS=localhost EVALUACION_INSCRIPCION_CRUD__PGDB=bd EVALUACION_INSCRIPCION_CRUD__SCHEMA=schema_new bee run
 
 ## Modelo BD
-![image](https://github.com/planesticud/evaluacion_inscripcion_crud/blob/develop/modelo_evaluacion_inscripcion_crud.png).
+![modelo_evaluacion_inscripcion_crud](https://user-images.githubusercontent.com/14035745/66088107-8b0b8880-e53f-11e9-99e3-a972a986c817.png)
