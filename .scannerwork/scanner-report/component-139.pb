@@ -1,1 +1,0 @@
-‹controllers/tipo_entrevista.go 2goXÅhrcontrollers/tipo_entrevista.go
