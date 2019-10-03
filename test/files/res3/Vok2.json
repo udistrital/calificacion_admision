@@ -1,0 +1,13 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "EntrevistadorId": { "type": "Entrevistador" },
+    "EntrevistaId": { "type": "Entrevista" },
+    "Activo": { "type": "boolean" },
+    "NotaParcial": { "type": "integer" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}

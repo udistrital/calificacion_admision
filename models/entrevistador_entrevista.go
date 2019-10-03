@@ -7,12 +7,17 @@ import (
 	"strings"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type EntrevistadorEntrevista struct {
-	Id            int            `orm:"column(id);pk"`
-	Entrevistador *Entrevistador `orm:"column(entrevistador);rel(fk)"`
-	Entrevista    *Entrevista    `orm:"column(entrevista);rel(fk)"`
+	Id                int            `orm:"column(id);pk;auto"`
+	EntrevistadorId   *Entrevistador `orm:"column(entrevistador_id);rel(fk)"`
+	NotaParcial       float64        `orm:"column(nota_parcial)"`
+	EntrevistaId      *Entrevista    `orm:"column(entrevista_id);rel(fk)"`
+	Activo            bool           `orm:"column(activo)"`
+	FechaCreacion     string         `orm:"column(fecha_creacion);null"`
+	FechaModificacion string         `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *EntrevistadorEntrevista) TableName() string {
@@ -26,6 +31,8 @@ func init() {
 // AddEntrevistadorEntrevista insert a new EntrevistadorEntrevista into database and returns
 // last inserted Id on success.
 func AddEntrevistadorEntrevista(m *EntrevistadorEntrevista) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -47,7 +54,7 @@ func GetEntrevistadorEntrevistaById(id int) (v *EntrevistadorEntrevista, err err
 func GetAllEntrevistadorEntrevista(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(EntrevistadorEntrevista))
+	qs := o.QueryTable(new(EntrevistadorEntrevista)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -125,10 +132,11 @@ func GetAllEntrevistadorEntrevista(query map[string]string, fields []string, sor
 func UpdateEntrevistadorEntrevistaById(m *EntrevistadorEntrevista) (err error) {
 	o := orm.NewOrm()
 	v := EntrevistadorEntrevista{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "EntrevistadorId", "EntrevistaId", "Activo", "NotaParcial", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}

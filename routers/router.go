@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"github.com/udistrital/calificacion_admision_crud/controllers"
+	"github.com/udistrital/evaluacion_inscripcion_crud/controllers"
 
 	"github.com/astaxie/beego"
 )
@@ -22,27 +22,27 @@ func init() {
 			),
 		),
 
+		beego.NSNamespace("/requisito",
+			beego.NSInclude(
+				&controllers.RequisitoController{},
+			),
+		),
+
 		beego.NSNamespace("/tipo_entrevista",
 			beego.NSInclude(
 				&controllers.TipoEntrevistaController{},
 			),
 		),
 
-		beego.NSNamespace("/criterio",
+		beego.NSNamespace("/evaluacion_inscripcion",
 			beego.NSInclude(
-				&controllers.CriterioController{},
+				&controllers.EvaluacionInscripcionController{},
 			),
 		),
 
-		beego.NSNamespace("/criterio_programa_academico",
+		beego.NSNamespace("/entrevistador_entrevista",
 			beego.NSInclude(
-				&controllers.CriterioProgramaAcademicoController{},
-			),
-		),
-
-		beego.NSNamespace("/criterio_admision",
-			beego.NSInclude(
-				&controllers.CriterioAdmisionController{},
+				&controllers.EntrevistadorEntrevistaController{},
 			),
 		),
 
@@ -52,15 +52,32 @@ func init() {
 			),
 		),
 
+		beego.NSNamespace("/requisito_programa_academico",
+			beego.NSInclude(
+				&controllers.RequisitoProgramaAcademicoController{},
+			),
+		),
+
+		beego.NSNamespace("/cupos_por_dependencia",
+			beego.NSInclude(
+				&controllers.CuposPorDependenciaController{},
+			),
+		),
+
 		beego.NSNamespace("/entrevista",
 			beego.NSInclude(
 				&controllers.EntrevistaController{},
 			),
 		),
 
-		beego.NSNamespace("/entrevistador_entrevista",
+		beego.NSNamespace("/tr_archivo_icfes",
 			beego.NSInclude(
-				&controllers.EntrevistadorEntrevistaController{},
+				&controllers.TrArchivoIcfesController{},
+			),
+		),
+		beego.NSNamespace("/cupos_por_dependencia",
+			beego.NSInclude(
+				&controllers.CuposPorDependenciaController{},
 			),
 		),
 	)

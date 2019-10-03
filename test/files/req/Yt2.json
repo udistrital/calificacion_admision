@@ -1,0 +1,10 @@
+{
+  "Id": 5,
+  "Nombre": "Sep 5, 2019 at 4:01pm (-05)",
+  "Descripcion": "string",
+  "CodigoAbreviacion": "string",
+  "Activo": true,
+  "NumeroOrden": 0,
+  "FechaCreacion": "2019-09-05T16:01:58.604410383-05:00",
+  "FechaModificacion": "2019-09-05T16:01:58.604482907-05:00"
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "InscripcionId": { "type": "integer" },
+    "NotaFinal": { "type": "integer" },
+    "RequisitoProgramaAcademicoId": { "type": "RequisitoProgramaAcademico" },
+    "EntrevistaId": { "type": "Entrevista" },
+    "Activo": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}

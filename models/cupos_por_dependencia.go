@@ -7,50 +7,55 @@ import (
 	"strings"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
-type Criterio struct {
-	Id                int     `orm:"column(id);pk"`
-	Nombre            string  `orm:"column(nombre)"`
-	Descripcion       string  `orm:"column(descripcion);null"`
-	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
-	Activo            bool    `orm:"column(activo)"`
-	NumeroOrden       float64 `orm:"column(numero_orden);null"`
+type CuposPorDependencia struct {
+	Id                int    `orm:"column(id);pk;auto"`
+	DependenciaId     int    `orm:"column(dependencia_id)"`
+	CuposHabilitados  int    `orm:"column(cupos_habilitados)"`
+	CuposOpcionados   int    `orm:"column(cupos_opcionados)"`
+	PeriodoId         int    `orm:"column(periodo_id)"`
+	Activo            bool   `orm:"column(activo)"`
+	FechaCreacion     string `orm:"column(fecha_creacion);null"`
+	FechaModificacion string `orm:"column(fecha_modificacion);null"`
 }
 
-func (t *Criterio) TableName() string {
-	return "criterio"
+func (t *CuposPorDependencia) TableName() string {
+	return "cupos_por_dependencia"
 }
 
 func init() {
-	orm.RegisterModel(new(Criterio))
+	orm.RegisterModel(new(CuposPorDependencia))
 }
 
-// AddCriterio insert a new Criterio into database and returns
+// AddCuposPorDependencia insert a new CuposPorDependencia into database and returns
 // last inserted Id on success.
-func AddCriterio(m *Criterio) (id int64, err error) {
+func AddCuposPorDependencia(m *CuposPorDependencia) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetCriterioById retrieves Criterio by Id. Returns error if
+// GetCuposPorDependenciaById retrieves CuposPorDependencia by Id. Returns error if
 // Id doesn't exist
-func GetCriterioById(id int) (v *Criterio, err error) {
+func GetCuposPorDependenciaById(id int) (v *CuposPorDependencia, err error) {
 	o := orm.NewOrm()
-	v = &Criterio{Id: id}
+	v = &CuposPorDependencia{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllCriterio retrieves all Criterio matches certain condition. Returns empty list if
+// GetAllCuposPorDependencia retrieves all CuposPorDependencia matches certain condition. Returns empty list if
 // no records exist
-func GetAllCriterio(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllCuposPorDependencia(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Criterio))
+	qs := o.QueryTable(new(CuposPorDependencia)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -100,7 +105,7 @@ func GetAllCriterio(query map[string]string, fields []string, sortby []string, o
 		}
 	}
 
-	var l []Criterio
+	var l []CuposPorDependencia
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -123,30 +128,31 @@ func GetAllCriterio(query map[string]string, fields []string, sortby []string, o
 	return nil, err
 }
 
-// UpdateCriterio updates Criterio by Id and returns error if
+// UpdateCuposPorDependencia updates CuposPorDependencia by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateCriterioById(m *Criterio) (err error) {
+func UpdateCuposPorDependenciaById(m *CuposPorDependencia) (err error) {
 	o := orm.NewOrm()
-	v := Criterio{Id: m.Id}
+	v := CuposPorDependencia{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "DependenciaId", "PeriodoId", "CuposHabilitados", "CuposOpcionados", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
 	return
 }
 
-// DeleteCriterio deletes Criterio by Id and returns error if
+// DeleteCuposPorDependencia deletes CuposPorDependencia by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteCriterio(id int) (err error) {
+func DeleteCuposPorDependencia(id int) (err error) {
 	o := orm.NewOrm()
-	v := Criterio{Id: id}
+	v := CuposPorDependencia{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&Criterio{Id: id}); err == nil {
+		if num, err = o.Delete(&CuposPorDependencia{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}
