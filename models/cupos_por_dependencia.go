@@ -5,20 +5,20 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type CuposPorDependencia struct {
-	Id                int       `orm:"column(id);pk;auto"`
-	DependenciaId     int       `orm:"column(dependencia_id)"`
-	CuposHabilitados  int       `orm:"column(cupos_habilitados)"`
-	CuposOpcionados   int       `orm:"column(cupos_opcionados)"`
-	PeriodoId         int       `orm:"column(periodo_id)"`
-	Activo            bool      `orm:"column(activo)"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
+	Id                int    `orm:"column(id);pk;auto"`
+	DependenciaId     int    `orm:"column(dependencia_id)"`
+	CuposHabilitados  int    `orm:"column(cupos_habilitados)"`
+	CuposOpcionados   int    `orm:"column(cupos_opcionados)"`
+	PeriodoId         int    `orm:"column(periodo_id)"`
+	Activo            bool   `orm:"column(activo)"`
+	FechaCreacion     string `orm:"column(fecha_creacion);null"`
+	FechaModificacion string `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *CuposPorDependencia) TableName() string {
@@ -32,6 +32,8 @@ func init() {
 // AddCuposPorDependencia insert a new CuposPorDependencia into database and returns
 // last inserted Id on success.
 func AddCuposPorDependencia(m *CuposPorDependencia) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -131,10 +133,11 @@ func GetAllCuposPorDependencia(query map[string]string, fields []string, sortby 
 func UpdateCuposPorDependenciaById(m *CuposPorDependencia) (err error) {
 	o := orm.NewOrm()
 	v := CuposPorDependencia{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "DependenciaId", "PeriodoId", "CuposHabilitados", "CuposOpcionados", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}

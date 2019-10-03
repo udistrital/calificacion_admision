@@ -1,19 +1,25 @@
-# Evaluacion_inscripcion_crud
+# evaluacion_inscripcion_crud
+API para la gestión de las calificaciones del proceso de inscripción y admisión
 
-API CRUD para la evaluación del proceso de inscripciónes y el manejo del entrevistador
+Integración con
+
+ - `CI`
+ - `AWS Lambda - S3`
+ - `Drone 1.x`
+ - `evaluacion_inscripcion_crud master/develop`
 
 ## Requirements
 Go version >= 1.8.
 
-## Preparación:
-    Para usar el API, usar el comando:
-        - go get github.com/udistrital/evaluacion_inscripcion_crud
+## Preparación
+Para usar el API, usar el comando:
 
-## Run
+ - `go get github.com/udistrital/evaluacion_inscripcion_crud`
 
+## Ejecución
 Definir los valores de las siguientes variables de entorno:
 
- - `API_PORT`: Puerto asignado para la ejecución del API
+ - `EVALUACION_INSCRIPCION_HTTP_PORT`: Puerto asignado para la ejecución del API
  - `EVALUACION_INSCRIPCION_CRUD__PGUSER`: Usuario de la base de datos
  - `EVALUACION_INSCRIPCION_CRUD__PGPASS`: Clave del usuario para la conexión a la base de datos  
  - `EVALUACION_INSCRIPCION_CRUD__PGURLS`: Host de conexión
@@ -22,9 +28,8 @@ Definir los valores de las siguientes variables de entorno:
 
 Ejemplo: API_PORT=8083 EVALUACION_INSCRIPCION_CRUD__PGUSER=userPG EVALUACION_INSCRIPCION_CRUD__PGPASS=passwordPG EVALUACION_INSCRIPCION_CRUD__PGURLS=localhost EVALUACION_INSCRIPCION_CRUD__PGDB=academica EVALUACION_INSCRIPCION_CRUD__SCHEMA=evaluacion_inscripcion bee run
 
-## MODELO DE DATOS
+## Ejemplo
+EVALUACION_INSCRIPCION_HTTP_PORT=9016 EVALUACION_INSCRIPCION_CRUD__PGUSER=user EVALUACION_INSCRIPCION_CRUD__PGPASS=password EVALUACION_INSCRIPCION_CRUD__PGURLS=localhost EVALUACION_INSCRIPCION_CRUD__PGDB=bd EVALUACION_INSCRIPCION_CRUD__SCHEMA=schema_new bee run
 
-Como modelos de datos del Api se utilizo el siguiente [Modelo](https://drive.google.com/drive/folders/1fiz177bvO0WaxdV8QZz4iFnh94jofGvX?usp=sharing)
-
-
-![image](./evaluacion_admision.png)
+## Modelo BD
+![modelo_evaluacion_inscripcion_crud](https://user-images.githubusercontent.com/14035745/66088107-8b0b8880-e53f-11e9-99e3-a972a986c817.png)

@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type Entrevista struct {
@@ -15,10 +16,10 @@ type Entrevista struct {
 	InscripcionId      int               `orm:"column(inscripcion_id)"`
 	FechaEntrevista    time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
 	EstadoEntrevistaId *EstadoEntrevista `orm:"column(estado_entrevista_id);rel(fk)"`
-	Activo             bool              `orm:"column(activo)"`
-	FechaCreacion      time.Time         `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion  time.Time         `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
 	TipoEntrevistaId   *TipoEntrevista   `orm:"column(tipo_entrevista_id);rel(fk)"`
+	Activo             bool              `orm:"column(activo)"`
+	FechaCreacion      string            `orm:"column(fecha_creacion);null"`
+	FechaModificacion  string            `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *Entrevista) TableName() string {
@@ -32,6 +33,8 @@ func init() {
 // AddEntrevista insert a new Entrevista into database and returns
 // last inserted Id on success.
 func AddEntrevista(m *Entrevista) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -131,10 +134,11 @@ func GetAllEntrevista(query map[string]string, fields []string, sortby []string,
 func UpdateEntrevistaById(m *Entrevista) (err error) {
 	o := orm.NewOrm()
 	v := Entrevista{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "InscripcionId", "FechaEntrevista", "EstadoEntrevistaId", "TipoEntrevistaId", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}

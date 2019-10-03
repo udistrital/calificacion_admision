@@ -1,18 +1,3 @@
--- Database generated with pgModeler (PostgreSQL Database Modeler).
--- pgModeler  version: 0.9.1
--- PostgreSQL version: 9.5
--- Project Site: pgmodeler.io
--- Model Author: ---
-
-
--- Database creation must be done outside a multicommand file.
--- These commands were put in this file only as a convenience.
--- -- object: evaluacion_admision | type: DATABASE --
--- -- DROP DATABASE IF EXISTS evaluacion_admision;
--- CREATE DATABASE evaluacion_admision;
--- -- ddl-end --
--- 
-
 -- object: evaluacion_inscripcion | type: SCHEMA --
 -- DROP SCHEMA IF EXISTS evaluacion_inscripcion CASCADE;
 CREATE SCHEMA evaluacion_inscripcion;
@@ -38,23 +23,23 @@ CREATE TABLE evaluacion_inscripcion.requisito(
 
 );
 -- ddl-end --
-COMMENT ON TABLE evaluacion_inscripcion.requisito IS 'Tabla que almacena los diferentes criterios de admisiÛn que se pueden aplicar';
+COMMENT ON TABLE evaluacion_inscripcion.requisito IS 'Tabla que almacena los diferentes criterios de admisión que se pueden aplicar';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.requisito.id IS 'Identificador de la tabla';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.requisito.nombre IS 'Nombre del criterio de admisiÛn';
+COMMENT ON COLUMN evaluacion_inscripcion.requisito.nombre IS 'Nombre del criterio de admisión';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.requisito.descripcion IS 'DescripciÛn del criterio de admisiÛn';
+COMMENT ON COLUMN evaluacion_inscripcion.requisito.descripcion IS 'Descripción del criterio de admisión';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.requisito.codigo_abreviacion IS 'CÛdigo de abreviaciÛn del criterio de admisiÛn';
+COMMENT ON COLUMN evaluacion_inscripcion.requisito.codigo_abreviacion IS 'Código de abreviación del criterio de admisión';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.requisito.activo IS 'Flag que indica si el criterio de admisiÛn esta activo o no';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.requisito.numero_orden IS 'N˙mero de orden en el que se deben mostrar los criterios de admisiÛn';
+COMMENT ON COLUMN evaluacion_inscripcion.requisito.numero_orden IS 'N˙mero de orden en el que se deben mostrar los criterios de admisión';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.requisito.fecha_creacion IS 'Fecha de creaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.requisito.fecha_creacion IS 'Fecha de creación del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.requisito.fecha_modificacion IS 'Fecha de la ˙ltima modificaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.requisito.fecha_modificacion IS 'Fecha de la última modificación del registro';
 -- ddl-end --
 
 -- object: evaluacion_inscripcion.estado_entrevista | type: TABLE --
@@ -72,23 +57,23 @@ CREATE TABLE evaluacion_inscripcion.estado_entrevista(
 
 );
 -- ddl-end --
-COMMENT ON TABLE evaluacion_inscripcion.estado_entrevista IS 'Tabla que almacena los diferentes  estados que puede tener una entrevista';
+COMMENT ON TABLE evaluacion_inscripcion.estado_entrevista IS 'Tabla que almacena los diferentes estados que puede tener una entrevista';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.id IS 'Identificador de la tabla';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.nombre IS 'Nombre del estado de la entrevista';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.descripcion IS 'DescripciÛn del estado de entrevista.';
+COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.descripcion IS 'Descripción del estado de entrevista.';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.codigo_abreviacion IS 'CÛdigo de abreviaciÛn del estado de la entrevista.';
+COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.codigo_abreviacion IS 'Código de abreviación del estado de la entrevista.';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.activo IS 'Flag que indica si el estado esta activo o no';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.numero_orden IS 'N˙mero de orden en el que se deben mostrar los estados';
+COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.numero_orden IS 'Número de orden en el que se deben mostrar los estados';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.fecha_creacion IS 'Fecha de creaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.fecha_creacion IS 'Fecha de creación del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.fecha_modificacion IS 'Fecha de la ˙ltima modificaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.estado_entrevista.fecha_modificacion IS 'Fecha de la última modificación del registro';
 -- ddl-end --
 
 -- object: evaluacion_inscripcion.entrevista | type: TABLE --
@@ -106,19 +91,19 @@ CREATE TABLE evaluacion_inscripcion.entrevista(
 
 );
 -- ddl-end --
-COMMENT ON TABLE evaluacion_inscripcion.entrevista IS 'Tabla que almacena la informaciÛn de las entrevistas realizadas a un aspirante';
+COMMENT ON TABLE evaluacion_inscripcion.entrevista IS 'Tabla que almacena la información de las entrevistas realizadas a un aspirante';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.entrevista.id IS 'Identificador de la tabla';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.entrevista.inscripcion_id IS 'Proceso de admisiÛn al cual se hace referencia';
+COMMENT ON COLUMN evaluacion_inscripcion.entrevista.inscripcion_id IS 'Proceso de admisión al cual se hace referencia';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.entrevista.fecha_entrevista IS 'DÌa y hora en la que se agenda la entrevista';
+COMMENT ON COLUMN evaluacion_inscripcion.entrevista.fecha_entrevista IS 'Día y hora en la que se agenda la entrevista';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.entrevista.activo IS 'Indica el estado del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.entrevista.fecha_creacion IS 'Fecha de creaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.entrevista.fecha_creacion IS 'Fecha de creación del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.entrevista.fecha_modificacion IS 'Fecha de la ˙ltima modificaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.entrevista.fecha_modificacion IS 'Fecha de la última modificación del registro';
 -- ddl-end --
 
 -- object: fk_entrevista_estado_entrevista | type: CONSTRAINT --
@@ -151,15 +136,15 @@ COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.nombre IS 'Nombre del t
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.descripcion IS 'DescripciÛn del tipo de entrevista';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.codigo_abreviacion IS 'CÛdigo de abreviaciÛn del tipo de entrevista.';
+COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.codigo_abreviacion IS 'Código de abreviación del tipo de entrevista.';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.activo IS 'Flag que indica si el tipo esta activo o no';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.numero_orden IS 'N˙mero de orden en el que se deben mostrar los tipos';
+COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.numero_orden IS 'Número de orden en el que se deben mostrar los tipos';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.fecha_creacion IS 'Fecha de creaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.fecha_creacion IS 'Fecha de creación del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.fecha_modificacion IS 'Fecha de la ˙ltima modificaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.tipo_entrevista.fecha_modificacion IS 'Fecha de la ˙ltima modificación del registro';
 -- ddl-end --
 
 -- object: fk_entrevista_tipo_entrevista | type: CONSTRAINT --
@@ -188,13 +173,13 @@ COMMENT ON COLUMN evaluacion_inscripcion.entrevistador.id IS 'Identificador de l
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.entrevistador.persona_id IS 'Entrevistador designado, anteriormente ente, se cambia por futura migracion de ente a persona';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.entrevistador.programa_academico_id IS 'Programa acadÈmico que designa el entrevistador';
+COMMENT ON COLUMN evaluacion_inscripcion.entrevistador.programa_academico_id IS 'Programa académico que designa el entrevistador';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.entrevistador.activo IS 'Flag que permite saber si el entrevistador se encuentra activo o no';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.entrevistador.fecha_creacion IS 'Fecha de creaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.entrevistador.fecha_creacion IS 'Fecha de creación del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.entrevistador.fecha_modificacion IS 'Fecha de la ˙ltima modificaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.entrevistador.fecha_modificacion IS 'Fecha de la ˙ltima modificación del registro';
 -- ddl-end --
 
 -- object: evaluacion_inscripcion.requisito_programa_academico | type: TABLE --
@@ -219,17 +204,17 @@ COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.id IS 'Ide
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.programa_academico_id IS 'Programa academico con el que se relaciona el criterio';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.periodo_id IS 'Periodo al cual aplica el criterio de inscripciÛn';
+COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.periodo_id IS 'Periodo al cual aplica el criterio de inscripción';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.porcentaje IS 'Porcentaje o peso del criterio de admisiÛn para el proyecto.';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.activo IS 'Indica el estado del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.fecha_creacion IS 'Fecha de creaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.fecha_creacion IS 'Fecha de creación del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.fecha_modificacion IS 'Fecha de la ˙ltima modificaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.requisito_programa_academico.fecha_modificacion IS 'Fecha de la última modificación del registro';
 -- ddl-end --
-COMMENT ON CONSTRAINT uq_criterio_programa_periodo ON evaluacion_inscripcion.requisito_programa_academico  IS 'Unique key que indica que un criterio solo puede aplicare una vez en un programa durante un periodo.';
+COMMENT ON CONSTRAINT uq_criterio_programa_periodo ON evaluacion_inscripcion.requisito_programa_academico  IS 'Unique key que indica que un criterio solo puede aplicarse una vez en un programa durante un periodo.';
 -- ddl-end --
 
 -- object: fk_requisito_programa_academico_requisito | type: CONSTRAINT --
@@ -254,19 +239,19 @@ CREATE TABLE evaluacion_inscripcion.evaluacion_inscripcion(
 
 );
 -- ddl-end --
-COMMENT ON TABLE evaluacion_inscripcion.evaluacion_inscripcion IS 'Tabla que almacena los puntajes de cada criterio de admisiÛn de un proceso de admisiÛn ';
+COMMENT ON TABLE evaluacion_inscripcion.evaluacion_inscripcion IS 'Tabla que almacena los puntajes de cada criterio de admisión de un proceso de admisión ';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.id IS 'Identificador de la tabla';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.inscripcion_id IS 'Identificador del proceso de admisiÛn al cual se hace referencia';
+COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.inscripcion_id IS 'Identificador del proceso de admisión al cual se hace referencia';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.nota_final IS 'Nota de cada criterio de evaluaciÛn';
+COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.nota_final IS 'Nota de cada criterio de evaluación';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.activo IS 'Indica el estado del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.fecha_creacion IS 'Fecha de creaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.fecha_creacion IS 'Fecha de creación del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.fecha_modificacion IS 'Fecha de la ˙ltima modificaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.evaluacion_inscripcion.fecha_modificacion IS 'Fecha de la última modificación del registro';
 -- ddl-end --
 
 -- object: fk_evaluacion_inscripcion_requisito_programa_academico | type: CONSTRAINT --
@@ -296,9 +281,9 @@ COMMENT ON COLUMN evaluacion_inscripcion.entrevistador_entrevista.id IS 'Identif
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.entrevistador_entrevista.activo IS 'Indica el estado del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.entrevistador_entrevista.fecha_creacion IS 'Fecha de creaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.entrevistador_entrevista.fecha_creacion IS 'Fecha de creación del registro';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.entrevistador_entrevista.fecha_modificacion IS 'Fecha de la ˙ltima modificaciÛn del registro';
+COMMENT ON COLUMN evaluacion_inscripcion.entrevistador_entrevista.fecha_modificacion IS 'Fecha de la última modificación del registro';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.entrevistador_entrevista.nota_parcial IS 'Nota asignada por el entrevistador';
 -- ddl-end --
@@ -354,10 +339,10 @@ COMMENT ON COLUMN evaluacion_inscripcion.cupos_por_dependencia.activo IS 'Campo 
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.cupos_por_dependencia.fecha_creacion IS 'Campo para el registro de la fecha de creaciÛn del registor';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion_inscripcion.cupos_por_dependencia.fecha_modificacion IS 'Campo para el registro de la fecha de modificaciÛn del registro ';
+COMMENT ON COLUMN evaluacion_inscripcion.cupos_por_dependencia.fecha_modificacion IS 'Campo para el registro de la fecha de modificación del registro ';
 -- ddl-end --
 
 -- Permisos de usuario
-GRANT USAGE ON SCHEMA evaluacion_inscripcion TO test;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion_inscripcion TO test;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA evaluacion_inscripcion TO test;
+GRANT USAGE ON SCHEMA evaluacion_inscripcion TO desarrollooas;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion_inscripcion TO tedesarrollooasst;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA evaluacion_inscripcion TO desarrollooas;

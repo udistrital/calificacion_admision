@@ -75,6 +75,11 @@ func init() {
 				&controllers.TrArchivoIcfesController{},
 			),
 		),
+		beego.NSNamespace("/cupos_por_dependencia",
+			beego.NSInclude(
+				&controllers.CuposPorDependenciaController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }

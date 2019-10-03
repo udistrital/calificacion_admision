@@ -1602,7 +1602,7 @@
         }
     },
     "definitions": {
-        "42023.\u003cnil\u003e.EvaluacionInscripcion": {
+        "9941.\u003cnil\u003e.EvaluacionInscripcion": {
             "title": "EvaluacionInscripcion",
             "type": "object"
         },
@@ -1626,12 +1626,10 @@
                     "format": "int64"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -1654,16 +1652,14 @@
                     "$ref": "#/definitions/models.EstadoEntrevista"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaEntrevista": {
                     "type": "string",
                     "format": "datetime"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -1686,12 +1682,10 @@
                     "type": "boolean"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -1712,8 +1706,7 @@
             "type": "object",
             "properties": {
                 "Activo": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "boolean"
                 },
                 "EntrevistaId": {
                     "$ref": "#/definitions/models.Entrevista"
@@ -1722,12 +1715,10 @@
                     "$ref": "#/definitions/models.Entrevistador"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -1753,12 +1744,10 @@
                     "type": "string"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -1784,12 +1773,10 @@
                     "$ref": "#/definitions/models.Entrevista"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -1822,12 +1809,10 @@
                     "type": "string"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -1850,12 +1835,10 @@
                     "type": "boolean"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -1892,12 +1875,10 @@
                     "type": "string"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -1917,7 +1898,7 @@
             "type": "object",
             "properties": {
                 "EvaluacionesInscripcion": {
-                    "$ref": "#/definitions/42023.\u003cnil\u003e.EvaluacionInscripcion"
+                    "$ref": "#/definitions/9941.\u003cnil\u003e.EvaluacionInscripcion"
                 }
             }
         }
@@ -1962,6 +1943,10 @@
         {
             "name": "tr_archivo_icfes",
             "description": "operations for TrArchivoIcfesController\n"
+        },
+        {
+            "name": "cupos_por_dependencia",
+            "description": "CuposPorDependenciaController operations for CuposPorDependencia\n"
         }
     ]
 }

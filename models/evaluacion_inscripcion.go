@@ -5,20 +5,20 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type EvaluacionInscripcion struct {
 	Id                           int                         `orm:"column(id);pk;auto"`
 	InscripcionId                int                         `orm:"column(inscripcion_id)"`
 	NotaFinal                    float64                     `orm:"column(nota_final)"`
-	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk)"`
-	Activo                       bool                        `orm:"column(activo)"`
-	FechaCreacion                time.Time                   `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion            time.Time                   `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
+	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk);"`
 	EntrevistaId                 *Entrevista                 `orm:"column(entrevista_id);rel(fk);null"`
+	Activo                       bool                        `orm:"column(activo)"`
+	FechaCreacion                string                      `orm:"column(fecha_creacion);null"`
+	FechaModificacion            string                      `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *EvaluacionInscripcion) TableName() string {
@@ -32,6 +32,8 @@ func init() {
 // AddEvaluacionInscripcion insert a new EvaluacionInscripcion into database and returns
 // last inserted Id on success.
 func AddEvaluacionInscripcion(m *EvaluacionInscripcion) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -131,10 +133,11 @@ func GetAllEvaluacionInscripcion(query map[string]string, fields []string, sortb
 func UpdateEvaluacionInscripcionById(m *EvaluacionInscripcion) (err error) {
 	o := orm.NewOrm()
 	v := EvaluacionInscripcion{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "InscripcionId", "NotaFinal", "RequisitoProgramaAcademicoId", "EntrevistaId", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
