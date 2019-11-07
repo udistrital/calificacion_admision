@@ -344,5 +344,5 @@ COMMENT ON COLUMN evaluacion_inscripcion.cupos_por_dependencia.fecha_modificacio
 
 -- Permisos de usuario
 GRANT USAGE ON SCHEMA evaluacion_inscripcion TO desarrollooas;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion_inscripcion TO tedesarrollooasst;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion_inscripcion TO desarrollooas;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA evaluacion_inscripcion TO desarrollooas;
