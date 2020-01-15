@@ -1987,6 +1987,9 @@
                 "FechaModificacion": {
                     "type": "string"
                 },
+                "Formato": {
+                    "type": "string"
+                },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
