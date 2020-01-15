@@ -126,6 +126,121 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
+  /detalle_evaluacion/:
+    get:
+      tags:
+      - detalle_evaluacion
+      description: get DetalleEvaluacion
+      operationId: DetalleEvaluacionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DetalleEvaluacion'
+        "403":
+          description: ""
+    post:
+      tags:
+      - detalle_evaluacion
+      description: create DetalleEvaluacion
+      operationId: DetalleEvaluacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for DetalleEvaluacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.DetalleEvaluacion'
+      responses:
+        "201":
+          description: '{int} models.DetalleEvaluacion'
+        "403":
+          description: body is empty
+  /detalle_evaluacion/{id}:
+    get:
+      tags:
+      - detalle_evaluacion
+      description: get DetalleEvaluacion by id
+      operationId: DetalleEvaluacionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DetalleEvaluacion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - detalle_evaluacion
+      description: update the DetalleEvaluacion
+      operationId: DetalleEvaluacionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for DetalleEvaluacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.DetalleEvaluacion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DetalleEvaluacion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - detalle_evaluacion
+      description: delete the DetalleEvaluacion
+      operationId: DetalleEvaluacionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
   /entrevista/:
     get:
       tags:
@@ -1046,28 +1161,7 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
-  /tr_archivo_icfes/:
-    post:
-      tags:
-      - tr_archivo_icfes
-      description: create the TrArchivoIcfesController
-      operationId: TrArchivoIcfesController.PostTrArchivoIcfesController
-      parameters:
-      - in: body
-        name: body
-        description: body for TrArchivoIcfesController content
-        required: true
-        schema:
-          $ref: '#/definitions/models.TrArchivoIcfes'
-      responses:
-        "201":
-          description: '{int} models.TrArchivoIcfes'
-        "400":
-          description: the request contains incorrect syntax
 definitions:
-  9941.<nil>.EvaluacionInscripcion:
-    title: EvaluacionInscripcion
-    type: object
   models.CuposPorDependencia:
     title: CuposPorDependencia
     type: object
@@ -1093,6 +1187,33 @@ definitions:
       PeriodoId:
         type: integer
         format: int64
+  models.DetalleEvaluacion:
+    title: DetalleEvaluacion
+    type: object
+    properties:
+      Activo:
+        type: string
+        format: datetime
+      DetalleCalificacion:
+        type: string
+      EntrevistaId:
+        $ref: '#/definitions/models.Entrevista'
+      EvaluacionInscripcionId:
+        $ref: '#/definitions/models.EvaluacionInscripcion'
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      NotaRequisito:
+        type: number
+        format: double
+      RequisitoProgramaAcademicoId:
+        $ref: '#/definitions/models.RequisitoProgramaAcademico'
   models.Entrevista:
     title: Entrevista
     type: object
@@ -1183,8 +1304,6 @@ definitions:
     properties:
       Activo:
         type: boolean
-      EntrevistaId:
-        $ref: '#/definitions/models.Entrevista'
       FechaCreacion:
         type: string
       FechaModificacion:
@@ -1198,8 +1317,6 @@ definitions:
       NotaFinal:
         type: number
         format: double
-      RequisitoProgramaAcademicoId:
-        $ref: '#/definitions/models.RequisitoProgramaAcademico'
   models.Requisito:
     title: Requisito
     type: object
@@ -1238,7 +1355,9 @@ definitions:
       PeriodoId:
         type: integer
         format: int64
-      Porcentaje:
+      PorcentajeEspecifico:
+        type: string
+      PorcentajeGeneral:
         type: number
         format: double
       ProgramaAcademicoId:
@@ -1268,12 +1387,6 @@ definitions:
       NumeroOrden:
         type: number
         format: double
-  models.TrArchivoIcfes:
-    title: TrArchivoIcfes
-    type: object
-    properties:
-      EvaluacionesInscripcion:
-        $ref: '#/definitions/9941.<nil>.EvaluacionInscripcion'
 tags:
 - name: estado_entrevista
   description: |
@@ -1305,6 +1418,6 @@ tags:
 - name: tr_archivo_icfes
   description: |
     operations for TrArchivoIcfesController
-- name: cupos_por_dependencia
+- name: detalle_evaluacion
   description: |
-    CuposPorDependenciaController operations for CuposPorDependencia
+    DetalleEvaluacionController operations for DetalleEvaluacion
