@@ -1,6 +1,10 @@
 package main
 
 import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+
 	"github.com/astaxie/beego/migration"
 )
 
@@ -19,13 +23,19 @@ func init() {
 
 // Run the migrations
 func (m *EliminarRelacionesObligatoriasYLlavesForaneas_20200115_121031) Up() {
- m.SQL("ALTER TABLE evaluacion_inscripcion.evaluacion_inscripcion
- update CONSTRAINT fk_requisito_programa_academico_requisito ON UPDATE CASCADE ON DELETE SET NULL;") 
+	file, err := ioutil.ReadFile("../scripts/20200115_121031_eliminar_relaciones_obligatorias_y_llaves_foraneas.up.sql")
 
-}
+	if err != nil {
+		// handle error
+		fmt.Println(err)
+	}
 
-// Reverse the migrations
-func (m *EliminarRelacionesObligatoriasYLlavesForaneas_20200115_121031) Down() {
-	// use m.SQL("DROP TABLE ...") to reverse schema update
+	requests := strings.Split(string(file), ";")
+
+	for _, request := range requests {
+		fmt.Println(request)
+		m.SQL(request)
+		// do whatever you need with result and error
+	}
 
 }
