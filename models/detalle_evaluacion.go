@@ -5,58 +5,56 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
-	"github.com/udistrital/utils_oas/time_bogota"
 )
 
-type Requisito struct {
-	Id                int     `orm:"column(id);pk;auto"`
-	Nombre            string  `orm:"column(nombre)"`
-	Descripcion       string  `orm:"column(descripcion);null"`
-	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
-	Activo            bool    `orm:"column(activo)"`
-	NumeroOrden       float64 `orm:"column(numero_orden);null"`
-	Formato           string  `orm:"column(formato);type(json);null"`
-	FechaCreacion     string  `orm:"column(fecha_creacion);null"`
-	FechaModificacion string  `orm:"column(fecha_modificacion);null"`
+type DetalleEvaluacion struct {
+	Id                           int                         `orm:"column(id);pk;auto"`
+	EvaluacionInscripcionId      *EvaluacionInscripcion      `orm:"column(evaluacion_inscripcion_id);rel(fk)"`
+	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk)"`
+	NotaRequisito                float64                     `orm:"column(nota_requisito)"`
+	Activo                       time.Time                   `orm:"column(activo);type(timestamp without time zone)"`
+	FechaCreacion                time.Time                   `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion            time.Time                   `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	EntrevistaId                 *Entrevista                 `orm:"column(entrevista_id);rel(fk)"`
+	DetalleCalificacion          string                      `orm:"column(detalle_calificacion);type(json);null"`
 }
 
-func (t *Requisito) TableName() string {
-	return "requisito"
+func (t *DetalleEvaluacion) TableName() string {
+	return "detalle_evaluacion"
 }
 
 func init() {
-	orm.RegisterModel(new(Requisito))
+	orm.RegisterModel(new(DetalleEvaluacion))
 }
 
-// AddRequisito insert a new Requisito into database and returns
+// AddDetalleEvaluacion insert a new DetalleEvaluacion into database and returns
 // last inserted Id on success.
-func AddRequisito(m *Requisito) (id int64, err error) {
-	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
-	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
+func AddDetalleEvaluacion(m *DetalleEvaluacion) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetRequisitoById retrieves Requisito by Id. Returns error if
+// GetDetalleEvaluacionById retrieves DetalleEvaluacion by Id. Returns error if
 // Id doesn't exist
-func GetRequisitoById(id int) (v *Requisito, err error) {
+func GetDetalleEvaluacionById(id int) (v *DetalleEvaluacion, err error) {
 	o := orm.NewOrm()
-	v = &Requisito{Id: id}
+	v = &DetalleEvaluacion{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllRequisito retrieves all Requisito matches certain condition. Returns empty list if
+// GetAllDetalleEvaluacion retrieves all DetalleEvaluacion matches certain condition. Returns empty list if
 // no records exist
-func GetAllRequisito(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllDetalleEvaluacion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Requisito)).RelatedSel()
+	qs := o.QueryTable(new(DetalleEvaluacion)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -106,7 +104,7 @@ func GetAllRequisito(query map[string]string, fields []string, sortby []string, 
 		}
 	}
 
-	var l []Requisito
+	var l []DetalleEvaluacion
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -129,31 +127,30 @@ func GetAllRequisito(query map[string]string, fields []string, sortby []string, 
 	return nil, err
 }
 
-// UpdateRequisito updates Requisito by Id and returns error if
+// UpdateDetalleEvaluacion updates DetalleEvaluacion by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateRequisitoById(m *Requisito) (err error) {
+func UpdateDetalleEvaluacionById(m *DetalleEvaluacion) (err error) {
 	o := orm.NewOrm()
-	v := Requisito{Id: m.Id}
-	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
+	v := DetalleEvaluacion{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m, "Nombre", "Descripcion", "CodigoAbreviacion", "Activo", "NumeroOrden", "FechaModificacion"); err == nil {
+		if num, err = o.Update(m); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
 	return
 }
 
-// DeleteRequisito deletes Requisito by Id and returns error if
+// DeleteDetalleEvaluacion deletes DetalleEvaluacion by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteRequisito(id int) (err error) {
+func DeleteDetalleEvaluacion(id int) (err error) {
 	o := orm.NewOrm()
-	v := Requisito{Id: id}
+	v := DetalleEvaluacion{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&Requisito{Id: id}); err == nil {
+		if num, err = o.Delete(&DetalleEvaluacion{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

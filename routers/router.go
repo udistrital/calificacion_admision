@@ -75,9 +75,9 @@ func init() {
 				&controllers.TrArchivoIcfesController{},
 			),
 		),
-		beego.NSNamespace("/cupos_por_dependencia",
+		beego.NSNamespace("/detalle_evaluacion",
 			beego.NSInclude(
-				&controllers.CuposPorDependenciaController{},
+				&controllers.DetalleEvaluacionController{},
 			),
 		),
 	)

@@ -11,14 +11,15 @@ import (
 )
 
 type RequisitoProgramaAcademico struct {
-	Id                  int        `orm:"column(id);pk;auto"`
-	ProgramaAcademicoId int        `orm:"column(programa_academico_id)"`
-	PeriodoId           int        `orm:"column(periodo_id)"`
-	RequisitoId         *Requisito `orm:"column(requisito_id);rel(fk)"`
-	Porcentaje          float64    `orm:"column(porcentaje)"`
-	Activo              bool       `orm:"column(activo)"`
-	FechaCreacion       string     `orm:"column(fecha_creacion);null"`
-	FechaModificacion   string     `orm:"column(fecha_modificacion);null"`
+	Id                   int        `orm:"column(id);pk;auto"`
+	ProgramaAcademicoId  int        `orm:"column(programa_academico_id)"`
+	PeriodoId            int        `orm:"column(periodo_id)"`
+	RequisitoId          *Requisito `orm:"column(requisito_id);rel(fk)"`
+	PorcentajeGeneral    float64    `orm:"column(porcentaje_general)"`
+	PorcentajeEspecifico string     `orm:"column(porcentaje_especifico);type(json);null"`
+	Activo               bool       `orm:"column(activo)"`
+	FechaCreacion        string     `orm:"column(fecha_creacion);null"`
+	FechaModificacion    string     `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *RequisitoProgramaAcademico) TableName() string {
