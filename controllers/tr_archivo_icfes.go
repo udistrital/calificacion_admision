@@ -1,13 +1,10 @@
 package controllers
 
 import (
-	"encoding/json"
+
 	// "strconv"
 
-	"github.com/udistrital/evaluacion_inscripcion_crud/models"
-
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
 )
 
 // operations for TrArchivoIcfesController
@@ -25,23 +22,23 @@ func (c *TrArchivoIcfesController) URLMapping() {
 // @Success 201 {int} models.TrArchivoIcfes
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
-func (c *TrArchivoIcfesController) Post() {
-	var v models.TrArchivoIcfes
-	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.AddTransaccionArchivoIcfes(&v); err == nil {
-			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = v
-		} else {
-			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
-			c.Abort("400")
-		}
-	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("400")
-	}
-	c.ServeJSON()
-}
+// func (c *TrArchivoIcfesController) Post() {
+// 	var v models.TrArchivoIcfes
+// 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+// 		if err := models.AddTransaccionArchivoIcfes(&v); err == nil {
+// 			c.Ctx.Output.SetStatus(201)
+// 			c.Data["json"] = v
+// 		} else {
+// 			logs.Error(err)
+// 			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+// 			c.Data["system"] = err
+// 			c.Abort("400")
+// 		}
+// 	} else {
+// 		logs.Error(err)
+// 		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+// 		c.Data["system"] = err
+// 		c.Abort("400")
+// 	}
+// 	c.ServeJSON()
+// }

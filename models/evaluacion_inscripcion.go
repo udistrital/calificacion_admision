@@ -11,14 +11,12 @@ import (
 )
 
 type EvaluacionInscripcion struct {
-	Id                           int                         `orm:"column(id);pk;auto"`
-	InscripcionId                int                         `orm:"column(inscripcion_id)"`
-	NotaFinal                    float64                     `orm:"column(nota_final)"`
-	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk);"`
-	EntrevistaId                 *Entrevista                 `orm:"column(entrevista_id);rel(fk);null"`
-	Activo                       bool                        `orm:"column(activo)"`
-	FechaCreacion                string                      `orm:"column(fecha_creacion);null"`
-	FechaModificacion            string                      `orm:"column(fecha_modificacion);null"`
+	Id                int     `orm:"column(id);pk;auto"`
+	InscripcionId     int     `orm:"column(inscripcion_id)"`
+	NotaFinal         float64 `orm:"column(nota_final)"`
+	Activo            bool    `orm:"column(activo)"`
+	FechaCreacion     string  `orm:"column(fecha_creacion);null"`
+	FechaModificacion string  `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *EvaluacionInscripcion) TableName() string {
