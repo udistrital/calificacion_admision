@@ -1,5 +1,5 @@
 -- object: evaluacion_inscripcion | type: SCHEMA --
--- DROP SCHEMA IF EXISTS evaluacion_inscripcion CASCADE;
+DROP SCHEMA IF EXISTS evaluacion_inscripcion CASCADE;
 CREATE SCHEMA evaluacion_inscripcion;
 -- ddl-end --
 COMMENT ON SCHEMA evaluacion_inscripcion IS 'Esquema para almacenar cada uno de los criterios de admision';
