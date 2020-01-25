@@ -42,6 +42,7 @@ func (c *RequisitoProgramaAcademicoController) Post() {
 			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
 			c.Data["system"] = err
 			c.Abort("400")
+
 		}
 	} else {
 		logs.Error(err)
