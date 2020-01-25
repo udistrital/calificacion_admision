@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 	"strconv"
 	"strings"
 
@@ -33,6 +34,7 @@ func (c *RequisitoProgramaAcademicoController) URLMapping() {
 // @router / [post]
 func (c *RequisitoProgramaAcademicoController) Post() {
 	var v models.RequisitoProgramaAcademico
+	var alerta models.Alert
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if _, err := models.AddRequisitoProgramaAcademico(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
@@ -40,13 +42,23 @@ func (c *RequisitoProgramaAcademicoController) Post() {
 		} else {
 			logs.Error(err)
 			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
-			c.Abort("400")
+
+			if err.Error() == "pq: duplicate key value violates unique constraint \"uq_programa_requisito_periodo\"" {
+				fmt.Println("aqui if")
+				c.Data["system"] = err
+				c.Abort("409")
+				alerta.Type = "error"
+				alerta.Code = "409"
+				c.Data["json"] = "mdkdfkn"
+			} else {
+				c.Data["system"] = err
+				c.Abort("400")
+			}
 		}
 	} else {
 		logs.Error(err)
 		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
+		// c.Data["system"] = err
 		c.Abort("400")
 	}
 	c.ServeJSON()

@@ -37,6 +37,7 @@ func AddRequisitoProgramaAcademico(m *RequisitoProgramaAcademico) (id int64, err
 	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
+	fmt.Println(err)
 	return
 }
 
@@ -138,7 +139,7 @@ func UpdateRequisitoProgramaAcademicoById(m *RequisitoProgramaAcademico) (err er
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m, "ProgramaAcademicoId", "Porcentaje", "PeriodoId", "RequisitoId", "Activo", "FechaModificacion"); err == nil {
+		if num, err = o.Update(m, "ProgramaAcademicoId", "PorcentajeGeneral", "PorcentajeEspecifico", "PeriodoId", "RequisitoId", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
