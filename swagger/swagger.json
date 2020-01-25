@@ -1787,8 +1787,7 @@
             "type": "object",
             "properties": {
                 "Activo": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "boolean"
                 },
                 "DetalleCalificacion": {
                     "type": "string"
@@ -1800,12 +1799,10 @@
                     "$ref": "#/definitions/models.EvaluacionInscripcion"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
