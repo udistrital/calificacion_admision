@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type DetalleEvaluacion struct {
@@ -15,10 +15,10 @@ type DetalleEvaluacion struct {
 	EvaluacionInscripcionId      *EvaluacionInscripcion      `orm:"column(evaluacion_inscripcion_id);rel(fk)"`
 	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk)"`
 	NotaRequisito                float64                     `orm:"column(nota_requisito)"`
-	Activo                       time.Time                   `orm:"column(activo);type(timestamp without time zone)"`
-	FechaCreacion                time.Time                   `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion            time.Time                   `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	EntrevistaId                 *Entrevista                 `orm:"column(entrevista_id);rel(fk)"`
+	Activo                       bool                        `orm:"column(activo)"`
+	FechaCreacion                string                      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion            string                      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	EntrevistaId                 *Entrevista                 `orm:"column(entrevista_id);rel(fk);null"`
 	DetalleCalificacion          string                      `orm:"column(detalle_calificacion);type(json);null"`
 }
 
@@ -33,6 +33,8 @@ func init() {
 // AddDetalleEvaluacion insert a new DetalleEvaluacion into database and returns
 // last inserted Id on success.
 func AddDetalleEvaluacion(m *DetalleEvaluacion) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
