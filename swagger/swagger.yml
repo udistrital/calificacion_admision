@@ -1168,6 +1168,8 @@ definitions:
     properties:
       Activo:
         type: boolean
+      CuposEspeciales:
+        type: string
       CuposHabilitados:
         type: integer
         format: int64
