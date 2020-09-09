@@ -15,6 +15,7 @@ type CuposPorDependencia struct {
 	DependenciaId     int    `orm:"column(dependencia_id)"`
 	CuposHabilitados  int    `orm:"column(cupos_habilitados)"`
 	CuposOpcionados   int    `orm:"column(cupos_opcionados)"`
+	CuposEspeciales   string `orm:"column(cupos_especiales);type(json);null"`
 	PeriodoId         int    `orm:"column(periodo_id)"`
 	Activo            bool   `orm:"column(activo)"`
 	FechaCreacion     string `orm:"column(fecha_creacion);null"`
@@ -137,7 +138,7 @@ func UpdateCuposPorDependenciaById(m *CuposPorDependencia) (err error) {
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m, "DependenciaId", "PeriodoId", "CuposHabilitados", "CuposOpcionados", "Activo", "FechaModificacion"); err == nil {
+		if num, err = o.Update(m, "DependenciaId", "PeriodoId", "CuposHabilitados", "CuposOpcionados", "CuposEspeciales", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
