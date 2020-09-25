@@ -7,13 +7,16 @@ import (
 	"strings"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type Entrevistador struct {
-	Id                int  `orm:"column(id);pk"`
-	Ente              int  `orm:"column(ente)"`
-	ProgramaAcademico int  `orm:"column(programa_academico)"`
-	Activo            bool `orm:"column(activo)"`
+	Id                  int    `orm:"column(id);pk;auto"`
+	PersonaId           int    `orm:"column(persona_id)"`
+	ProgramaAcademicoId int    `orm:"column(programa_academico_id)"`
+	Activo              bool   `orm:"column(activo)"`
+	FechaCreacion       string `orm:"column(fecha_creacion);null"`
+	FechaModificacion   string `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *Entrevistador) TableName() string {
@@ -27,6 +30,8 @@ func init() {
 // AddEntrevistador insert a new Entrevistador into database and returns
 // last inserted Id on success.
 func AddEntrevistador(m *Entrevistador) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -48,7 +53,7 @@ func GetEntrevistadorById(id int) (v *Entrevistador, err error) {
 func GetAllEntrevistador(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Entrevistador))
+	qs := o.QueryTable(new(Entrevistador)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -126,10 +131,11 @@ func GetAllEntrevistador(query map[string]string, fields []string, sortby []stri
 func UpdateEntrevistadorById(m *Entrevistador) (err error) {
 	o := orm.NewOrm()
 	v := Entrevistador{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "PersonaId", "ProgramaAcademicoId", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}

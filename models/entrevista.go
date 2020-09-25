@@ -8,15 +8,18 @@ import (
 	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type Entrevista struct {
-	Id               int               `orm:"column(id);pk"`
-	Admision         int               `orm:"column(admision)"`
-	FechaEntrevista  time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
-	Nota             float64           `orm:"column(nota);null"`
-	EstadoEntrevista *EstadoEntrevista `orm:"column(estado_entrevista);rel(fk)"`
-	TipoEntrevista   *TipoEntrevista   `orm:"column(tipo_entrevista);rel(fk)"`
+	Id                 int               `orm:"column(id);pk;auto"`
+	InscripcionId      int               `orm:"column(inscripcion_id)"`
+	FechaEntrevista    time.Time         `orm:"column(fecha_entrevista);type(timestamp without time zone)"`
+	EstadoEntrevistaId *EstadoEntrevista `orm:"column(estado_entrevista_id);rel(fk)"`
+	TipoEntrevistaId   *TipoEntrevista   `orm:"column(tipo_entrevista_id);rel(fk)"`
+	Activo             bool              `orm:"column(activo)"`
+	FechaCreacion      string            `orm:"column(fecha_creacion);null"`
+	FechaModificacion  string            `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *Entrevista) TableName() string {
@@ -30,6 +33,8 @@ func init() {
 // AddEntrevista insert a new Entrevista into database and returns
 // last inserted Id on success.
 func AddEntrevista(m *Entrevista) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -51,7 +56,7 @@ func GetEntrevistaById(id int) (v *Entrevista, err error) {
 func GetAllEntrevista(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Entrevista))
+	qs := o.QueryTable(new(Entrevista)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -129,10 +134,11 @@ func GetAllEntrevista(query map[string]string, fields []string, sortby []string,
 func UpdateEntrevistaById(m *Entrevista) (err error) {
 	o := orm.NewOrm()
 	v := Entrevista{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "InscripcionId", "FechaEntrevista", "EstadoEntrevistaId", "TipoEntrevistaId", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}

@@ -1,0 +1,14 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "InscripcionId": { "type": "integer" },
+    "FechaEntrevista": { "type": "string" },
+    "EstadoEntrevistaId": { "type": "EstadoEntrevista" },
+    "TipoEntrevistaId": { "type": "TipoEntrevista" },
+    "Activo": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}

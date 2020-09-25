@@ -3,20 +3,20 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/calificacion_admision_crud/models"
+	"github.com/udistrital/evaluacion_inscripcion_crud/models"
 	"strconv"
 	"strings"
 
 	"github.com/astaxie/beego"
 )
 
-// CriterioController operations for Criterio
-type CriterioController struct {
+// DetalleEvaluacionController operations for DetalleEvaluacion
+type DetalleEvaluacionController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *CriterioController) URLMapping() {
+func (c *DetalleEvaluacionController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -26,15 +26,15 @@ func (c *CriterioController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description create Criterio
-// @Param	body		body 	models.Criterio	true		"body for Criterio content"
-// @Success 201 {int} models.Criterio
+// @Description create DetalleEvaluacion
+// @Param	body		body 	models.DetalleEvaluacion	true		"body for DetalleEvaluacion content"
+// @Success 201 {int} models.DetalleEvaluacion
 // @Failure 403 body is empty
 // @router / [post]
-func (c *CriterioController) Post() {
-	var v models.Criterio
+func (c *DetalleEvaluacionController) Post() {
+	var v models.DetalleEvaluacion
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddCriterio(&v); err == nil {
+		if _, err := models.AddDetalleEvaluacion(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -48,15 +48,15 @@ func (c *CriterioController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description get Criterio by id
+// @Description get DetalleEvaluacion by id
 // @Param	id		path 	string	true		"The key for staticblock"
-// @Success 200 {object} models.Criterio
+// @Success 200 {object} models.DetalleEvaluacion
 // @Failure 403 :id is empty
 // @router /:id [get]
-func (c *CriterioController) GetOne() {
+func (c *DetalleEvaluacionController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetCriterioById(id)
+	v, err := models.GetDetalleEvaluacionById(id)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -67,17 +67,17 @@ func (c *CriterioController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description get Criterio
+// @Description get DetalleEvaluacion
 // @Param	query	query	string	false	"Filter. e.g. col1:v1,col2:v2 ..."
 // @Param	fields	query	string	false	"Fields returned. e.g. col1,col2 ..."
 // @Param	sortby	query	string	false	"Sorted-by fields. e.g. col1,col2 ..."
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.Criterio
+// @Success 200 {object} models.DetalleEvaluacion
 // @Failure 403
 // @router / [get]
-func (c *CriterioController) GetAll() {
+func (c *DetalleEvaluacionController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -119,7 +119,7 @@ func (c *CriterioController) GetAll() {
 		}
 	}
 
-	l, err := models.GetAllCriterio(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllDetalleEvaluacion(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -130,18 +130,18 @@ func (c *CriterioController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description update the Criterio
+// @Description update the DetalleEvaluacion
 // @Param	id		path 	string	true		"The id you want to update"
-// @Param	body		body 	models.Criterio	true		"body for Criterio content"
-// @Success 200 {object} models.Criterio
+// @Param	body		body 	models.DetalleEvaluacion	true		"body for DetalleEvaluacion content"
+// @Success 200 {object} models.DetalleEvaluacion
 // @Failure 403 :id is not int
 // @router /:id [put]
-func (c *CriterioController) Put() {
+func (c *DetalleEvaluacionController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.Criterio{Id: id}
+	v := models.DetalleEvaluacion{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdateCriterioById(&v); err == nil {
+		if err := models.UpdateDetalleEvaluacionById(&v); err == nil {
 			c.Data["json"] = "OK"
 		} else {
 			c.Data["json"] = err.Error()
@@ -154,15 +154,15 @@ func (c *CriterioController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description delete the Criterio
+// @Description delete the DetalleEvaluacion
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 403 id is empty
 // @router /:id [delete]
-func (c *CriterioController) Delete() {
+func (c *DetalleEvaluacionController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeleteCriterio(id); err == nil {
+	if err := models.DeleteDetalleEvaluacion(id); err == nil {
 		c.Data["json"] = "OK"
 	} else {
 		c.Data["json"] = err.Error()

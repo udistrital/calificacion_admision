@@ -1,0 +1,14 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "DependenciaId": { "type": "integer" },
+    "PeriodoId": { "type": "integer" },
+    "CuposHabilitados": { "type": "integer" },
+    "CuposOpcionados": { "type": "integer" },
+    "Activo": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}
