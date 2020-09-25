@@ -1,35 +1,93 @@
-# evaluacion_inscripcion_crud
-API para la gestión de las calificaciones del proceso de inscripción y admisión
+# evaluación_inscripcion_crud
+El API provee la gestion de las diferentes sistemas de evaluación para los proceso del Sistema de Gestión Académica
 
-Integración con
 
- - `CI`
- - `AWS Lambda - S3`
- - `Drone 1.x`
- - `evaluacion_inscripcion_crud master/develop`
+## Especificaciones Técnicas
 
-## Requirements
-Go version >= 1.8.
+### Tecnologías Implementadas y Versiones
+* [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
+* [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
+* [Docker](https://docs.docker.com/engine/install/ubuntu/)
+* [Docker Compose](https://docs.docker.com/compose/)
 
-## Preparación
-Para usar el API, usar el comando:
+### Variables de Entorno
+```shell
+EVALUACION_INSCRIPCION_CRUD__PGDB=[nombre de la base de datos]
+EVALUACION_INSCRIPCION_CRUD__PGPASS=[password del usuario]
+EVALUACION_INSCRIPCION_CRUD__PGURLS=[direccion de la base de datos]
+EVALUACION_INSCRIPCION_CRUD__PGUSER=[usuario con acceso a la base de datos]
+EVALUACION_INSCRIPCION_CRUD__PGSCHEMA=[esquema donde se ubican las tablas]
+API_PORT=[puerto de ejecucion] bee run
+```
 
- - `go get github.com/udistrital/evaluacion_inscripcion_crud`
+**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con EVALUACION_INSCRIPCION_CRUD__...
 
-## Ejecución
-Definir los valores de las siguientes variables de entorno:
+### Ejecución del Proyecto
+```shell
+#1. Obtener el repositorio con Go
+go get github.com/udistrital/evaluación_inscripcion_crud
 
- - `EVALUACION_INSCRIPCION_HTTP_PORT`: Puerto asignado para la ejecución del API
- - `EVALUACION_INSCRIPCION_CRUD__PGUSER`: Usuario de la base de datos
- - `EVALUACION_INSCRIPCION_CRUD__PGPASS`: Clave del usuario para la conexión a la base de datos  
- - `EVALUACION_INSCRIPCION_CRUD__PGURLS`: Host de conexión
- - `EVALUACION_INSCRIPCION_CRUD__PGDB`: Nombre de la base de datos
- - `EVALUACION_INSCRIPCION_CRUD__SCHEMA`: Esquema a utilizar en la base de datos
+#2. Moverse a la carpeta del repositorio
+cd $GOPATH/src/github.com/udistrital/evaluación_inscripcion_crud
 
-Ejemplo: API_PORT=8083 EVALUACION_INSCRIPCION_CRUD__PGUSER=userPG EVALUACION_INSCRIPCION_CRUD__PGPASS=passwordPG EVALUACION_INSCRIPCION_CRUD__PGURLS=localhost EVALUACION_INSCRIPCION_CRUD__PGDB=academica EVALUACION_INSCRIPCION_CRUD__SCHEMA=evaluacion_inscripcion bee run
+# 3. Moverse a la rama **develop**
+git pull origin develop && git checkout develop
 
-## Ejemplo
-EVALUACION_INSCRIPCION_HTTP_PORT=9016 EVALUACION_INSCRIPCION_CRUD__PGUSER=user EVALUACION_INSCRIPCION_CRUD__PGPASS=password EVALUACION_INSCRIPCION_CRUD__PGURLS=localhost EVALUACION_INSCRIPCION_CRUD__PGDB=bd EVALUACION_INSCRIPCION_CRUD__SCHEMA=schema_new bee run
+# 4. alimentar todas las variables de entorno que utiliza el proyecto.
+API_PORT=8080 EVALUACION_INSCRIPCION_CRUD_DB_HOST=127.0.0.1:27017 EVALUACION_INSCRIPCION_CRUD_SOME_VARIABLE=some_value bee run
+```
 
-## Modelo BD
-![modelo_evaluacion_inscripcion_crud](https://user-images.githubusercontent.com/14035745/66088107-8b0b8880-e53f-11e9-99e3-a972a986c817.png)
+### Ejecución Dockerfile
+```shell
+# docker build --tag=evaluación_inscripcion_crud . --no-cache
+# docker run -p 80:80 evaluación_inscripcion_crud
+```
+
+### Ejecución docker-compose
+```shell
+#1. Clonar el repositorio
+git clone -b develop https://github.com/udistrital/evaluación_inscripcion_crud
+
+#2. Moverse a la carpeta del repositorio
+cd evaluación_inscripcion_crud
+
+#3. Crear un fichero con el nombre **custom.env**
+# En windows ejecutar:* ` ni custom.env`
+touch custom.env
+
+#4. Crear la network **back_end** para los contenedores
+docker network create back_end
+
+#5. Ejecutar el compose del contenedor
+docker-compose up --build
+
+#6. Comprobar que los contenedores estén en ejecución
+docker ps
+```
+
+### Ejecución Pruebas
+
+Pruebas unitarias
+```shell
+# En Proceso
+```
+## Estado CI
+
+| Develop | Relese 0.0.1 | Master |
+| -- | -- | -- |
+| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/evaluación_inscripcion_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/evaluación_inscripcion_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/evaluación_inscripcion_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/evaluación_inscripcion_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/evaluación_inscripcion_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/evaluación_inscripcion_crud) |
+
+
+## Modelo de Datos
+[Modelo de Datos API CRUD Evaluación Inscripción](https://user-images.githubusercontent.com/14035745/66088107-8b0b8880-e53f-11e9-99e3-a972a986c817.png)
+
+
+## Licencia
+
+This file is part of produccion_academica_crud.
+
+produccion_academica_crud is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+produccion_academica_crud is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with novedades_crud. If not, see https://www.gnu.org/licenses/.
