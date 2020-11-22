@@ -15,8 +15,8 @@ type EvaluacionInscripcion struct {
 	InscripcionId     int     `orm:"column(inscripcion_id)"`
 	NotaFinal         float64 `orm:"column(nota_final)"`
 	Activo            bool    `orm:"column(activo)"`
-	FechaCreacion     string  `orm:"column(fecha_creacion);null"`
-	FechaModificacion string  `orm:"column(fecha_modificacion);null"`
+	FechaCreacion     string  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *EvaluacionInscripcion) TableName() string {

@@ -134,6 +134,7 @@ func GetAllDetalleEvaluacion(query map[string]string, fields []string, sortby []
 func UpdateDetalleEvaluacionById(m *DetalleEvaluacion) (err error) {
 	o := orm.NewOrm()
 	v := DetalleEvaluacion{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64

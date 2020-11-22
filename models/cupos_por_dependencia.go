@@ -18,8 +18,8 @@ type CuposPorDependencia struct {
 	CuposEspeciales   string `orm:"column(cupos_especiales);type(json);null"`
 	PeriodoId         int    `orm:"column(periodo_id)"`
 	Activo            bool   `orm:"column(activo)"`
-	FechaCreacion     string `orm:"column(fecha_creacion);null"`
-	FechaModificacion string `orm:"column(fecha_modificacion);null"`
+	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *CuposPorDependencia) TableName() string {
