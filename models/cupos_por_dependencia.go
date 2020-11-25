@@ -11,7 +11,7 @@ import (
 )
 
 type CuposPorDependencia struct {
-	Id                int    `orm:"column(id);pk"`
+	Id                int    `orm:"column(id);pk;auto"`
 	DependenciaId     int    `orm:"column(dependencia_id)"`
 	PeriodoId         int    `orm:"column(periodo_id)"`
 	CuposHabilitados  int    `orm:"column(cupos_habilitados)"`
