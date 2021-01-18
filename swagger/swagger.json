@@ -1987,9 +1987,6 @@
                 "FechaModificacion": {
                     "type": "string"
                 },
-                "Formato": {
-                    "type": "string"
-                },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
@@ -2000,6 +1997,9 @@
                 "NumeroOrden": {
                     "type": "number",
                     "format": "double"
+                },
+                "RequisitoId": {
+                    "$ref": "#/definitions/models.Requisito"
                 }
             }
         },
