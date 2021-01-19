@@ -1338,7 +1338,7 @@ definitions:
       NumeroOrden:
         type: number
         format: double
-      RequisitoId:
+      RequisitoPadreId:
         $ref: '#/definitions/models.Requisito'
   models.RequisitoProgramaAcademico:
     title: RequisitoProgramaAcademico
