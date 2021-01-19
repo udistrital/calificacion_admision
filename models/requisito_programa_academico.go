@@ -18,8 +18,8 @@ type RequisitoProgramaAcademico struct {
 	PorcentajeGeneral    float64    `orm:"column(porcentaje_general)"`
 	PorcentajeEspecifico string     `orm:"column(porcentaje_especifico);type(json);null"`
 	Activo               bool       `orm:"column(activo)"`
-	FechaCreacion        string     `orm:"column(fecha_creacion);null"`
-	FechaModificacion    string     `orm:"column(fecha_modificacion);null"`
+	FechaCreacion        string     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion    string     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *RequisitoProgramaAcademico) TableName() string {

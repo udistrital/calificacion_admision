@@ -11,15 +11,15 @@ import (
 )
 
 type Requisito struct {
-	Id                int     `orm:"column(id);pk;auto"`
-	Nombre            string  `orm:"column(nombre)"`
-	Descripcion       string  `orm:"column(descripcion);null"`
-	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
-	Activo            bool    `orm:"column(activo)"`
-	NumeroOrden       float64 `orm:"column(numero_orden);null"`
-	Formato           string  `orm:"column(formato);type(json);null"`
-	FechaCreacion     string  `orm:"column(fecha_creacion);null"`
-	FechaModificacion string  `orm:"column(fecha_modificacion);null"`
+	Id                int        `orm:"column(id);pk;auto"`
+	Nombre            string     `orm:"column(nombre)"`
+	Descripcion       string     `orm:"column(descripcion);null"`
+	CodigoAbreviacion string     `orm:"column(codigo_abreviacion);null"`
+	Activo            bool       `orm:"column(activo)"`
+	NumeroOrden       float64    `orm:"column(numero_orden);null"`
+	FechaCreacion     string     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	RequisitoPadreId  *Requisito `orm:"column(requisito_padre_id);rel(fk);null"`
 }
 
 func (t *Requisito) TableName() string {

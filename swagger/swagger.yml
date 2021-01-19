@@ -1330,8 +1330,6 @@ definitions:
         type: string
       FechaModificacion:
         type: string
-      Formato:
-        type: string
       Id:
         type: integer
         format: int64
@@ -1340,6 +1338,8 @@ definitions:
       NumeroOrden:
         type: number
         format: double
+      RequisitoId:
+        $ref: '#/definitions/models.Requisito'
   models.RequisitoProgramaAcademico:
     title: RequisitoProgramaAcademico
     type: object

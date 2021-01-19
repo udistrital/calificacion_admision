@@ -17,8 +17,8 @@ type EstadoEntrevista struct {
 	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
 	Activo            bool    `orm:"column(activo)"`
 	NumeroOrden       float64 `orm:"column(numero_orden);null"`
-	FechaCreacion     string  `orm:"column(fecha_creacion);null"`
-	FechaModificacion string  `orm:"column(fecha_modificacion);null"`
+	FechaCreacion     string  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *EstadoEntrevista) TableName() string {

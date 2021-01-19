@@ -16,8 +16,8 @@ type EntrevistadorEntrevista struct {
 	NotaParcial       float64        `orm:"column(nota_parcial)"`
 	EntrevistaId      *Entrevista    `orm:"column(entrevista_id);rel(fk)"`
 	Activo            bool           `orm:"column(activo)"`
-	FechaCreacion     string         `orm:"column(fecha_creacion);null"`
-	FechaModificacion string         `orm:"column(fecha_modificacion);null"`
+	FechaCreacion     string         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *EntrevistadorEntrevista) TableName() string {
