@@ -15,6 +15,7 @@ type Requisito struct {
 	Nombre            string     `orm:"column(nombre)"`
 	Descripcion       string     `orm:"column(descripcion);null"`
 	CodigoAbreviacion string     `orm:"column(codigo_abreviacion);null"`
+	Asistencia        bool       `orm:"column(asistencia)"`
 	Activo            bool       `orm:"column(activo)"`
 	NumeroOrden       float64    `orm:"column(numero_orden);null"`
 	FechaCreacion     string     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
@@ -138,7 +139,7 @@ func UpdateRequisitoById(m *Requisito) (err error) {
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m, "Nombre", "Descripcion", "CodigoAbreviacion", "Activo", "NumeroOrden", "FechaModificacion"); err == nil {
+		if num, err = o.Update(m, "Nombre", "Descripcion", "CodigoAbreviacion", "Activo", "NumeroOrden", "FechaModificacion", "Asistencia"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}

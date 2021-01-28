@@ -1322,6 +1322,8 @@ definitions:
     properties:
       Activo:
         type: boolean
+      Asistencia:
+        type: boolean
       CodigoAbreviacion:
         type: string
       Descripcion:
