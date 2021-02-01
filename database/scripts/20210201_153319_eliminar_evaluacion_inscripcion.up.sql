@@ -1,0 +1,3 @@
+ALTER TABLE evaluacion_inscripcion.detalle_evaluacion DROP CONSTRAINT IF EXISTS fk_detalle_evaluacion_evaluacion_inscripcion CASCADE;
+ALTER TABLE evaluacion_inscripcion.detalle_evaluacion RENAME COLUMN evaluacion_inscripcion_id TO inscripcion_id;
+DROP TABLE IF EXISTS evaluacion_inscripcion.evaluacion_inscripcion CASCADE;

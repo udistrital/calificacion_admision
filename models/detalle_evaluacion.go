@@ -12,7 +12,7 @@ import (
 
 type DetalleEvaluacion struct {
 	Id                           int                         `orm:"column(id);pk;auto"`
-	EvaluacionInscripcionId      *EvaluacionInscripcion      `orm:"column(evaluacion_inscripcion_id);rel(fk)"`
+	InscripcionId                int                         `orm:"column(inscripcion_id)"`
 	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk)"`
 	NotaRequisito                float64                     `orm:"column(nota_requisito)"`
 	Activo                       bool                        `orm:"column(activo)"`
