@@ -34,12 +34,6 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/evaluacion_inscripcion",
-			beego.NSInclude(
-				&controllers.EvaluacionInscripcionController{},
-			),
-		),
-
 		beego.NSNamespace("/entrevistador_entrevista",
 			beego.NSInclude(
 				&controllers.EntrevistadorEntrevistaController{},
