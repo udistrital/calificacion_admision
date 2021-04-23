@@ -18,8 +18,8 @@ type Entrevista struct {
 	EstadoEntrevistaId *EstadoEntrevista `orm:"column(estado_entrevista_id);rel(fk)"`
 	TipoEntrevistaId   *TipoEntrevista   `orm:"column(tipo_entrevista_id);rel(fk)"`
 	Activo             bool              `orm:"column(activo)"`
-	FechaCreacion      string            `orm:"column(fecha_creacion);null"`
-	FechaModificacion  string            `orm:"column(fecha_modificacion);null"`
+	FechaCreacion      string            `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion  string            `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *Entrevista) TableName() string {

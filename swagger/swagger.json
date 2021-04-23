@@ -1053,179 +1053,6 @@
                 }
             }
         },
-        "/evaluacion_inscripcion/": {
-            "get": {
-                "tags": [
-                    "evaluacion_inscripcion"
-                ],
-                "description": "get EvaluacionInscripcion",
-                "operationId": "EvaluacionInscripcionController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.EvaluacionInscripcion"
-                        }
-                    },
-                    "404": {
-                        "description": "not found resource"
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "evaluacion_inscripcion"
-                ],
-                "description": "create EvaluacionInscripcion",
-                "operationId": "EvaluacionInscripcionController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for EvaluacionInscripcion content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.EvaluacionInscripcion"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.EvaluacionInscripcion"
-                    },
-                    "400": {
-                        "description": "the request contains incorrect syntax"
-                    }
-                }
-            }
-        },
-        "/evaluacion_inscripcion/{id}": {
-            "get": {
-                "tags": [
-                    "evaluacion_inscripcion"
-                ],
-                "description": "get EvaluacionInscripcion by id",
-                "operationId": "EvaluacionInscripcionController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.EvaluacionInscripcion"
-                        }
-                    },
-                    "404": {
-                        "description": "not found resource"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "evaluacion_inscripcion"
-                ],
-                "description": "update the EvaluacionInscripcion",
-                "operationId": "EvaluacionInscripcionController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for EvaluacionInscripcion content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.EvaluacionInscripcion"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.EvaluacionInscripcion"
-                        }
-                    },
-                    "400": {
-                        "description": "the request contains incorrect syntax"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "evaluacion_inscripcion"
-                ],
-                "description": "delete the EvaluacionInscripcion",
-                "operationId": "EvaluacionInscripcionController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "404": {
-                        "description": "not found resource"
-                    }
-                }
-            }
-        },
         "/requisito/": {
             "get": {
                 "tags": [
@@ -1798,9 +1625,6 @@
                 "EntrevistaId": {
                     "$ref": "#/definitions/models.Entrevista"
                 },
-                "EvaluacionInscripcionId": {
-                    "$ref": "#/definitions/models.EvaluacionInscripcion"
-                },
                 "FechaCreacion": {
                     "type": "string"
                 },
@@ -1808,6 +1632,10 @@
                     "type": "string"
                 },
                 "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "InscripcionId": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1941,38 +1769,14 @@
                 }
             }
         },
-        "models.EvaluacionInscripcion": {
-            "title": "EvaluacionInscripcion",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "InscripcionId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "NotaFinal": {
-                    "type": "number",
-                    "format": "double"
-                }
-            }
-        },
         "models.Requisito": {
             "title": "Requisito",
             "type": "object",
             "properties": {
                 "Activo": {
+                    "type": "boolean"
+                },
+                "Asistencia": {
                     "type": "boolean"
                 },
                 "CodigoAbreviacion": {
@@ -1987,9 +1791,6 @@
                 "FechaModificacion": {
                     "type": "string"
                 },
-                "Formato": {
-                    "type": "string"
-                },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
@@ -2000,6 +1801,9 @@
                 "NumeroOrden": {
                     "type": "number",
                     "format": "double"
+                },
+                "RequisitoPadreId": {
+                    "$ref": "#/definitions/models.Requisito"
                 }
             }
         },
@@ -2085,10 +1889,6 @@
         {
             "name": "tipo_entrevista",
             "description": "TipoEntrevistaController operations for TipoEntrevista\n"
-        },
-        {
-            "name": "evaluacion_inscripcion",
-            "description": "EvaluacionInscripcionController operations for EvaluacionInscripcion\n"
         },
         {
             "name": "entrevistador_entrevista",

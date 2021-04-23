@@ -12,7 +12,7 @@ import (
 
 type DetalleEvaluacion struct {
 	Id                           int                         `orm:"column(id);pk;auto"`
-	EvaluacionInscripcionId      *EvaluacionInscripcion      `orm:"column(evaluacion_inscripcion_id);rel(fk)"`
+	InscripcionId                int                         `orm:"column(inscripcion_id)"`
 	RequisitoProgramaAcademicoId *RequisitoProgramaAcademico `orm:"column(requisito_programa_academico_id);rel(fk)"`
 	NotaRequisito                float64                     `orm:"column(nota_requisito)"`
 	Activo                       bool                        `orm:"column(activo)"`
@@ -134,6 +134,7 @@ func GetAllDetalleEvaluacion(query map[string]string, fields []string, sortby []
 func UpdateDetalleEvaluacionById(m *DetalleEvaluacion) (err error) {
 	o := orm.NewOrm()
 	v := DetalleEvaluacion{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
