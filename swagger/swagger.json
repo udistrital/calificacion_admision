@@ -1399,6 +1399,179 @@
                 }
             }
         },
+        "/tags_por_dependencia/": {
+            "get": {
+                "tags": [
+                    "tags_por_dependencia"
+                ],
+                "description": "get TagsPorDependencia",
+                "operationId": "TagsPorDependenciaController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TagsPorDependencia"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "tags_por_dependencia"
+                ],
+                "description": "create TagsPorDependencia",
+                "operationId": "TagsPorDependenciaController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TagsPorDependencia content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TagsPorDependencia"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TagsPorDependencia"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/tags_por_dependencia/{id}": {
+            "get": {
+                "tags": [
+                    "tags_por_dependencia"
+                ],
+                "description": "get TagsPorDependencia by id",
+                "operationId": "TagsPorDependenciaController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TagsPorDependencia"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "tags_por_dependencia"
+                ],
+                "description": "update the TagsPorDependencia",
+                "operationId": "TagsPorDependenciaController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TagsPorDependencia content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TagsPorDependencia"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TagsPorDependencia"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "tags_por_dependencia"
+                ],
+                "description": "delete the TagsPorDependencia",
+                "operationId": "TagsPorDependenciaController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
         "/tipo_entrevista/": {
             "get": {
                 "tags": [
@@ -1844,6 +2017,36 @@
                 }
             }
         },
+        "models.TagsPorDependencia": {
+            "title": "TagsPorDependencia",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "DependenciaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ListaTags": {
+                    "type": "string"
+                },
+                "PeriodoId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
         "models.TipoEntrevista": {
             "title": "TipoEntrevista",
             "type": "object",
@@ -1917,6 +2120,10 @@
         {
             "name": "detalle_evaluacion",
             "description": "DetalleEvaluacionController operations for DetalleEvaluacion\n"
+        },
+        {
+            "name": "tags_por_dependencia",
+            "description": "TagsPorDependenciaController operations for TagsPorDependencia\n"
         }
     ]
 }

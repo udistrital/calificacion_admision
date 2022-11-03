@@ -81,7 +81,8 @@ Pruebas unitarias
 
 
 ## Modelo de Datos
-[Modelo de Datos API CRUD Evaluación Inscripción](https://user-images.githubusercontent.com/11802554/106519727-bbec2c80-64a9-11eb-9b9b-fff2c0df868d.png)
+![Modelo de Datos API CRUD Evaluación Inscripción](sql/evaluacion_inscripcion_V7.png)
+[Modelo de Datos API CRUD Evaluación Inscripción](sql/evaluacion_inscripcion_V7.png)
 
 
 ## Licencia
