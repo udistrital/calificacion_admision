@@ -2044,6 +2044,10 @@
                 "PeriodoId": {
                     "type": "integer",
                     "format": "int64"
+                },
+                "TipoInscripcionId": {
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         },

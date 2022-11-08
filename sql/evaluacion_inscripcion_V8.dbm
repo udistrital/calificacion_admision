@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.4" use-changelog="false" last-position="176,0" last-zoom="0.9" max-obj-count="12"
+<dbmodel pgmodeler-ver="0.9.4" use-changelog="false" last-position="249,0" last-zoom="0.9" max-obj-count="12"
 	 default-owner="postgres"
 	 layers="Default layer"
 	 active-layers="0"
@@ -541,16 +541,16 @@ detalle_calificacion:
 	upd-action="CASCADE"
 	del-action="RESTRICT">
 	<line>
-		<position x="336.385" y="250.483"/>
-	<position x="336.385" y="137"/>
-	<position x="215.59" y="137"/>
+		<position x="324.385" y="250.483"/>
+	<position x="324.385" y="149"/>
+	<position x="215.59" y="149"/>
 	</line>
 	<label ref-type="name-label">
 		<position x="-10.6561" y="-3.15"/>
 	</label>
 </relationship>
 
-<table name="tags_por_dependencia" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+<table name="tags_por_dependencia" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
 	<schema name="evaluacion_inscripcion"/>
 	<role name="postgres"/>
 	<comment><![CDATA[Tabla que almacena en campo json los tags de inscripción requeridos para cada programa en particular y en un periodo específico.]]></comment>
@@ -582,6 +582,10 @@ detalle_calificacion:
 	<column name="fecha_modificacion" not-null="true">
 		<type name="timestamp" length="0"/>
 		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<column name="tipo_inscripcion_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Id tipo inscripcion a la cual se relacionan los tags]]></comment>
 	</column>
 	<constraint name="pk_tags_por_programa" type="pk-constr" table="evaluacion_inscripcion.tags_por_dependencia">
 		<columns names="id" ref-type="src-columns"/>

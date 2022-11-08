@@ -375,6 +375,7 @@ CREATE TABLE evaluacion_inscripcion.tags_por_dependencia (
 	activo boolean NOT NULL,
 	fecha_creacion timestamp NOT NULL,
 	fecha_modificacion timestamp NOT NULL,
+	tipo_inscripcion_id integer NOT NULL,
 	CONSTRAINT pk_tags_por_programa PRIMARY KEY (id)
 );
 -- ddl-end --
@@ -393,6 +394,8 @@ COMMENT ON COLUMN evaluacion_inscripcion.tags_por_dependencia.activo IS E'Indica
 COMMENT ON COLUMN evaluacion_inscripcion.tags_por_dependencia.fecha_creacion IS E'Fecha de creación del registro';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.tags_por_dependencia.fecha_modificacion IS E'Fecha de la última modificación del registro';
+-- ddl-end --
+COMMENT ON COLUMN evaluacion_inscripcion.tags_por_dependencia.tipo_inscripcion_id IS E'Id tipo inscripcion a la cual se relacionan los tags';
 -- ddl-end --
 ALTER TABLE evaluacion_inscripcion.tags_por_dependencia OWNER TO postgres;
 -- ddl-end --
