@@ -81,8 +81,8 @@ Pruebas unitarias
 
 
 ## Modelo de Datos
-![Modelo de Datos API CRUD Evaluación Inscripción](sql/evaluacion_inscripcion_V7.png)
-[Modelo de Datos API CRUD Evaluación Inscripción](sql/evaluacion_inscripcion_V7.png)
+![Modelo de Datos API CRUD Evaluación Inscripción](sql/evaluacion_inscripcion_V8.png)
+[Modelo de Datos API CRUD Evaluación Inscripción](sql/evaluacion_inscripcion_V8.png)
 
 
 ## Licencia

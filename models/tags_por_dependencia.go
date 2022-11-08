@@ -11,8 +11,9 @@ import (
 
 type TagsPorDependencia struct {
 	Id                int    `orm:"column(id);pk;auto"`
-	DependenciaId     int    `orm:"column(dependencia_id);"`
+	DependenciaId     int    `orm:"column(dependencia_id)"`
 	PeriodoId         int    `orm:"column(periodo_id)"`
+	TipoInscripcionId int    `orm:"column(tipo_inscripcion_id)"`
 	ListaTags         string `orm:"column(lista_tags);type(json)"`
 	Activo            bool   `orm:"column(activo)"`
 	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
