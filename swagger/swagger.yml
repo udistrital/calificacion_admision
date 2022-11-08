@@ -1361,6 +1361,9 @@ definitions:
       PeriodoId:
         type: integer
         format: int64
+      TipoInscripcionId:
+        type: integer
+        format: int64
   models.TipoEntrevista:
     title: TipoEntrevista
     type: object
