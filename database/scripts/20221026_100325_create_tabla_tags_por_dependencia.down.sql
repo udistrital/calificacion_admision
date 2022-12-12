@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS evaluacion_inscripcion.tags_por_dependencia;

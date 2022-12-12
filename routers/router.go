@@ -74,6 +74,12 @@ func init() {
 				&controllers.DetalleEvaluacionController{},
 			),
 		),
+
+		beego.NSNamespace("/tags_por_dependencia",
+			beego.NSInclude(
+				&controllers.TagsPorDependenciaController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }

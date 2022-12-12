@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.4" use-changelog="false" last-position="249,0" last-zoom="0.9" max-obj-count="12"
+	 default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#6d061e"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="evaluacion_admision" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="evaluacion_inscripcion" layers="0" rect-visible="true" fill-color="#e1e1e1">
+	<comment><![CDATA[Esquema para almacenar cada uno de los criterios de admision]]></comment>
+</schema>
+
+<table name="requisito" layers="0" collapse-mode="2" max-obj-count="12" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<comment><![CDATA[Tabla que almacena los diferentes criterios de admisión que se pueden aplicar]]></comment>
+	<position x="20" y="160"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="50"/>
+		<comment><![CDATA[Nombre del criterio de admisión]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="varchar" length="250"/>
+		<comment><![CDATA[Descripción del criterio de admisión]]></comment>
+	</column>
+	<column name="asistencia">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el aspirante debe cumplir el requisito de manera presencial]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="varchar" length="20"/>
+		<comment><![CDATA[Código de abreviación del criterio de admisión]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Flag que indica si el criterio de admisión esta activo o no]]></comment>
+	</column>
+	<column name="numero_orden">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[Número de orden en el que se deben mostrar los criterios de admisión]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<constraint name="pk_requisito" type="pk-constr" table="evaluacion_inscripcion.requisito">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="estado_entrevista" layers="0" collapse-mode="1" max-obj-count="9" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<comment><![CDATA[Tabla que almacena los diferentes  estados que puede tener una entrevista]]></comment>
+	<position x="1500" y="680"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="50"/>
+		<comment><![CDATA[Nombre del estado de la entrevista]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="varchar" length="250"/>
+		<comment><![CDATA[Descripción del estado de entrevista.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="varchar" length="20"/>
+		<comment><![CDATA[Código de abreviación del estado de la entrevista.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Flag que indica si el estado esta activo o no]]></comment>
+	</column>
+	<column name="numero_orden">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[Número de orden en el que se deben mostrar los estados]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<constraint name="pk_estado_entrevista" type="pk-constr" table="evaluacion_inscripcion.estado_entrevista">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="entrevista" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<comment><![CDATA[Tabla que almacena la información de las entrevistas realizadas a un aspirante]]></comment>
+	<position x="860" y="660"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="inscripcion_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Proceso de admisión al cual se hace referencia]]></comment>
+	</column>
+	<column name="fecha_entrevista" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Día y hora en la que se agenda la entrevista]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica el estado del registro]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<constraint name="pk_entrevista" type="pk-constr" table="evaluacion_inscripcion.entrevista">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="estado_entrevista_id" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="fk_entrevista_estado_entrevista" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="estado_entrevista_has_many_entrevista" type="rel1n" layers="0"
+	 src-col-pattern="{st}_id"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="fk_{dt}_{st}"
+	 custom-color="#0a9584"
+	 src-table="evaluacion_inscripcion.estado_entrevista"
+	 dst-table="evaluacion_inscripcion.entrevista"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-4.34659" y="24.4681"/>
+	</label>
+</relationship>
+
+<table name="tipo_entrevista" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<comment><![CDATA[Tabla que almacena los diferentes  tipos de entrevista]]></comment>
+	<position x="240" y="740"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="50"/>
+		<comment><![CDATA[Nombre del tipo de entrevista]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="varchar" length="250"/>
+		<comment><![CDATA[Descripción del tipo de entrevista]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="varchar" length="20"/>
+		<comment><![CDATA[Código de abreviación del tipo de entrevista.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Flag que indica si el tipo esta activo o no]]></comment>
+	</column>
+	<column name="numero_orden">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[Número de orden en el que se deben mostrar los tipos]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<constraint name="pk_tipo_entrevista" type="pk-constr" table="evaluacion_inscripcion.tipo_entrevista">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tipo_entrevista_has_many_entrevista" type="rel1n" layers="0"
+	 src-col-pattern="{st}_id"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="fk_{dt}_{st}"
+	 custom-color="#0e4dd6"
+	 src-table="evaluacion_inscripcion.tipo_entrevista"
+	 dst-table="evaluacion_inscripcion.entrevista"
+	 src-required="true" dst-required="false"/>
+
+<table name="entrevistador" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<comment><![CDATA[Persona disgnada por el proyecto para realizar las entrevistas]]></comment>
+	<position x="140" y="1020"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="persona_id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Entrevistador designado, anteriormente ente, se cambia por futura migracion de ente a persona]]></comment>
+	</column>
+	<column name="programa_academico_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Programa académico que designa el entrevistador]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Flag que permite saber si el entrevistador se encuentra activo o no]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<constraint name="pk_entrevistador" type="pk-constr" table="evaluacion_inscripcion.entrevistador">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="requisito_programa_academico" layers="0" collapse-mode="2" max-obj-count="10" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<comment><![CDATA[Tabla que almacena los diferentes criterios para cada programa academico]]></comment>
+	<position x="440" y="160"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="programa_academico_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Programa academico con el que se relaciona el criterio]]></comment>
+	</column>
+	<column name="periodo_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Periodo al cual aplica el criterio de inscripción]]></comment>
+	</column>
+	<column name="porcentaje_general" not-null="true">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[Porcentaje o peso del criterio de admisión para el proyecto.]]></comment>
+	</column>
+	<column name="porcentaje_especifico">
+		<type name="json" length="0"/>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica el estado del registro]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<constraint name="pk_requisito_programa_academico" type="pk-constr" table="evaluacion_inscripcion.requisito_programa_academico">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="entrevistador_entrevista" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<comment><![CDATA[Tabla que almacena los entrevistadores de una entrevista]]></comment>
+	<position x="820" y="1000"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Indica el estado del registro]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<column name="nota_parcial" not-null="true">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[Nota asignada por el entrevistador]]></comment>
+	</column>
+	<constraint name="pk_entrevistador_entrevista" type="pk-constr" table="evaluacion_inscripcion.entrevistador_entrevista">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="entrevistador_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="fk_entrevistador_entrevista_entrevistador" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="entrevistador_has_many_entrevistador_entrevista" type="rel1n" layers="0"
+	 src-col-pattern="{st}_id"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="fk_{dt}_{st}"
+	 custom-color="#973d54"
+	 src-table="evaluacion_inscripcion.entrevistador"
+	 dst-table="evaluacion_inscripcion.entrevistador_entrevista"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="5.48262" y="-62.5165"/>
+	</label>
+</relationship>
+
+<relationship name="entrevista_has_many_entrevistador_entrevista" type="rel1n" layers="0"
+	 src-col-pattern="{st}_id"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="fk_{dt}_{st}"
+	 custom-color="#931b46"
+	 src-table="evaluacion_inscripcion.entrevista"
+	 dst-table="evaluacion_inscripcion.entrevistador_entrevista"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-9.18639" y="-19.7323"/>
+	</label>
+</relationship>
+
+<textbox name="requisito" layers="0" z-value="0" font-size="9">
+	<position x="480" y="100"/>
+	<comment><![CDATA[- programa_academico se referencia de la tabla programa_academico_institucion 
+del esquema de programa_academico de academica
+- el campo periodo se referencia del esquema parametros del core]]></comment>
+</textbox>
+
+<table name="cupos_por_dependencia" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Tabla para el manejo de los cupos en cada dependencia]]></comment>
+	<position x="1360" y="960"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="dependencia_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo que referencia al esquema de OIKOS]]></comment>
+	</column>
+	<column name="cupos_habilitados" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[campo para el registro de numero de cupos habilitados]]></comment>
+	</column>
+	<column name="cupos_opcionados" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[campo para el registro del numero de cupos opcionados]]></comment>
+	</column>
+	<column name="periodo_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo que referencia al esquema core]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Campo para registrar si el registro se encuentra activo o no]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Campo para el registro de la fecha de creación del registor]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Campo para el registro de la fecha de modificación del registro ]]></comment>
+	</column>
+	<constraint name="pk_cupos_por_dependencia" type="pk-constr" table="evaluacion_inscripcion.cupos_por_dependencia">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uq_dependencia_periodo" type="uq-constr" table="evaluacion_inscripcion.cupos_por_dependencia">
+		<columns names="dependencia_id,periodo_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="detalle_evaluacion" layers="0" collapse-mode="2" max-obj-count="10" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<comment><![CDATA[Tabla que almacena los entrevistadores de una entrevista]]></comment>
+	<position x="1180" y="140"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="nota_requisito" not-null="true">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[Nota parcial  del criterio sobre la evaluacion total ]]></comment>
+	</column>
+	<column name="inscripcion_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la inscripción a la que corresponde el detalle de la evaluación]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Indica el estado del registro]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<column name="detalle_calificacion">
+		<type name="json" length="0"/>
+	</column>
+	<constraint name="pk_detalle_evaluacion" type="pk-constr" table="evaluacion_inscripcion.detalle_evaluacion">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="entrevista_id" index="7"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="fk_detalle_evaluacion_entrevista" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="entrevista_has_many_requisito_programa_academico_sub_requisito_" type="rel1n" layers="0"
+	 src-col-pattern="{st}_{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="fk_{dt}_{st}"
+	 custom-color="#b08391"
+	 src-table="evaluacion_inscripcion.entrevista"
+	 dst-table="evaluacion_inscripcion.detalle_evaluacion"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="20.0296" y="-12.3323"/>
+	</label>
+</relationship>
+
+<relationship name="requisito_has_many_requisito_programa_academico" type="rel1n" layers="0"
+	 src-col-pattern="{st}_{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="fk_{dt}_{st}"
+	 custom-color="#7033f0"
+	 src-table="evaluacion_inscripcion.requisito"
+	 dst-table="evaluacion_inscripcion.requisito_programa_academico"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-12.4213" y="129.968"/>
+	</label>
+</relationship>
+
+<relationship name="requisito_programa_academico_has_many_requisito_programa_academ" type="rel1n" layers="0"
+	 src-col-pattern="{st}_{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="fk_{dt}_{st}"
+	 custom-color="#172c82"
+	 src-table="evaluacion_inscripcion.requisito_programa_academico"
+	 dst-table="evaluacion_inscripcion.detalle_evaluacion"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="31.2784" y="139.555"/>
+	</label>
+</relationship>
+
+<constraint name="uq_programa_requisito_periodo" type="uq-constr" table="evaluacion_inscripcion.requisito_programa_academico">
+	<columns names="programa_academico_id,periodo_id,requisito_id" ref-type="src-columns"/>
+</constraint>
+
+<textbox name="formato_json" layers="0" z-value="0" font-size="9">
+	<position x="20" y="480"/>
+	<comment><![CDATA[ICFES desde 2014-2
+{
+     "areas": [
+          {"Matematicas": "0", "Abreviación": ""},
+          {"Ciencias": "0", "Abreviación": ""},
+          {"Lectura": "0", "Abreviación": ""},
+          {"Sociales": "0", "Abreviación": ""},
+          {"Inglés": "0", "Abreviación": ""}
+     ]
+}]]></comment>
+</textbox>
+
+<textbox name="formato_json_cp" layers="0" z-value="0" font-size="9">
+	<position x="500" y="460"/>
+	<comment><![CDATA[ICFES desde 2014-2
+porcentaje_general: 100%
+porcentaje_especifico:
+{
+     "areas": [
+          {"Matematicas": "35%", "Abreviación": ""},
+          {"Ciencias": "35%", "Abreviación": ""},
+          {"Lectura": "15%", "Abreviación": ""},
+          {"Sociales": "10%", "Abreviación": ""},
+          {"Inglés": "5", "Abreviación": ""}
+     ]
+}]]></comment>
+</textbox>
+
+<textbox name="formato_json_cp_cp" layers="0" z-value="0" font-size="9">
+	<position x="1480" y="420"/>
+	<comment><![CDATA[criterio: ICFES
+nota_requisito: 54.85
+detalle_calificacion:
+{
+     "areas": [
+          {"Matematicas": "60"},
+          {"Ciencias": "54"},
+          {"Lectura": "43"},
+          {"Sociales": "60"},
+          {"Inglés": "50"}
+     ]
+}]]></comment>
+</textbox>
+
+<relationship name="requisito_has_many_requisito" type="rel1n" layers="0"
+	 src-col-pattern="{st}_padre_{sc}"
+	 pk-pattern="pk_{dt}" uq-pattern="uq_{dt}"
+	 src-fk-pattern="fk_{st}"
+	 custom-color="#05562e"
+	 src-table="evaluacion_inscripcion.requisito"
+	 dst-table="evaluacion_inscripcion.requisito"
+	 src-required="false" dst-required="false"
+	upd-action="CASCADE"
+	del-action="RESTRICT">
+	<line>
+		<position x="324.385" y="250.483"/>
+	<position x="324.385" y="149"/>
+	<position x="215.59" y="149"/>
+	</line>
+	<label ref-type="name-label">
+		<position x="-10.6561" y="-3.15"/>
+	</label>
+</relationship>
+
+<table name="tags_por_dependencia" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="evaluacion_inscripcion"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Tabla que almacena en campo json los tags de inscripción requeridos para cada programa en particular y en un periodo específico.]]></comment>
+	<position x="1800" y="400"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="dependencia_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Id programa academico al cual se relacionan los tags]]></comment>
+	</column>
+	<column name="periodo_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Id del periodo que se relaciona al programa academico]]></comment>
+	</column>
+	<column name="lista_tags" not-null="true">
+		<type name="json" length="0"/>
+		<comment><![CDATA[Campo JSON que lista los tags requeridos para determinado programa]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica el estado del registro]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<column name="tipo_inscripcion_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Id tipo inscripcion a la cual se relacionan los tags]]></comment>
+	</column>
+	<constraint name="pk_tags_por_programa" type="pk-constr" table="evaluacion_inscripcion.tags_por_dependencia">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<textbox name="lista_tags" layers="0" z-value="0" font-size="9">
+	<position x="1860" y="600"/>
+	<comment><![CDATA[lista_tags:
+[
+    {
+        "tag": "experiencia_laboral",
+        "requerido": true
+    },
+    {
+        "tag":"formacion_academica", 
+        "requerido":false
+    }
+]]]></comment>
+</textbox>
+
+</dbmodel>
