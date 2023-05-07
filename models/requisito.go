@@ -139,7 +139,7 @@ func UpdateRequisitoById(m *Requisito) (err error) {
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m, "Nombre", "Descripcion", "CodigoAbreviacion", "Activo", "NumeroOrden", "FechaModificacion", "Asistencia"); err == nil {
+		if num, err = o.Update(m, "Nombre", "Descripcion", "CodigoAbreviacion", "Activo", "NumeroOrden", "FechaModificacion", "Asistencia", "RequisitoPadreId"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
