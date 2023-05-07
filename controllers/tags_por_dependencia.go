@@ -162,10 +162,6 @@ func (c *TagsPorDependenciaController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.TagsPorDependencia{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-
-		v.FechaCreacion = time_bogota.TiempoCorreccionFormato(v.FechaCreacion)
-		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
-
 		if err := models.UpdateTagsPorDependenciaById(&v); err == nil {
 			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Update successful", "Data": v}
 		} else {
