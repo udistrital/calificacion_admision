@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type TagsPorDependencia struct {
@@ -130,10 +131,11 @@ func GetAllTagsPorDependencia(query map[string]string, fields []string, sortby [
 func UpdateTagsPorDependenciaById(m *TagsPorDependencia) (err error) {
 	o := orm.NewOrm()
 	v := TagsPorDependencia{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "DependenciaId", "PeriodoId", "TipoInscripcionId", "ListaTags", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
