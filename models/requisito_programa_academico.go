@@ -11,15 +11,18 @@ import (
 )
 
 type RequisitoProgramaAcademico struct {
-	Id                   int        `orm:"column(id);pk;auto"`
-	ProgramaAcademicoId  int        `orm:"column(programa_academico_id)"`
-	PeriodoId            int        `orm:"column(periodo_id)"`
-	RequisitoId          *Requisito `orm:"column(requisito_id);rel(fk)"`
-	PorcentajeGeneral    float64    `orm:"column(porcentaje_general)"`
-	PorcentajeEspecifico string     `orm:"column(porcentaje_especifico);type(json);null"`
-	Activo               bool       `orm:"column(activo)"`
-	FechaCreacion        string     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion    string     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                        int        `orm:"column(id);pk;auto"`
+	ProgramaAcademicoId       int        `orm:"column(programa_academico_id)"`
+	PeriodoId                 int        `orm:"column(periodo_id)"`
+	RequisitoId               *Requisito `orm:"column(requisito_id);rel(fk)"`
+	PorcentajeGeneral         float64    `orm:"column(porcentaje_general)"`
+	PorcentajeEspecifico      string     `orm:"column(porcentaje_especifico);type(json);null"`
+	OfertarOpcion2            bool       `orm:"column(ofertar_opcion_2)"`
+	OfertarOpcion3            bool       `orm:"column(ofertar_opcion_3)"`
+	PuntajeMinimoExamenEstado int        `orm:"column(puntaje_minimo_examen_estado)"`
+	Activo                    bool       `orm:"column(activo)"`
+	FechaCreacion             string     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion         string     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *RequisitoProgramaAcademico) TableName() string {

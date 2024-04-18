@@ -30,6 +30,7 @@ CREATE TABLE evaluacion_inscripcion.requisito (
 	nombre varchar(50) NOT NULL,
 	descripcion varchar(250),
 	asistencia boolean,
+	examen_estado boolean,
 	codigo_abreviacion varchar(20),
 	activo boolean NOT NULL,
 	numero_orden numeric(5,2),
@@ -48,6 +49,8 @@ COMMENT ON COLUMN evaluacion_inscripcion.requisito.nombre IS E'Nombre del criter
 COMMENT ON COLUMN evaluacion_inscripcion.requisito.descripcion IS E'Descripción del criterio de admisión';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.requisito.asistencia IS E'Indica si el aspirante debe cumplir el requisito de manera presencial';
+-- ddl-end --
+COMMENT ON COLUMN evaluacion_inscripcion.requisito.examen_estado IS E'Indica si el requisito es un examen de estado';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion_inscripcion.requisito.codigo_abreviacion IS E'Código de abreviación del criterio de admisión';
 -- ddl-end --
@@ -204,6 +207,9 @@ CREATE TABLE evaluacion_inscripcion.requisito_programa_academico (
 	periodo_id integer NOT NULL,
 	porcentaje_general numeric(5,2) NOT NULL,
 	porcentaje_especifico json,
+	ofertar_opcion_2 boolean,
+	ofertar_opcion_3 boolean,
+	puntaje_minimo_examen_estado integer,
 	activo boolean NOT NULL,
 	fecha_creacion timestamp NOT NULL DEFAULT now(),
 	fecha_modificacion timestamp NOT NULL DEFAULT now(),

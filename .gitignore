@@ -14,5 +14,8 @@ swagger/fonts/
 swagger/images/
 swagger/lang/
 swagger/lib/
+go.sum
+go.mod
+*.env
 *.exe
 *.zip
