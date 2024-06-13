@@ -17,8 +17,7 @@ type RequisitoProgramaAcademico struct {
 	RequisitoId               *Requisito `orm:"column(requisito_id);rel(fk)"`
 	PorcentajeGeneral         float64    `orm:"column(porcentaje_general)"`
 	PorcentajeEspecifico      string     `orm:"column(porcentaje_especifico);type(json);null"`
-	OfertarOpcion2            bool       `orm:"column(ofertar_opcion_2)"`
-	OfertarOpcion3            bool       `orm:"column(ofertar_opcion_3)"`
+	Opcion                    string     `orm:"column(opcion);type(json);null"`
 	PuntajeMinimoExamenEstado int        `orm:"column(puntaje_minimo_examen_estado)"`
 	Activo                    bool       `orm:"column(activo)"`
 	FechaCreacion             string     `orm:"column(fecha_creacion);type(timestamp without time zone)"`

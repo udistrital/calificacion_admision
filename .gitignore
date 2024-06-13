@@ -9,6 +9,7 @@ swagger/*.js
 swagger/*.map
 swagger/*.css
 swagger/*.yml
+swagger/*.json
 swagger/css/
 swagger/fonts/
 swagger/images/

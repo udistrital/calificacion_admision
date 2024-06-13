@@ -2000,11 +2000,8 @@
                     "type": "integer",
                     "format": "int64"
                 },
-                "OfertarOpcion2": {
-                    "type": "boolean"
-                },
-                "OfertarOpcion3": {
-                    "type": "boolean"
+                "Opcion": {
+                    "type": "string"
                 },
                 "PeriodoId": {
                     "type": "integer",
