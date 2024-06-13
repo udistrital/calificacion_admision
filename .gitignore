@@ -20,3 +20,5 @@ go.mod
 *.env
 *.exe
 *.zip
+go.mod
+go.sum
