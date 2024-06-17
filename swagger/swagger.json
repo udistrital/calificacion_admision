@@ -1958,6 +1958,9 @@
                 "Descripcion": {
                     "type": "string"
                 },
+                "ExamenEstado": {
+                    "type": "boolean"
+                },
                 "FechaCreacion": {
                     "type": "string"
                 },
@@ -1997,6 +2000,9 @@
                     "type": "integer",
                     "format": "int64"
                 },
+                "Opcion": {
+                    "type": "string"
+                },
                 "PeriodoId": {
                     "type": "integer",
                     "format": "int64"
@@ -2009,6 +2015,10 @@
                     "format": "double"
                 },
                 "ProgramaAcademicoId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "PuntajeMinimoExamenEstado": {
                     "type": "integer",
                     "format": "int64"
                 },

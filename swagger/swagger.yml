@@ -1300,6 +1300,8 @@ definitions:
         type: string
       Descripcion:
         type: string
+      ExamenEstado:
+        type: boolean
       FechaCreacion:
         type: string
       FechaModificacion:
@@ -1327,6 +1329,8 @@ definitions:
       Id:
         type: integer
         format: int64
+      Opcion:
+        type: string
       PeriodoId:
         type: integer
         format: int64
@@ -1336,6 +1340,9 @@ definitions:
         type: number
         format: double
       ProgramaAcademicoId:
+        type: integer
+        format: int64
+      PuntajeMinimoExamenEstado:
         type: integer
         format: int64
       RequisitoId:

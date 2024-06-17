@@ -16,6 +16,7 @@ type Requisito struct {
 	Descripcion       string     `orm:"column(descripcion);null"`
 	CodigoAbreviacion string     `orm:"column(codigo_abreviacion);null"`
 	Asistencia        bool       `orm:"column(asistencia)"`
+	ExamenEstado      bool       `orm:"column(examen_estado)"`
 	Activo            bool       `orm:"column(activo)"`
 	NumeroOrden       float64    `orm:"column(numero_orden);null"`
 	FechaCreacion     string     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
