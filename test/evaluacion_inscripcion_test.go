@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -17,9 +17,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DATA-DOG/godog"
-	"github.com/DATA-DOG/godog/colors"
 	"github.com/astaxie/beego"
+	"github.com/cucumber/godog"
+	"github.com/cucumber/godog/colors"
 	"github.com/xeipuuv/gojsonschema"
 )
 
@@ -32,14 +32,14 @@ var resDuplex string
 // @resDelete JSON repuesta Delete
 var resDelete string
 
-//@resBody JSON de respuesta a las solicitudesde la api
+// @resBody JSON de respuesta a las solicitudesde la api
 var resBody []byte
 
 var savepostres map[string]interface{}
 
 var Id float64
 
-//@Parametrica estructura de las tablas parametricas
+// @Parametrica estructura de las tablas parametricas
 type Parametrica struct {
 	Nombre            string
 	Descripcion       string
@@ -50,29 +50,32 @@ type Parametrica struct {
 	FechaModificacion time.Time
 }
 
-//@opt opciones de godog
+// @opt opciones de godog
 var opt = godog.Options{Output: colors.Colored(os.Stdout)}
 
-//@especificacion estructura de la fecha
+// @especificacion estructura de la fecha
 const especificacion = "Jan 2, 2006 at 3:04pm (MST)"
 
-//@TestMain para realizar la ejecucion con el comando go test ./test
+// @TestMain para realizar la ejecucion con el comando go test ./test
 func TestMain(m *testing.M) {
-	status := godog.RunWithOptions("godogs", func(s *godog.Suite) {
-		FeatureContext(s)
-	}, godog.Options{
-		Format: "progress",
+	opts := godog.Options{
+		Format: "progress", // pretty for debug
 		Paths:  []string{"features"},
-		//Randomize: time.Now().UTC().UnixNano(), // randomize scenario execution order
-	})
-
-	if st := m.Run(); st > status {
-		status = st
+		Output: colors.Colored(os.Stdout),
 	}
-	os.Exit(status)
+
+	status := godog.TestSuite{
+		Name:                "godogs",
+		ScenarioInitializer: FeatureContext,
+		Options:             &opts,
+	}.Run()
+
+	if status != 0 {
+		os.Exit(status)
+	}
 }
 
-//@init inicia la aplicacion para realizar los test
+// @init inicia la aplicacion para realizar los test
 func init() {
 	gen_files()
 	run_bee()
@@ -80,7 +83,7 @@ func init() {
 	godog.BindFlags("godog.", flag.CommandLine, &opt)
 }
 
-//@gen_files genera los archivos de ejemplos
+// @gen_files genera los archivos de ejemplos
 func gen_files() {
 	t := time.Now()
 
@@ -95,10 +98,10 @@ func gen_files() {
 		FechaModificacion: t,
 	}
 	rankingsJson, _ := json.Marshal(atributo)
-	ioutil.WriteFile("./files/req/Yt1.json", rankingsJson, 0644)
+	os.WriteFile("./files/req/Yt1.json", rankingsJson, 0644)
 }
 
-//@run_bee activa el servicio de la api para realizar los test
+// @run_bee activa el servicio de la api para realizar los test
 func run_bee() {
 	parametros := "EVALUACION_INSCRIPCION_HTTP_PORT=" + beego.AppConfig.String("httpport") + " EVALUACION_INSCRIPCION_CRUD__PGUSER=" + beego.AppConfig.String("PGuser") + " EVALUACION_INSCRIPCION_CRUD__PGPASS=" + beego.AppConfig.String("PGpass") + " EVALUACION_INSCRIPCION_CRUD__PGURLS=" + beego.AppConfig.String("PGurls") + " EVALUACION_INSCRIPCION_CRUD__PGDB=" + beego.AppConfig.String("PGdb") + " EVALUACION_INSCRIPCION_CRUD__SCHEMA=" + beego.AppConfig.String("PGschemas") + " bee run"
 	file, err := os.Create("script.sh")
@@ -124,11 +127,11 @@ func deleteFile(path string) {
 	// delete file
 	err := os.Remove(path)
 	if err != nil {
-		fmt.Errorf("no se pudo eliminar el archivo")
+		fmt.Println("no se pudo eliminar el archivo")
 	}
 }
 
-//@exe_cmd ejecuta comandos en la terminal
+// @exe_cmd ejecuta comandos en la terminal
 func exe_cmd(cmd string, wg *sync.WaitGroup) {
 	//fmt.Println(cmd)
 	parts := strings.Fields(cmd)
@@ -141,7 +144,7 @@ func exe_cmd(cmd string, wg *sync.WaitGroup) {
 	wg.Done()
 }
 
-//@AreEqualJSON comparar dos JSON si son iguales retorna true de lo contrario false
+// @AreEqualJSON comparar dos JSON si son iguales retorna true de lo contrario false
 func AreEqualJSON(s1, s2 string) (bool, error) {
 	var o1 interface{}
 	var o2 interface{}
@@ -159,20 +162,9 @@ func AreEqualJSON(s1, s2 string) (bool, error) {
 	return reflect.DeepEqual(o1, o2), nil
 }
 
-//@toJson convierte string en JSON
-func toJson(p interface{}) string {
-	bytes, err := json.Marshal(p)
-	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
-	}
-
-	return string(bytes)
-}
-
-//@getPages convierte en un tipo el json
+// @getPages convierte en un tipo el json
 func getPages(ruta string) []byte {
-	raw, err := ioutil.ReadFile(ruta)
+	raw, err := os.ReadFile(ruta)
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
@@ -183,7 +175,7 @@ func getPages(ruta string) []byte {
 	return c
 }
 
-//@iSendRequestToWhereBodyIsJson realiza la solicitud a la API
+// @iSendRequestToWhereBodyIsJson realiza la solicitud a la API
 func iSendRequestToWhereBodyIsJson(method, endpoint, bodyreq string) error {
 	var url string
 
@@ -204,14 +196,17 @@ func iSendRequestToWhereBodyIsJson(method, endpoint, bodyreq string) error {
 		str := strconv.FormatFloat(Id, 'f', 0, 64)
 		url = "http://localhost:" + beego.AppConfig.String("httpport") + endpoint + "/" + str
 		resDelete = "{\"Id\":" + str + "}"
-		ioutil.WriteFile("./files/res5/Ino.json", []byte(resDelete), 0644)
-		ioutil.WriteFile("./files/res8/Ino.json", []byte(resDelete), 0644)
-		ioutil.WriteFile("./files/res9/Ino.json", []byte(resDelete), 0644)
+		os.WriteFile("./files/res5/Ino.json", []byte(resDelete), 0644)
+		os.WriteFile("./files/res8/Ino.json", []byte(resDelete), 0644)
+		os.WriteFile("./files/res9/Ino.json", []byte(resDelete), 0644)
 	}
 
 	pages := getPages(bodyreq)
 
 	req, err := http.NewRequest(method, url, bytes.NewBuffer(pages))
+	if err != nil {
+		return err
+	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
@@ -221,13 +216,13 @@ func iSendRequestToWhereBodyIsJson(method, endpoint, bodyreq string) error {
 	}
 	defer resp.Body.Close()
 
-	bodyr, _ := ioutil.ReadAll(resp.Body)
+	bodyr, _ := io.ReadAll(resp.Body)
 
 	resStatus = resp.Status
 	resBody = bodyr
 
 	if method == "POST" && resStatus == "201 Created" {
-		ioutil.WriteFile("./files/req/Yt2.json", resBody, 0644)
+		os.WriteFile("./files/req/Yt2.json", resBody, 0644)
 		json.Unmarshal([]byte(bodyr), &savepostres)
 		Id = savepostres["Id"].(float64)
 
@@ -237,7 +232,7 @@ func iSendRequestToWhereBodyIsJson(method, endpoint, bodyreq string) error {
 		resDuplex = resDuplex + "\t\t\"InternalQuery\": \"\",\r\n\t\t\"Where\": \"\",\r\n\t\t\"Schema\": \"evaluacion_inscripcion\",\r\n\t\t\"Table\": \"estado_entrevista\",\r\n\t\t\"Column\": \"\",\r\n"
 		resDuplex = resDuplex + "\t\t\"DataTypeName\": \"\",\r\n\t\t\"Constraint\": \"pk_estado_entrevista\",\r\n\t\t\"File\": \"nbtinsert.c\",\r\n\t\t\"Line\": \"434\",\r\n\t\t\"Routine\": \"_bt_check_unique\"\r\n\t}\r\n}"
 
-		ioutil.WriteFile("./files/res5/Ierr8.json", []byte(resDuplex), 0644)
+		os.WriteFile("./files/res5/Ierr8.json", []byte(resDuplex), 0644)
 
 		resDuplex = "{\r\n\t\"Development\": null,\r\n\t\"Message\": \"The request contains incorrect syntax\",\r\n\t\"Status\": \"400\",\r\n\t\"System\": {\r\n"
 		resDuplex = resDuplex + "\t\t\"Severity\": \"ERROR\",\r\n\t\t\"Code\": \"23505\",\r\n\t\t\"Message\": \"llave duplicada viola restricción de unicidad «pk_requisito»\",\r\n"
@@ -245,7 +240,7 @@ func iSendRequestToWhereBodyIsJson(method, endpoint, bodyreq string) error {
 		resDuplex = resDuplex + "\t\t\"InternalQuery\": \"\",\r\n\t\t\"Where\": \"\",\r\n\t\t\"Schema\": \"evaluacion_inscripcion\",\r\n\t\t\"Table\": \"requisito\",\r\n\t\t\"Column\": \"\",\r\n"
 		resDuplex = resDuplex + "\t\t\"DataTypeName\": \"\",\r\n\t\t\"Constraint\": \"pk_requisito\",\r\n\t\t\"File\": \"nbtinsert.c\",\r\n\t\t\"Line\": \"434\",\r\n\t\t\"Routine\": \"_bt_check_unique\"\r\n\t}\r\n}"
 
-		ioutil.WriteFile("./files/res8/Ierr8.json", []byte(resDuplex), 0644)
+		os.WriteFile("./files/res8/Ierr8.json", []byte(resDuplex), 0644)
 
 		resDuplex = "{\r\n\t\"Development\": null,\r\n\t\"Message\": \"The request contains incorrect syntax\",\r\n\t\"Status\": \"400\",\r\n\t\"System\": {\r\n"
 		resDuplex = resDuplex + "\t\t\"Severity\": \"ERROR\",\r\n\t\t\"Code\": \"23505\",\r\n\t\t\"Message\": \"llave duplicada viola restricción de unicidad «pk_tipo_entrevista»\",\r\n"
@@ -253,12 +248,12 @@ func iSendRequestToWhereBodyIsJson(method, endpoint, bodyreq string) error {
 		resDuplex = resDuplex + "\t\t\"InternalQuery\": \"\",\r\n\t\t\"Where\": \"\",\r\n\t\t\"Schema\": \"evaluacion_inscripcion\",\r\n\t\t\"Table\": \"tipo_entrevista\",\r\n\t\t\"Column\": \"\",\r\n"
 		resDuplex = resDuplex + "\t\t\"DataTypeName\": \"\",\r\n\t\t\"Constraint\": \"pk_tipo_entrevista\",\r\n\t\t\"File\": \"nbtinsert.c\",\r\n\t\t\"Line\": \"434\",\r\n\t\t\"Routine\": \"_bt_check_unique\"\r\n\t}\r\n}"
 
-		ioutil.WriteFile("./files/res9/Ierr8.json", []byte(resDuplex), 0644)
+		os.WriteFile("./files/res9/Ierr8.json", []byte(resDuplex), 0644)
 	}
 	return nil
 }
 
-//@theResponseCodeShouldBe valida el codigo de respuesta
+// @theResponseCodeShouldBe valida el codigo de respuesta
 func theResponseCodeShouldBe(arg1 string) error {
 	if resStatus != arg1 {
 		return fmt.Errorf("se esperaba el codigo de respuesta .. %s .. y se obtuvo el codigo de respuesta .. %s .. ", arg1, resStatus)
@@ -266,7 +261,7 @@ func theResponseCodeShouldBe(arg1 string) error {
 	return nil
 }
 
-//@theResponseShouldMatchJson valida el JSON de respuesta
+// @theResponseShouldMatchJson valida el JSON de respuesta
 func theResponseShouldMatchJson(arg1 string) error {
 	div := strings.Split(arg1, "")
 
@@ -284,8 +279,6 @@ func theResponseShouldMatchJson(arg1 string) error {
 			return nil
 		} else {
 			return fmt.Errorf("Errores : %s", result.Errors())
-
-			return nil
 		}
 	}
 	if div[13] == "I" {
@@ -300,7 +293,7 @@ func theResponseShouldMatchJson(arg1 string) error {
 	return nil
 }
 
-func FeatureContext(s *godog.Suite) {
+func FeatureContext(s *godog.ScenarioContext) {
 	s.Step(`^I send "([^"]*)" request to "([^"]*)" where body is json "([^"]*)"$`, iSendRequestToWhereBodyIsJson)
 	s.Step(`^the response code should be "([^"]*)"$`, theResponseCodeShouldBe)
 	s.Step(`^the response should match json "([^"]*)"$`, theResponseShouldMatchJson)
