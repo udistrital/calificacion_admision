@@ -9,11 +9,15 @@ swagger/*.js
 swagger/*.map
 swagger/*.css
 swagger/*.yml
+swagger/*.json
 swagger/css/
 swagger/fonts/
 swagger/images/
 swagger/lang/
 swagger/lib/
+go.sum
+go.mod
+*.env
 *.exe
 *.zip
 go.mod
