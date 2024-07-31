@@ -56,6 +56,8 @@ func GetAllTipoEntrevista(query map[string]string, fields []string, sortby []str
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
 	qs := o.QueryTable(new(TipoEntrevista)).RelatedSel()
+
+	fmt.Println("AAAAAAAAAAAA", qs)
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -100,6 +102,7 @@ func GetAllTipoEntrevista(query map[string]string, fields []string, sortby []str
 			return nil, errors.New("Error: 'sortby', 'order' sizes mismatch or 'order' size is not 1")
 		}
 	} else {
+		fmt.Println("11111111111111111111111111111111111111")
 		if len(order) != 0 {
 			return nil, errors.New("Error: unused 'order' fields")
 		}
