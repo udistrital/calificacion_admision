@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 	"strconv"
 	"strings"
 
@@ -153,6 +154,7 @@ func (c *RequisitoProgramaAcademicoController) GetAll() {
 // @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
 func (c *RequisitoProgramaAcademicoController) Put() {
+	fmt.Println("put")
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v := models.RequisitoProgramaAcademico{Id: id}

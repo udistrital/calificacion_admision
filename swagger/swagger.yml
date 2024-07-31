@@ -1,7 +1,8 @@
 swagger: "2.0"
 info:
   title: beego Test API
-  description: beego has a very cool tools to autogenerate documents for your API
+  description: |
+    beego has a very cool tools to autogenerate documents for your API
   version: 1.0.0
   termsOfService: http://beego.me/
   contact:
@@ -15,7 +16,9 @@ paths:
     get:
       tags:
       - cupos_por_dependencia
-      description: get CuposPorDependencia
+      description: |-
+        get CuposPorDependencia
+        <br>
       operationId: CuposPorDependenciaController.Get All
       parameters:
       - in: query
@@ -32,7 +35,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -52,7 +56,9 @@ paths:
     post:
       tags:
       - cupos_por_dependencia
-      description: create CuposPorDependencia
+      description: |-
+        create CuposPorDependencia
+        <br>
       operationId: CuposPorDependenciaController.Post
       parameters:
       - in: body
@@ -70,7 +76,9 @@ paths:
     get:
       tags:
       - cupos_por_dependencia
-      description: get CuposPorDependencia by id
+      description: |-
+        get CuposPorDependencia by id
+        <br>
       operationId: CuposPorDependenciaController.Get One
       parameters:
       - in: path
@@ -88,7 +96,9 @@ paths:
     put:
       tags:
       - cupos_por_dependencia
-      description: update the CuposPorDependencia
+      description: |-
+        update the CuposPorDependencia
+        <br>
       operationId: CuposPorDependenciaController.Put
       parameters:
       - in: path
@@ -112,7 +122,9 @@ paths:
     delete:
       tags:
       - cupos_por_dependencia
-      description: delete the CuposPorDependencia
+      description: |-
+        delete the CuposPorDependencia
+        <br>
       operationId: CuposPorDependenciaController.Delete
       parameters:
       - in: path
@@ -129,7 +141,9 @@ paths:
     get:
       tags:
       - detalle_evaluacion
-      description: get DetalleEvaluacion
+      description: |-
+        get DetalleEvaluacion
+        <br>
       operationId: DetalleEvaluacionController.Get All
       parameters:
       - in: query
@@ -146,7 +160,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -166,7 +181,9 @@ paths:
     post:
       tags:
       - detalle_evaluacion
-      description: create DetalleEvaluacion
+      description: |-
+        create DetalleEvaluacion
+        <br>
       operationId: DetalleEvaluacionController.Post
       parameters:
       - in: body
@@ -184,7 +201,9 @@ paths:
     get:
       tags:
       - detalle_evaluacion
-      description: get DetalleEvaluacion by id
+      description: |-
+        get DetalleEvaluacion by id
+        <br>
       operationId: DetalleEvaluacionController.Get One
       parameters:
       - in: path
@@ -202,7 +221,9 @@ paths:
     put:
       tags:
       - detalle_evaluacion
-      description: update the DetalleEvaluacion
+      description: |-
+        update the DetalleEvaluacion
+        <br>
       operationId: DetalleEvaluacionController.Put
       parameters:
       - in: path
@@ -226,7 +247,9 @@ paths:
     delete:
       tags:
       - detalle_evaluacion
-      description: delete the DetalleEvaluacion
+      description: |-
+        delete the DetalleEvaluacion
+        <br>
       operationId: DetalleEvaluacionController.Delete
       parameters:
       - in: path
@@ -243,7 +266,9 @@ paths:
     get:
       tags:
       - entrevista
-      description: get Entrevista
+      description: |-
+        get Entrevista
+        <br>
       operationId: EntrevistaController.Get All
       parameters:
       - in: query
@@ -260,7 +285,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -280,7 +306,9 @@ paths:
     post:
       tags:
       - entrevista
-      description: create Entrevista
+      description: |-
+        create Entrevista
+        <br>
       operationId: EntrevistaController.Post
       parameters:
       - in: body
@@ -298,7 +326,9 @@ paths:
     get:
       tags:
       - entrevista
-      description: get Entrevista by id
+      description: |-
+        get Entrevista by id
+        <br>
       operationId: EntrevistaController.Get One
       parameters:
       - in: path
@@ -316,7 +346,9 @@ paths:
     put:
       tags:
       - entrevista
-      description: update the Entrevista
+      description: |-
+        update the Entrevista
+        <br>
       operationId: EntrevistaController.Put
       parameters:
       - in: path
@@ -340,7 +372,9 @@ paths:
     delete:
       tags:
       - entrevista
-      description: delete the Entrevista
+      description: |-
+        delete the Entrevista
+        <br>
       operationId: EntrevistaController.Delete
       parameters:
       - in: path
@@ -357,7 +391,9 @@ paths:
     get:
       tags:
       - entrevistador
-      description: get Entrevistador
+      description: |-
+        get Entrevistador
+        <br>
       operationId: EntrevistadorController.Get All
       parameters:
       - in: query
@@ -374,7 +410,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -394,7 +431,9 @@ paths:
     post:
       tags:
       - entrevistador
-      description: create Entrevistador
+      description: |-
+        create Entrevistador
+        <br>
       operationId: EntrevistadorController.Post
       parameters:
       - in: body
@@ -412,7 +451,9 @@ paths:
     get:
       tags:
       - entrevistador
-      description: get Entrevistador by id
+      description: |-
+        get Entrevistador by id
+        <br>
       operationId: EntrevistadorController.Get One
       parameters:
       - in: path
@@ -430,7 +471,9 @@ paths:
     put:
       tags:
       - entrevistador
-      description: update the Entrevistador
+      description: |-
+        update the Entrevistador
+        <br>
       operationId: EntrevistadorController.Put
       parameters:
       - in: path
@@ -454,7 +497,9 @@ paths:
     delete:
       tags:
       - entrevistador
-      description: delete the Entrevistador
+      description: |-
+        delete the Entrevistador
+        <br>
       operationId: EntrevistadorController.Delete
       parameters:
       - in: path
@@ -471,7 +516,9 @@ paths:
     get:
       tags:
       - entrevistador_entrevista
-      description: get EntrevistadorEntrevista
+      description: |-
+        get EntrevistadorEntrevista
+        <br>
       operationId: EntrevistadorEntrevistaController.Get All
       parameters:
       - in: query
@@ -488,7 +535,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -508,7 +556,9 @@ paths:
     post:
       tags:
       - entrevistador_entrevista
-      description: create EntrevistadorEntrevista
+      description: |-
+        create EntrevistadorEntrevista
+        <br>
       operationId: EntrevistadorEntrevistaController.Post
       parameters:
       - in: body
@@ -526,7 +576,9 @@ paths:
     get:
       tags:
       - entrevistador_entrevista
-      description: get EntrevistadorEntrevista by id
+      description: |-
+        get EntrevistadorEntrevista by id
+        <br>
       operationId: EntrevistadorEntrevistaController.Get One
       parameters:
       - in: path
@@ -544,7 +596,9 @@ paths:
     put:
       tags:
       - entrevistador_entrevista
-      description: update the EntrevistadorEntrevista
+      description: |-
+        update the EntrevistadorEntrevista
+        <br>
       operationId: EntrevistadorEntrevistaController.Put
       parameters:
       - in: path
@@ -568,7 +622,9 @@ paths:
     delete:
       tags:
       - entrevistador_entrevista
-      description: delete the EntrevistadorEntrevista
+      description: |-
+        delete the EntrevistadorEntrevista
+        <br>
       operationId: EntrevistadorEntrevistaController.Delete
       parameters:
       - in: path
@@ -585,7 +641,9 @@ paths:
     get:
       tags:
       - estado_entrevista
-      description: get EstadoEntrevista
+      description: |-
+        get EstadoEntrevista
+        <br>
       operationId: EstadoEntrevistaController.Get All
       parameters:
       - in: query
@@ -602,7 +660,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -622,7 +681,9 @@ paths:
     post:
       tags:
       - estado_entrevista
-      description: create EstadoEntrevista
+      description: |-
+        create EstadoEntrevista
+        <br>
       operationId: EstadoEntrevistaController.Post
       parameters:
       - in: body
@@ -640,7 +701,9 @@ paths:
     get:
       tags:
       - estado_entrevista
-      description: get EstadoEntrevista by id
+      description: |-
+        get EstadoEntrevista by id
+        <br>
       operationId: EstadoEntrevistaController.Get One
       parameters:
       - in: path
@@ -658,7 +721,9 @@ paths:
     put:
       tags:
       - estado_entrevista
-      description: update the EstadoEntrevista
+      description: |-
+        update the EstadoEntrevista
+        <br>
       operationId: EstadoEntrevistaController.Put
       parameters:
       - in: path
@@ -682,7 +747,9 @@ paths:
     delete:
       tags:
       - estado_entrevista
-      description: delete the EstadoEntrevista
+      description: |-
+        delete the EstadoEntrevista
+        <br>
       operationId: EstadoEntrevistaController.Delete
       parameters:
       - in: path
@@ -699,7 +766,9 @@ paths:
     get:
       tags:
       - requisito
-      description: get Requisito
+      description: |-
+        get Requisito
+        <br>
       operationId: RequisitoController.Get All
       parameters:
       - in: query
@@ -716,7 +785,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -736,7 +806,9 @@ paths:
     post:
       tags:
       - requisito
-      description: create Requisito
+      description: |-
+        create Requisito
+        <br>
       operationId: RequisitoController.Post
       parameters:
       - in: body
@@ -754,7 +826,9 @@ paths:
     get:
       tags:
       - requisito
-      description: get Requisito by id
+      description: |-
+        get Requisito by id
+        <br>
       operationId: RequisitoController.Get One
       parameters:
       - in: path
@@ -772,7 +846,9 @@ paths:
     put:
       tags:
       - requisito
-      description: update the Requisito
+      description: |-
+        update the Requisito
+        <br>
       operationId: RequisitoController.Put
       parameters:
       - in: path
@@ -796,7 +872,9 @@ paths:
     delete:
       tags:
       - requisito
-      description: delete the Requisito
+      description: |-
+        delete the Requisito
+        <br>
       operationId: RequisitoController.Delete
       parameters:
       - in: path
@@ -813,7 +891,9 @@ paths:
     get:
       tags:
       - requisito_programa_academico
-      description: get RequisitoProgramaAcademico
+      description: |-
+        get RequisitoProgramaAcademico
+        <br>
       operationId: RequisitoProgramaAcademicoController.Get All
       parameters:
       - in: query
@@ -830,7 +910,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -850,7 +931,9 @@ paths:
     post:
       tags:
       - requisito_programa_academico
-      description: create RequisitoProgramaAcademico
+      description: |-
+        create RequisitoProgramaAcademico
+        <br>
       operationId: RequisitoProgramaAcademicoController.Post
       parameters:
       - in: body
@@ -868,7 +951,9 @@ paths:
     get:
       tags:
       - requisito_programa_academico
-      description: get RequisitoProgramaAcademico by id
+      description: |-
+        get RequisitoProgramaAcademico by id
+        <br>
       operationId: RequisitoProgramaAcademicoController.Get One
       parameters:
       - in: path
@@ -886,7 +971,9 @@ paths:
     put:
       tags:
       - requisito_programa_academico
-      description: update the RequisitoProgramaAcademico
+      description: |-
+        update the RequisitoProgramaAcademico
+        <br>
       operationId: RequisitoProgramaAcademicoController.Put
       parameters:
       - in: path
@@ -910,7 +997,9 @@ paths:
     delete:
       tags:
       - requisito_programa_academico
-      description: delete the RequisitoProgramaAcademico
+      description: |-
+        delete the RequisitoProgramaAcademico
+        <br>
       operationId: RequisitoProgramaAcademicoController.Delete
       parameters:
       - in: path
@@ -927,7 +1016,9 @@ paths:
     get:
       tags:
       - tags_por_dependencia
-      description: get TagsPorDependencia
+      description: |-
+        get TagsPorDependencia
+        <br>
       operationId: TagsPorDependenciaController.Get All
       parameters:
       - in: query
@@ -944,7 +1035,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -964,7 +1056,9 @@ paths:
     post:
       tags:
       - tags_por_dependencia
-      description: create TagsPorDependencia
+      description: |-
+        create TagsPorDependencia
+        <br>
       operationId: TagsPorDependenciaController.Post
       parameters:
       - in: body
@@ -982,7 +1076,9 @@ paths:
     get:
       tags:
       - tags_por_dependencia
-      description: get TagsPorDependencia by id
+      description: |-
+        get TagsPorDependencia by id
+        <br>
       operationId: TagsPorDependenciaController.Get One
       parameters:
       - in: path
@@ -1000,7 +1096,9 @@ paths:
     put:
       tags:
       - tags_por_dependencia
-      description: update the TagsPorDependencia
+      description: |-
+        update the TagsPorDependencia
+        <br>
       operationId: TagsPorDependenciaController.Put
       parameters:
       - in: path
@@ -1024,7 +1122,9 @@ paths:
     delete:
       tags:
       - tags_por_dependencia
-      description: delete the TagsPorDependencia
+      description: |-
+        delete the TagsPorDependencia
+        <br>
       operationId: TagsPorDependenciaController.Delete
       parameters:
       - in: path
@@ -1041,7 +1141,9 @@ paths:
     get:
       tags:
       - tipo_entrevista
-      description: get TipoEntrevista
+      description: |-
+        get TipoEntrevista
+        <br>
       operationId: TipoEntrevistaController.Get All
       parameters:
       - in: query
@@ -1058,7 +1160,8 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -1078,7 +1181,9 @@ paths:
     post:
       tags:
       - tipo_entrevista
-      description: create TipoEntrevista
+      description: |-
+        create TipoEntrevista
+        <br>
       operationId: TipoEntrevistaController.Post
       parameters:
       - in: body
@@ -1096,7 +1201,9 @@ paths:
     get:
       tags:
       - tipo_entrevista
-      description: get TipoEntrevista by id
+      description: |-
+        get TipoEntrevista by id
+        <br>
       operationId: TipoEntrevistaController.Get One
       parameters:
       - in: path
@@ -1114,7 +1221,9 @@ paths:
     put:
       tags:
       - tipo_entrevista
-      description: update the TipoEntrevista
+      description: |-
+        update the TipoEntrevista
+        <br>
       operationId: TipoEntrevistaController.Put
       parameters:
       - in: path
@@ -1138,7 +1247,9 @@ paths:
     delete:
       tags:
       - tipo_entrevista
-      description: delete the TipoEntrevista
+      description: |-
+        delete the TipoEntrevista
+        <br>
       operationId: TipoEntrevistaController.Delete
       parameters:
       - in: path
