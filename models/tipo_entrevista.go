@@ -56,6 +56,7 @@ func GetAllTipoEntrevista(query map[string]string, fields []string, sortby []str
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
 	qs := o.QueryTable(new(TipoEntrevista)).RelatedSel()
+
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
