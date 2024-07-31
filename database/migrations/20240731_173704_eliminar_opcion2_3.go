@@ -23,7 +23,7 @@ func (m *EliminarOpcion23_20240731_173704) Up() {
 
 	m.SQL("ALTER TABLE IF EXISTS evaluacion_inscripcion.requisito ADD COLUMN examen_estado boolean;")
 	m.SQL("ALTER TABLE IF EXISTS evaluacion_inscripcion.requisito_programa_academico ADD COLUMN opcion json;")
-	m.SQL("ALTER TABLE IF EXISTS evaluacion_inscripcion.requisito_programa_academico ADD COLUMN puntaje_minimo_examen integer;")
+	m.SQL("ALTER TABLE IF EXISTS evaluacion_inscripcion.requisito_programa_academico ADD COLUMN puntaje_minimo_examen_estado integer;")
 
 }
 
@@ -33,6 +33,6 @@ func (m *EliminarOpcion23_20240731_173704) Down() {
 
 	m.SQL("ALTER TABLE IF EXISTS evaluacion_inscripcion.requisito DROP COLUMN examen_estado;")
 	m.SQL("ALTER TABLE IF EXISTS evaluacion_inscripcion.requisito_programa_academico DROP COLUMN opcion;")
-	m.SQL("ALTER TABLE IF EXISTS evaluacion_inscripcion.requisito_programa_academico DROP COLUMN puntaje_minimo_examen;")
+	m.SQL("ALTER TABLE IF EXISTS evaluacion_inscripcion.requisito_programa_academico DROP COLUMN puntaje_minimo_examen_estado;")
 
 }
