@@ -190,6 +190,8 @@ CREATE TABLE evaluacion_inscripcion.requisito_programa_academico(
 	periodo_id integer NOT NULL,
 	requisito_id integer NOT NULL,
 	porcentaje numeric(5,2) NOT NULL,
+	 tipos_de_cupos integer NOT NULL , -- Ajusta el tipo y tamaño según sea necesario
+    tipos_de_inscripcion integer NOT NULL, -- Ajusta el tipo y tamaño según sea necesario
 	activo boolean NOT NULL,
 	fecha_creacion timestamp NOT NULL DEFAULT now(),
 	fecha_modificacion timestamp NOT NULL DEFAULT now(),

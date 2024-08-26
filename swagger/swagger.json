@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "beego Test API",
-        "description": "beego has a very cool tools to autogenerate documents for your API\n",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
         "version": "1.0.0",
         "termsOfService": "http://beego.me/",
         "contact": {
@@ -20,7 +20,7 @@
                 "tags": [
                     "cupos_por_dependencia"
                 ],
-                "description": "get CuposPorDependencia\n\u003cbr\u003e",
+                "description": "get CuposPorDependencia",
                 "operationId": "CuposPorDependenciaController.Get All",
                 "parameters": [
                     {
@@ -76,7 +76,7 @@
                 "tags": [
                     "cupos_por_dependencia"
                 ],
-                "description": "create CuposPorDependencia\n\u003cbr\u003e",
+                "description": "create CuposPorDependencia",
                 "operationId": "CuposPorDependenciaController.Post",
                 "parameters": [
                     {
@@ -104,7 +104,7 @@
                 "tags": [
                     "cupos_por_dependencia"
                 ],
-                "description": "get CuposPorDependencia by id\n\u003cbr\u003e",
+                "description": "get CuposPorDependencia by id",
                 "operationId": "CuposPorDependenciaController.Get One",
                 "parameters": [
                     {
@@ -131,7 +131,7 @@
                 "tags": [
                     "cupos_por_dependencia"
                 ],
-                "description": "update the CuposPorDependencia\n\u003cbr\u003e",
+                "description": "update the CuposPorDependencia",
                 "operationId": "CuposPorDependenciaController.Put",
                 "parameters": [
                     {
@@ -167,7 +167,7 @@
                 "tags": [
                     "cupos_por_dependencia"
                 ],
-                "description": "delete the CuposPorDependencia\n\u003cbr\u003e",
+                "description": "delete the CuposPorDependencia",
                 "operationId": "CuposPorDependenciaController.Delete",
                 "parameters": [
                     {
@@ -193,7 +193,7 @@
                 "tags": [
                     "detalle_evaluacion"
                 ],
-                "description": "get DetalleEvaluacion\n\u003cbr\u003e",
+                "description": "get DetalleEvaluacion",
                 "operationId": "DetalleEvaluacionController.Get All",
                 "parameters": [
                     {
@@ -249,7 +249,7 @@
                 "tags": [
                     "detalle_evaluacion"
                 ],
-                "description": "create DetalleEvaluacion\n\u003cbr\u003e",
+                "description": "create DetalleEvaluacion",
                 "operationId": "DetalleEvaluacionController.Post",
                 "parameters": [
                     {
@@ -277,7 +277,7 @@
                 "tags": [
                     "detalle_evaluacion"
                 ],
-                "description": "get DetalleEvaluacion by id\n\u003cbr\u003e",
+                "description": "get DetalleEvaluacion by id",
                 "operationId": "DetalleEvaluacionController.Get One",
                 "parameters": [
                     {
@@ -304,7 +304,7 @@
                 "tags": [
                     "detalle_evaluacion"
                 ],
-                "description": "update the DetalleEvaluacion\n\u003cbr\u003e",
+                "description": "update the DetalleEvaluacion",
                 "operationId": "DetalleEvaluacionController.Put",
                 "parameters": [
                     {
@@ -340,7 +340,7 @@
                 "tags": [
                     "detalle_evaluacion"
                 ],
-                "description": "delete the DetalleEvaluacion\n\u003cbr\u003e",
+                "description": "delete the DetalleEvaluacion",
                 "operationId": "DetalleEvaluacionController.Delete",
                 "parameters": [
                     {
@@ -366,7 +366,7 @@
                 "tags": [
                     "entrevista"
                 ],
-                "description": "get Entrevista\n\u003cbr\u003e",
+                "description": "get Entrevista",
                 "operationId": "EntrevistaController.Get All",
                 "parameters": [
                     {
@@ -422,7 +422,7 @@
                 "tags": [
                     "entrevista"
                 ],
-                "description": "create Entrevista\n\u003cbr\u003e",
+                "description": "create Entrevista",
                 "operationId": "EntrevistaController.Post",
                 "parameters": [
                     {
@@ -450,7 +450,7 @@
                 "tags": [
                     "entrevista"
                 ],
-                "description": "get Entrevista by id\n\u003cbr\u003e",
+                "description": "get Entrevista by id",
                 "operationId": "EntrevistaController.Get One",
                 "parameters": [
                     {
@@ -477,7 +477,7 @@
                 "tags": [
                     "entrevista"
                 ],
-                "description": "update the Entrevista\n\u003cbr\u003e",
+                "description": "update the Entrevista",
                 "operationId": "EntrevistaController.Put",
                 "parameters": [
                     {
@@ -513,7 +513,7 @@
                 "tags": [
                     "entrevista"
                 ],
-                "description": "delete the Entrevista\n\u003cbr\u003e",
+                "description": "delete the Entrevista",
                 "operationId": "EntrevistaController.Delete",
                 "parameters": [
                     {
@@ -539,7 +539,7 @@
                 "tags": [
                     "entrevistador"
                 ],
-                "description": "get Entrevistador\n\u003cbr\u003e",
+                "description": "get Entrevistador",
                 "operationId": "EntrevistadorController.Get All",
                 "parameters": [
                     {
@@ -595,7 +595,7 @@
                 "tags": [
                     "entrevistador"
                 ],
-                "description": "create Entrevistador\n\u003cbr\u003e",
+                "description": "create Entrevistador",
                 "operationId": "EntrevistadorController.Post",
                 "parameters": [
                     {
@@ -623,7 +623,7 @@
                 "tags": [
                     "entrevistador"
                 ],
-                "description": "get Entrevistador by id\n\u003cbr\u003e",
+                "description": "get Entrevistador by id",
                 "operationId": "EntrevistadorController.Get One",
                 "parameters": [
                     {
@@ -650,7 +650,7 @@
                 "tags": [
                     "entrevistador"
                 ],
-                "description": "update the Entrevistador\n\u003cbr\u003e",
+                "description": "update the Entrevistador",
                 "operationId": "EntrevistadorController.Put",
                 "parameters": [
                     {
@@ -686,7 +686,7 @@
                 "tags": [
                     "entrevistador"
                 ],
-                "description": "delete the Entrevistador\n\u003cbr\u003e",
+                "description": "delete the Entrevistador",
                 "operationId": "EntrevistadorController.Delete",
                 "parameters": [
                     {
@@ -712,7 +712,7 @@
                 "tags": [
                     "entrevistador_entrevista"
                 ],
-                "description": "get EntrevistadorEntrevista\n\u003cbr\u003e",
+                "description": "get EntrevistadorEntrevista",
                 "operationId": "EntrevistadorEntrevistaController.Get All",
                 "parameters": [
                     {
@@ -768,7 +768,7 @@
                 "tags": [
                     "entrevistador_entrevista"
                 ],
-                "description": "create EntrevistadorEntrevista\n\u003cbr\u003e",
+                "description": "create EntrevistadorEntrevista",
                 "operationId": "EntrevistadorEntrevistaController.Post",
                 "parameters": [
                     {
@@ -796,7 +796,7 @@
                 "tags": [
                     "entrevistador_entrevista"
                 ],
-                "description": "get EntrevistadorEntrevista by id\n\u003cbr\u003e",
+                "description": "get EntrevistadorEntrevista by id",
                 "operationId": "EntrevistadorEntrevistaController.Get One",
                 "parameters": [
                     {
@@ -823,7 +823,7 @@
                 "tags": [
                     "entrevistador_entrevista"
                 ],
-                "description": "update the EntrevistadorEntrevista\n\u003cbr\u003e",
+                "description": "update the EntrevistadorEntrevista",
                 "operationId": "EntrevistadorEntrevistaController.Put",
                 "parameters": [
                     {
@@ -859,7 +859,7 @@
                 "tags": [
                     "entrevistador_entrevista"
                 ],
-                "description": "delete the EntrevistadorEntrevista\n\u003cbr\u003e",
+                "description": "delete the EntrevistadorEntrevista",
                 "operationId": "EntrevistadorEntrevistaController.Delete",
                 "parameters": [
                     {
@@ -885,7 +885,7 @@
                 "tags": [
                     "estado_entrevista"
                 ],
-                "description": "get EstadoEntrevista\n\u003cbr\u003e",
+                "description": "get EstadoEntrevista",
                 "operationId": "EstadoEntrevistaController.Get All",
                 "parameters": [
                     {
@@ -941,7 +941,7 @@
                 "tags": [
                     "estado_entrevista"
                 ],
-                "description": "create EstadoEntrevista\n\u003cbr\u003e",
+                "description": "create EstadoEntrevista",
                 "operationId": "EstadoEntrevistaController.Post",
                 "parameters": [
                     {
@@ -969,7 +969,7 @@
                 "tags": [
                     "estado_entrevista"
                 ],
-                "description": "get EstadoEntrevista by id\n\u003cbr\u003e",
+                "description": "get EstadoEntrevista by id",
                 "operationId": "EstadoEntrevistaController.Get One",
                 "parameters": [
                     {
@@ -996,7 +996,7 @@
                 "tags": [
                     "estado_entrevista"
                 ],
-                "description": "update the EstadoEntrevista\n\u003cbr\u003e",
+                "description": "update the EstadoEntrevista",
                 "operationId": "EstadoEntrevistaController.Put",
                 "parameters": [
                     {
@@ -1032,7 +1032,7 @@
                 "tags": [
                     "estado_entrevista"
                 ],
-                "description": "delete the EstadoEntrevista\n\u003cbr\u003e",
+                "description": "delete the EstadoEntrevista",
                 "operationId": "EstadoEntrevistaController.Delete",
                 "parameters": [
                     {
@@ -1058,7 +1058,7 @@
                 "tags": [
                     "requisito"
                 ],
-                "description": "get Requisito\n\u003cbr\u003e",
+                "description": "get Requisito",
                 "operationId": "RequisitoController.Get All",
                 "parameters": [
                     {
@@ -1114,7 +1114,7 @@
                 "tags": [
                     "requisito"
                 ],
-                "description": "create Requisito\n\u003cbr\u003e",
+                "description": "create Requisito",
                 "operationId": "RequisitoController.Post",
                 "parameters": [
                     {
@@ -1142,7 +1142,7 @@
                 "tags": [
                     "requisito"
                 ],
-                "description": "get Requisito by id\n\u003cbr\u003e",
+                "description": "get Requisito by id",
                 "operationId": "RequisitoController.Get One",
                 "parameters": [
                     {
@@ -1169,7 +1169,7 @@
                 "tags": [
                     "requisito"
                 ],
-                "description": "update the Requisito\n\u003cbr\u003e",
+                "description": "update the Requisito",
                 "operationId": "RequisitoController.Put",
                 "parameters": [
                     {
@@ -1205,7 +1205,7 @@
                 "tags": [
                     "requisito"
                 ],
-                "description": "delete the Requisito\n\u003cbr\u003e",
+                "description": "delete the Requisito",
                 "operationId": "RequisitoController.Delete",
                 "parameters": [
                     {
@@ -1231,7 +1231,7 @@
                 "tags": [
                     "requisito_programa_academico"
                 ],
-                "description": "get RequisitoProgramaAcademico\n\u003cbr\u003e",
+                "description": "get RequisitoProgramaAcademico",
                 "operationId": "RequisitoProgramaAcademicoController.Get All",
                 "parameters": [
                     {
@@ -1287,7 +1287,7 @@
                 "tags": [
                     "requisito_programa_academico"
                 ],
-                "description": "create RequisitoProgramaAcademico\n\u003cbr\u003e",
+                "description": "create RequisitoProgramaAcademico",
                 "operationId": "RequisitoProgramaAcademicoController.Post",
                 "parameters": [
                     {
@@ -1315,7 +1315,7 @@
                 "tags": [
                     "requisito_programa_academico"
                 ],
-                "description": "get RequisitoProgramaAcademico by id\n\u003cbr\u003e",
+                "description": "get RequisitoProgramaAcademico by id",
                 "operationId": "RequisitoProgramaAcademicoController.Get One",
                 "parameters": [
                     {
@@ -1342,7 +1342,7 @@
                 "tags": [
                     "requisito_programa_academico"
                 ],
-                "description": "update the RequisitoProgramaAcademico\n\u003cbr\u003e",
+                "description": "update the RequisitoProgramaAcademico",
                 "operationId": "RequisitoProgramaAcademicoController.Put",
                 "parameters": [
                     {
@@ -1378,7 +1378,7 @@
                 "tags": [
                     "requisito_programa_academico"
                 ],
-                "description": "delete the RequisitoProgramaAcademico\n\u003cbr\u003e",
+                "description": "delete the RequisitoProgramaAcademico",
                 "operationId": "RequisitoProgramaAcademicoController.Delete",
                 "parameters": [
                     {
@@ -1404,7 +1404,7 @@
                 "tags": [
                     "tags_por_dependencia"
                 ],
-                "description": "get TagsPorDependencia\n\u003cbr\u003e",
+                "description": "get TagsPorDependencia",
                 "operationId": "TagsPorDependenciaController.Get All",
                 "parameters": [
                     {
@@ -1460,7 +1460,7 @@
                 "tags": [
                     "tags_por_dependencia"
                 ],
-                "description": "create TagsPorDependencia\n\u003cbr\u003e",
+                "description": "create TagsPorDependencia",
                 "operationId": "TagsPorDependenciaController.Post",
                 "parameters": [
                     {
@@ -1488,7 +1488,7 @@
                 "tags": [
                     "tags_por_dependencia"
                 ],
-                "description": "get TagsPorDependencia by id\n\u003cbr\u003e",
+                "description": "get TagsPorDependencia by id",
                 "operationId": "TagsPorDependenciaController.Get One",
                 "parameters": [
                     {
@@ -1515,7 +1515,7 @@
                 "tags": [
                     "tags_por_dependencia"
                 ],
-                "description": "update the TagsPorDependencia\n\u003cbr\u003e",
+                "description": "update the TagsPorDependencia",
                 "operationId": "TagsPorDependenciaController.Put",
                 "parameters": [
                     {
@@ -1551,7 +1551,7 @@
                 "tags": [
                     "tags_por_dependencia"
                 ],
-                "description": "delete the TagsPorDependencia\n\u003cbr\u003e",
+                "description": "delete the TagsPorDependencia",
                 "operationId": "TagsPorDependenciaController.Delete",
                 "parameters": [
                     {
@@ -1577,7 +1577,7 @@
                 "tags": [
                     "tipo_entrevista"
                 ],
-                "description": "get TipoEntrevista\n\u003cbr\u003e",
+                "description": "get TipoEntrevista",
                 "operationId": "TipoEntrevistaController.Get All",
                 "parameters": [
                     {
@@ -1633,7 +1633,7 @@
                 "tags": [
                     "tipo_entrevista"
                 ],
-                "description": "create TipoEntrevista\n\u003cbr\u003e",
+                "description": "create TipoEntrevista",
                 "operationId": "TipoEntrevistaController.Post",
                 "parameters": [
                     {
@@ -1661,7 +1661,7 @@
                 "tags": [
                     "tipo_entrevista"
                 ],
-                "description": "get TipoEntrevista by id\n\u003cbr\u003e",
+                "description": "get TipoEntrevista by id",
                 "operationId": "TipoEntrevistaController.Get One",
                 "parameters": [
                     {
@@ -1688,7 +1688,7 @@
                 "tags": [
                     "tipo_entrevista"
                 ],
-                "description": "update the TipoEntrevista\n\u003cbr\u003e",
+                "description": "update the TipoEntrevista",
                 "operationId": "TipoEntrevistaController.Put",
                 "parameters": [
                     {
@@ -1724,7 +1724,7 @@
                 "tags": [
                     "tipo_entrevista"
                 ],
-                "description": "delete the TipoEntrevista\n\u003cbr\u003e",
+                "description": "delete the TipoEntrevista",
                 "operationId": "TipoEntrevistaController.Delete",
                 "parameters": [
                     {
