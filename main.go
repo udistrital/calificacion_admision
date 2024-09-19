@@ -21,7 +21,7 @@ func init() {
 		beego.AppConfig.String("PGurls")+":"+
 		beego.AppConfig.String("PGport")+"/"+
 		beego.AppConfig.String("PGdb")+"?sslmode=disable&search_path="+
-		beego.AppConfig.String("PGschemas")+"")
+		beego.AppConfig.String("PGschema")+"")
 }
 
 func main() {
